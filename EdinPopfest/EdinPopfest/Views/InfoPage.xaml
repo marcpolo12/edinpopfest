@@ -1,0 +1,20 @@
+<local:InfoViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.InfoPage"
+             xmlns:local="clr-namespace:EdinPopFest"
+             Title="Home">
+    <Grid Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image
+            Source="edinpopalldayer1.png"
+            Grid.Row="0"
+            Aspect="Fill"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"/>
+        <local:CountDownPanel x:Name="countdownpanel" Grid.Row="1"
+                              HorizontalOptions="Center"/>
+    </Grid>
+</local:InfoViewBase>

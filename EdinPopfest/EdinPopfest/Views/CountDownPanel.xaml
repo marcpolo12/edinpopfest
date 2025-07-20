@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.CountDownPanel"
+             xmlns:local="clr-namespace:EdinPopFest">
+    <local:CountDownPanel.Resources>
+        <Style x:Key="LargeText"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="Title"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="Body" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="SmallText"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+    </local:CountDownPanel.Resources>
+    <Border WidthRequest="500" BackgroundColor="PaleVioletRed">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20"/>
+        </Border.StrokeShape>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="countdownmsg"
+                   Style="{StaticResource LargeText}"
+                   Grid.Row="0"
+               Grid.Column="1"
+               Grid.ColumnSpan="4"/>
+            <Label x:Name="days"
+                   Style="{StaticResource LargeText}"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+            <Label x:Name="hours"
+                   Style="{StaticResource LargeText}"
+                   Grid.Row="1"
+                   Grid.Column="2"/>
+            <Label x:Name="minutes"
+                  Style="{StaticResource LargeText}"
+                  Grid.Row="1"
+                  Grid.Column="3"/>
+            <Label x:Name="seconds"
+                   Style="{StaticResource LargeText}"
+                   Grid.Row="1"
+                   Grid.Column="4"/>
+            <Label Text="Days"
+                   Style="{StaticResource SmallText}"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+            <Label Text="Hours"
+                  Style="{StaticResource SmallText}"
+                  Grid.Row="2"
+                  Grid.Column="2"/>
+            <Label Text="Minutes"
+                   Style="{StaticResource SmallText}"
+                   Grid.Row="2"
+                   Grid.Column="3"/>
+            <Label Text="Seconds"
+                   Style="{StaticResource SmallText}"
+                   Grid.Row="2"
+                   Grid.Column="4"/>
+        </Grid>
+    </Border>
+</ContentView>

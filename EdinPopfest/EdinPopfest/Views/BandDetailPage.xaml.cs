@@ -1,0 +1,71 @@
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Text.RegularExpressions;
+using ReactiveUI;
+using ReactiveUI.Maui;
+
+namespace EdinPopFest;
+
+public class BandDetailViewBase : ReactiveContentPage<BandDetailViewModel> { }
+[QueryProperty(nameof(BandName), "bandName")]
+public partial class BandDetailPage : BandDetailViewBase
+{
+    public string BandName
+    {
+        get => bandName;
+        set
+        {
+            bandName = value;
+            // Load band details based on bandName
+            LoadBandDetails(bandName);
+        }
+    }
+    private string bandName = "";
+    public BandDetailPage(BandDetailViewModel viewModel)
+    {
+        ViewModel = viewModel;
+        InitializeComponent();
+        this.WhenActivated(disposables =>
+        {
+            // Bind the Band property to the UI elements
+            //this.OneWayBind(ViewModel, vm => vm.Band.Name, v => v.bandnamelabel.Text)
+            //    .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Answer1, v => v.answer1label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Answer2, v => v.answer2label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Answer3, v => v.answer3label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Answer4, v => v.answer4label.Text)
+                .DisposeWith(disposables);
+
+            this.OneWayBind(ViewModel, vm => vm.Festival.Question1, v => v.question1label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Festival.Question2, v => v.question2label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Festival.Question3, v => v.question3label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Festival.Question4, v => v.question4label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Image, v => v.bandimage.Source)
+                .DisposeWith(disposables);
+
+            this.WhenAnyValue(x => x.ViewModel)
+                .Where(vm => vm != null && vm.Band != null && !string.IsNullOrWhiteSpace(vm.Band.VideoId))
+                .Subscribe(vm =>
+                {
+                    var url = $"https://www.youtube.com/embed/{vm.Band.VideoId}";
+                    youtubeWebView.Source = url;
+                })
+                .DisposeWith(disposables);
+
+        });
+    }
+    private void LoadBandDetails(string bandName)
+    {
+        if (ViewModel is BandDetailViewModel vm)
+        {
+            vm.LoadBand(bandName);
+        }
+    }
+}

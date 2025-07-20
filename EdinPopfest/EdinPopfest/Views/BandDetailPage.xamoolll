@@ -1,0 +1,63 @@
+<local:BandDetailViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.BandDetailPage"
+             xmlns:local="clr-namespace:EdinPopFest"
+             Title="{Binding Band.Name}">
+
+    <local:BandDetailViewBase.Resources>
+        <Style TargetType="Label">
+            <Setter Property="BackgroundColor" Value="DarkKhaki" />
+        </Style>
+    </local:BandDetailViewBase.Resources>
+    <ScrollView>
+      <AbsoluteLayout>
+	<Image
+            Source="edinpopalldayer1.png"
+            Aspect="AspectFill"
+            Opacity="0.3"
+            HorizontalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All" />
+        <VerticalStackLayout Padding="10" Spacing="15"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All">
+	  <!--
+              <Image Source="{Binding Band.Icon}" HeightRequest="100"/>
+              
+              <Label Text="{Binding Band.Name}" FontSize="24" />
+              <Label Text="Description1" FontSize="20" />
+              <Label Text="{Binding Band.Description1}" FontSize="16" />
+              <Label Text="Description2" FontSize="20" />
+              <Label Text="{Binding Band.Description2}" FontSize="16" />
+              <Label Text="Description3" FontSize="20" />
+              <Label Text="{Binding Band.Description3}" FontSize="16" />
+              <Label Text="Description4" FontSize="20" />
+              <Label Text="{Binding Band.Description4}" FontSize="16" />
+	  -->
+
+	  <Border WidthRequest="200"
+		  HeightRequest="200"
+		  StrokeShape="Ellipse"
+		  StrokeThickness="0"
+		  BackgroundColor="Transparent"
+		  HorizontalOptions="Center"
+		  VerticalOptions="Start">
+            <Image
+		x:Name="bandimage"
+		WidthRequest="400"
+		HeightRequest="400"
+		Aspect="AspectFill"/>
+	  </Border>
+	  <Label x:Name="bandnamelabel" FontSize="24"/>
+	  <Label x:Name="question1label" FontSize="20" />
+	  <Label x:Name="answer1label" FontSize="16"/>
+	  <Label x:Name="question2label" FontSize="20"/>
+	  <Label x:Name="answer2label"  FontSize="16"/>
+	  <Label x:Name="question3label" FontSize="20"/>
+	  <Label x:Name="answer3label"  FontSize="16"/>
+	  <Label x:Name="question4label" FontSize="20"/>
+	  <Label x:Name="answer4label"  FontSize="16"/>
+	</VerticalStackLayout>
+      </AbsoluteLayout>
+    </ScrollView>
+</local:BandDetailViewBase>

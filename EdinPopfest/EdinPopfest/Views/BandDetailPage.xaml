@@ -1,0 +1,89 @@
+<local:BandDetailViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.BandDetailPage"
+             xmlns:local="clr-namespace:EdinPopFest"
+             Title="{Binding Band.Name}">
+
+    <local:BandDetailViewBase.Resources>
+        <Style x:Key="LargeText"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+            <Setter Property="VerticalTextAlignment" Value="Start" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="Bisque" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="10,20,10,0" />
+        </Style>
+        <Style x:Key="Title"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+            <Setter Property="VerticalTextAlignment" Value="Start" />
+            <Setter Property="FontSize" Value="Body" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="SmallText"  TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+            <Setter Property="VerticalTextAlignment" Value="Start" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="FontAttributes" Value="None" />
+            <Setter Property="Margin" Value="10,0" />
+        </Style>
+    </local:BandDetailViewBase.Resources>
+    <ScrollView>
+      <Grid>
+	<Image
+            Source="edinpopalldayer1.png"
+            Aspect="AspectFill"
+            Opacity="0.4"
+            HorizontalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All" />
+        <VerticalStackLayout Padding="0" Spacing="0"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All">
+	  <!--
+              <Image Source="{Binding Band.Icon}" HeightRequest="100"/>
+              
+              <Label Text="{Binding Band.Name}" FontSize="24" />
+              <Label Text="Description1" FontSize="20" />
+              <Label Text="{Binding Band.Description1}" FontSize="16" />
+              <Label Text="Description2" FontSize="20" />
+              <Label Text="{Binding Band.Description2}" FontSize="16" />
+              <Label Text="Description3" FontSize="20" />
+              <Label Text="{Binding Band.Description3}" FontSize="16" />
+              <Label Text="Description4" FontSize="20" />
+              <Label Text="{Binding Band.Description4}" FontSize="16" />
+	  -->
+
+	  <Border WidthRequest="300"
+		  HeightRequest="300"
+		  StrokeShape="Ellipse"
+		  StrokeThickness="0"
+		  BackgroundColor="Transparent"
+		  HorizontalOptions="Center"
+		  VerticalOptions="Start">
+            <Image
+		x:Name="bandimage"
+		WidthRequest="300"
+		HeightRequest="300"
+		Aspect="AspectFill"/>
+	  </Border>
+            <!--
+	  <Label x:Name="bandnamelabel" FontSize="24"/>-->
+	  <Label x:Name="question1label"  Style="{StaticResource LargeText}"/>
+	  <Label x:Name="answer1label" Style="{StaticResource SmallText}"/>
+	  <Label x:Name="question2label" Style="{StaticResource LargeText}"/>
+	  <Label x:Name="answer2label"  Style="{StaticResource SmallText}"/>
+	  <Label x:Name="question3label" Style="{StaticResource LargeText}"/>
+	  <Label x:Name="answer3label"  Style="{StaticResource SmallText}"/>
+	  <Label x:Name="question4label" Style="{StaticResource LargeText}"/>
+	  <Label x:Name="answer4label"  Style="{StaticResource SmallText}"/>
+       <WebView x:Name="youtubeWebView"
+         Margin="30"
+         HeightRequest="200"
+         WidthRequest="350"
+         HorizontalOptions="Center"
+         VerticalOptions="Start"/>
+       </VerticalStackLayout>
+      </Grid>
+    </ScrollView>
+</local:BandDetailViewBase>

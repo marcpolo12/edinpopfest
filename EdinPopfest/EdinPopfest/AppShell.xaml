@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EdinPopFest.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EdinPopFest"
+    Shell.FlyoutBehavior="Flyout"
+    Title="EdinPopFest">
+
+    <!--
+    <TabBar>
+        <Tab Icon="female_guitarist.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:LineupPage}"
+                Route="LineupPage" />
+        </Tab>
+        <Tab Title="Info">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:InfoPage}"
+                Route="InfoPage" />
+        </Tab>
+        <Tab Title="Bands">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:BandsPage}"
+                Route="BandsPage" />
+        </Tab>
+    </TabBar>
+    
+    <ShellContent
+        Title="Lineup"
+        ContentTemplate="{DataTemplate local:LineupPage}"
+        Route="LineupPage" />
+    -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:InfoPage}"
+        Route="InfoPage" />
+    <ShellContent
+        Title="Bands"
+        ContentTemplate="{DataTemplate local:BandsPage}"
+        Route="BandsPage" />
+    
+
+</Shell>

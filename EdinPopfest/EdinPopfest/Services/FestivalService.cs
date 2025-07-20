@@ -1,0 +1,103 @@
+using System.Threading.Tasks;
+using ReactiveUI.Fody.Helpers;
+
+namespace EdinPopFest;
+
+public class FestivalService : IFestivalService
+{
+    [Reactive]
+    public string Question1 { get; } = "Let's begin.";
+    public string Question2 { get; } = "What others have been saying.";
+    public string Question3 { get; } = "Why we're bringing them to you.";
+    public string Question4 { get; } = "You'll like them if you like.";
+    public Band GetBandByName(string bandName)
+    {
+        // Retrieve the band from the dictionary
+        if (Bands.TryGetValue(bandName, out var band))
+        {
+            return band;
+        }
+        return new Band();
+    }
+
+    Dictionary<string, Band> Bands { get; set; } = new()
+    {
+        ["Cords"] = new Band 
+        { 
+            Name = "The Cords", 
+            Answer1 = "The Cords refers to a Glasgow-based indie pop duo consisting of sisters Eva and Grace Tedeschi. They are known for their jangle-pop sound inspired by bands like The Umbrellas, The Cure, and Heavenly. ", 
+            Answer2 = "The Cords' music is described as being influenced by classic C86 indie pop. They began playing together after taking drum lessons at Rig Arts in Greenock and participating in their Rock School. Their debut release, Bo's New Haircut / Rather Not Stay, was released on Heavenly Creature Records. They have also released music on Slumberland Records.", 
+            Answer3 = "We like the Cords because", 
+            Answer4 = "You'll like the Cords if you like ... ",
+            Schedule = "23:00->23:50",
+            Image = "cordsmain.png",
+            VideoId = "isP4R0MAbsA"
+        },
+        ["Proctors"] = new Band 
+        { 
+            Name = "The Proctors", 
+            Answer1 = "An English indie pop band from the West Midlands region, the Proctors' melodious 12-string jangle and winsome boy/girl harmonies won them a cult following during their original 1990s heyday as a part of the  roster. After a lengthy hiatus, the group resumed work in the early part of the 2010s, releasing a number of singles, EPs, and an album. They remained active through the end of the decade.", 
+            Answer2 = "Some other fact about the Proctors", 
+            Answer3 = "We like the Proctors because", 
+            Answer4 = "You'll like the Proctors if you like ... ",
+            Schedule = "23:00->23:50",
+            Image = "proctorsmain.png",
+            VideoId = "VqFlx1sOhoI"
+        },
+        ["FOMachete"] = new Band 
+        { 
+            Name = " FO Machete", 
+            Answer1 = "F.O. Machete are back. The duo of Natasha Noramly (bass, vocals) and Paul Mellon (guitar, vocals) formed in 2003 in Glasgow. Their debut album My First Machete was released on Lost Dog Recordings.  After years of headline tours, high profile shows and festivals around the UK and Europe - Natasha moved to LA and in 2011 the band went on a long hiatus. In 2023 Natasha returned to Glasgow and F.O. Machete reformed. New single Confetti Crown is out 26th April with a new album set for release in 2025.", 
+            Answer2 = "Some other fact about  FO Machete", 
+            Answer3 = "We like FO Machete because", 
+            Answer4 = "You'll like FO Machete if you like ... ",
+            Schedule = "22:00->22:50",
+            Image = "fomachetemain.png",
+            VideoId = "YEb5CdhZX1c"
+        },
+        ["LandeHekt"] = new Band 
+        { 
+            Name = " Lande Hekt", 
+            Answer1 = "Lande Hekt’s voice in music is one that’s socially aware yet often introspective, drawing awareness to serious issues but at the same time baring her soul. Much of Hekt’s compositions act as a personal diary of what’s going on in her life at any given time. This is evident in her discography with Muncie Girls, the band which she formed in her hometown of Exeter as a teenager and have released two critically acclaimed albums to date. This knack of combining her own experiences and feelings whilst highlighting larger socio-economic issues has carried through to her more contemplative solo material, which began life in an EP ‘Gigantic Disappointment’, self-released in 2019. \r\n\r\n2020 sees Hekt armed with a debut album ‘Going to Hell’, on which she played all the instruments with the exception of percussion. “Some of these songs have taken me a long time to write,” Hekt says. “As a whole, this album represents a time when I was coming out as gay. I’m no stranger to queer punk and queer politics. I’ve always taken a special interest for obvious reasons, but this record is important to me because it’s the first time I’m releasing anything as an outwardly gay person.” ‘Going to Hell’ was recorded by Hekt’s friend Ben David (from the band The Hard Aches) in the Adelaide Hills in Australia, whilst she was over there for a solo tour with him in February, luckily  fitting in the recording and flying home before lockdown kicked in. ", 
+            Answer2 = "Hekt was previously the lead vocalist of the band Muncie Girls.", 
+            Answer3 = "We like Lande Hekt because", 
+            Answer4 = "You'll like Lande Hekt if you like ... ",
+            Schedule = "21:00->21:50",
+            Image = "landehektmain.png",
+            VideoId = "xRobTZt7Pe8"
+        },
+        ["JustJoans"] = new Band 
+        { 
+            Name = " The Just Joans", 
+            Answer1 = "The Just Joans were formed in Glasgow in 2005 by songwriter David Pope. Naming the band after Daily Record agony aunt Joan Burnie’s ‘Just Joan’ column, work immediately began on a number of lo-fi tracks dealing with love, rejection and everyday angst. These would eventually emerge as The Just Joans’ debut album, Last Tango In Motherwell. Released in 2006 on tape cassette to a small number of friends, one – Chris Gilmour – was so taken with the collection that he set up his own label, Ivan Lendil Music, specifically to circulate a CD version to a wider audience.\r\n\r\nAs he advanced from singing sad songs in his bedroom to singing sad songs live, David recruited Chris Elkin as a guitarist. Shortly after, he would add younger sister Katie Pope as a vocalist, alongside bassist Fraser Ford – with all four remaining in the band to this day. Their presence helped to build a reputation on the indiepop scene, and, in 2007, The Just Joans joined WeePOP! Records. During their eight years with the DIY label, they released a series of handmade EPs including Hey Boy...You’re Oh So Sensitive and Love and Other Hideous Accidents. The band also revisited their first LP, rerecording it, reordering it, and retitling it as Buckfast Bottles In The Rain.", 
+            Answer2 = "Since moving to Fika Recordings, The Just Joans have released a variety of singles and, in 2017, You Might Be Smiling Now..., their first new LP in a decade. Much acclaimed in the music press, Highway Queens thought it to be ‘the perfect Glasgow kiss’ while Uncut identified the record as the point at which ‘Stephin Merritt lies down with The Vaselines.’", 
+            Answer3 = "We like The Just Joans because", 
+            Answer4 = "You'll like The Just Joans if you like ... ",
+            Schedule = "20:00->20:50",
+            Image = "justjoansmain.png",
+            VideoId = "iJhKCZiJIfo"
+        },
+        ["FightMilk"] = new Band 
+        { 
+            Name = " FightMilk", 
+            Answer1 = "Fightmilk is an indie rock band from London, England. After releasing two EPs, the self-released The Curse of Fightmilk in 2016 and Pity Party on Fierce Panda in 2017. The band released their debut album Not With That Attitude with Reckless Yes in 2018 and their second album Contender, on the same label, in 2021.", 
+            Answer2 = "The band's eighth year in action has seen them writing and recording their third album, to be released in November 2024 on Fika Recordings & INH Records.", 
+            Answer3 = "We like FightMilk because", 
+            Answer4 = "You'll like FightMilk if you like ... ",
+            Schedule = "19:00->19:50",
+            Image = "fightmilkmain.png",
+            VideoId = "NUxU0JIhrO0"
+        },
+        ["Josie"] = new Band 
+        { 
+            Name = " Josie", 
+            Answer1 = "Josie is a new twee punk band from Copenhagen with a charming and rough-and-ready sound. The band, which includes members from Enids and Yu-Gun, draws inspiration from the late-’80s twee sound as well as pop punk, delivering relatable and fun songs. After all, twee is all about that mix: equal parts head-in-the-clouds wistfulness, in-the-gut heartbreak, and down-to-earth mischief. Josie tweaks the classic twee formula slightly, keeping it punk and with a bit of fuck you in the mix.", 
+            Answer2 = "Some other fact about  Josie", 
+            Answer3 = "We like Josie because", 
+            Answer4 = "You'll like Josie if you like ... ",
+            Schedule = "23:00->23:50",
+            Image = "josiemain.png",
+            VideoId = "Cacs55mlUZg"
+        }
+    };
+}
