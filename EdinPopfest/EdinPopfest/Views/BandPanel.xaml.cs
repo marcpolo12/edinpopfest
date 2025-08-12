@@ -2,7 +2,7 @@ namespace EdinPopFest;
 
 public partial class BandPanel : ContentView
 {
-    public event EventHandler Tapped;
+    public event EventHandler? Tapped;
     public static readonly BindableProperty BandNameProperty =
         BindableProperty.Create(nameof(BandName), typeof(string), typeof(BandPanel), string.Empty, propertyChanged: OnBandNameChanged);
 

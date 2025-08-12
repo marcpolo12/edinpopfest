@@ -2,12 +2,14 @@
 
 	<PropertyGroup>
 		<TargetFramework>net9.0-android35.0</TargetFramework>
-		<SupportedOSPlatformVersion>34.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion>29.0</SupportedOSPlatformVersion>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>EdinPopfest</RootNamespace>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseMaui>true</UseMaui>
+		<Company>$(Authors)</Company>
+		<SignAssembly>False</SignAssembly>
 	</PropertyGroup>
 
 	<ItemGroup>

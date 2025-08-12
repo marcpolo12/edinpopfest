@@ -54,8 +54,11 @@ public partial class BandDetailPage : BandDetailViewBase
                 .Where(vm => vm != null && vm.Band != null && !string.IsNullOrWhiteSpace(vm.Band.VideoId))
                 .Subscribe(vm =>
                 {
-                    var url = $"https://www.youtube.com/embed/{vm.Band.VideoId}";
-                    youtubeWebView.Source = url;
+                    if (vm != null)
+                    {
+                        var url = $"https://www.youtube.com/embed/{vm.Band.VideoId}";
+                        youtubeWebView.Source = url;
+                    }
                 })
                 .DisposeWith(disposables);
 
