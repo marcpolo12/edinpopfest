@@ -10,4 +10,6 @@ public interface IFestivalService
     string Question2 { get; }
     string Question3 { get; }
     string Question4 { get; }
+    public string Link1 { get; set; }
+    public string Link2 { get; set; }
 }

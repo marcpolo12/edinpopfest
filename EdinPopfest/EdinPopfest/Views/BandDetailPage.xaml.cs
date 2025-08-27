@@ -38,6 +38,19 @@ public partial class BandDetailPage : BandDetailViewBase
                 .DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Band.Answer4, v => v.answer4label.Text)
                 .DisposeWith(disposables);
+            // bind the linklabel to the band's schedule
+            this.OneWayBind(ViewModel, vm => vm.Band.Link1, v => v.link1label.Text)
+                .DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Band.Link2, v => v.link2label.Text)
+                .DisposeWith(disposables);
+            //this.BindCommand(ViewModel, vm => vm.OpenLinkCommand, v => v.linkTapGesture.Command, nameof(TapGestureRecognizer.Command))
+            //    .DisposeWith(disposables);
+            link1TapGesture.Command = ViewModel.OpenLinkCommand;
+            link1TapGesture.CommandParameter = ViewModel.Band.Link1;
+            link2TapGesture.Command = ViewModel.OpenLinkCommand;
+            link2TapGesture.CommandParameter = ViewModel.Band.Link2;
+
+
 
             this.OneWayBind(ViewModel, vm => vm.Festival.Question1, v => v.question1label.Text)
                 .DisposeWith(disposables);

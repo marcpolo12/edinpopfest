@@ -6,10 +6,12 @@ namespace EdinPopFest;
 public class FestivalService : IFestivalService
 {
     [Reactive]
-    public string Question1 { get; } = "Let's begin.";
-    public string Question2 { get; } = "What others have been saying.";
-    public string Question3 { get; } = "Why we're bringing them to you.";
+    public string Question1 { get; } = "Let's begin...";
+    public string Question2 { get; } = "And another thing...";
+    public string Question3 { get; } = "What others have been saying...";
     public string Question4 { get; } = "You'll like them if you like.";
+    public string Link1 { get; set; } = "";
+    public string Link2 { get; set; } = "";
     public Band GetBandByName(string bandName)
     {
         // Retrieve the band from the dictionary
@@ -24,14 +26,19 @@ public class FestivalService : IFestivalService
     {
         ["Cords"] = new Band 
         { 
-            Name = "The Cords", 
-            Answer1 = "The Cords refers to a Glasgow-based indie pop duo consisting of sisters Eva and Grace Tedeschi. They are known for their jangle-pop sound inspired by bands like The Umbrellas, The Cure, and Heavenly. ", 
-            Answer2 = "The Cords' music is described as being influenced by classic C86 indie pop. They began playing together after taking drum lessons at Rig Arts in Greenock and participating in their Rock School. Their debut release, Bo's New Haircut / Rather Not Stay, was released on Heavenly Creature Records. They have also released music on Slumberland Records.", 
-            Answer3 = "We like the Cords because", 
+            Name = "The Cords",
+            Answer1 = "The Cords are two teenage sisters from Inverkip, a small village near Greenock. Eva plays drums and Grace plays guitar. The first time I saw them was back in November 2023 when they supported Carla J. Easton at Mono in Glasgow. I couldn’t quite believe what I was seeing and hearing! This was the second time The Cords had played at Mono having supported The Vaselines there a couple of months earlier. Support slots for the Vaselines and Carla J. Easton suggested they were already ones to watch.\r\n\r\nBetween then and now, they seem to have gigged constantly and they have shared stages with the likes of The Go Team!, Camera Obscura and Belle and Sebastian. I can only marvel at the fact that, in between all the gigs, they found time to record their debut album. The album will be released on Skep Wax (UK & Europe) and Slumberland Records (US) the week before the Edinburgh Indiepop All Dayer. You can pre-order a copy here:\r\n",
+            //Answer1 = "The Cords are two teenage sisters from Inverkip, a small village near Greenock. Eva plays drums and Grace plays guitar. The first time any of us from the Edinburgh Indiepop Collective saw them was back in November 2023 when we caught them supporting Carla J. Easton at Mono in Glasgow. We couldn’t quite believe what we were seeing and hearing! This was their second appearance at Mono, having supported The Vaselines there a couple of months earlier. Support slots for such pillars of the Scottish music scene suggested they were already ones to watch.\r\n\r\nBetween then and now, they've gigged non-stop, sharing stages with the likes of The Go Team!, Camera Obscura and Belle and Sebastian. Amazingly for us, during this period, they found time to record their debut album, due for release on Skep Wax (UK & Europe) and Slumberland Records (US) - the week immediately before the Edinburgh Indiepop All Dayer. You can pre-order a copy here:\r\n",
+            Link1 = "https://monorailmusic.com/product/the-cords-signed-copies",
+            //Answer1 = "The Cords refers to a Glasgow-based indie pop duo consisting of sisters Eva and Grace Tedeschi. They are known for their jangle-pop sound inspired by bands like The Umbrellas, The Cure, and Heavenly. ", 
+            //Answer2 = "The Cords' music is described as being influenced by classic C86 indie pop. They began playing together after taking drum lessons at Rig Arts in Greenock and participating in their Rock School. Their debut release, Bo's New Haircut / Rather Not Stay, was released on Heavenly Creature Records. They have also released music on Slumberland Records.", 
+            Answer2 = "We're proud to say that The Cords were the first band we booked for the Edinburgh Indiepop All Dayer. \r\nThe sisters’ musical development first started at The Rock School at Rig Arts in Greenock under the tutelage of Lesley McLaren, best known as the drummer in the Hedrons.\r\nThe Cords usually finish their set with a cover version of an indiepop classic. \r\nStuart Braithwaite’s Jazzmaster guitar was used on the recording of their 2024 Christmas song ‘Favourite Time’.",
+            Answer3 = "\"Warm guitar chords with limited/no effects, beautifully pure melodies and beats, playful hooks and a sibling chemistry easily won me and the Mono crowd over.\"", 
             Answer4 = "You'll like the Cords if you like ... ",
             Schedule = "23:00->23:50",
             Image = "cordsmain.png",
-            VideoId = "isP4R0MAbsA"
+            //VideoId = "isP4R0MAbsA"
+            VideoId = "yx3XH95c2Uk"
         },
         ["Proctors"] = new Band 
         { 
@@ -80,9 +87,10 @@ public class FestivalService : IFestivalService
         ["FightMilk"] = new Band 
         { 
             Name = " FightMilk", 
-            Answer1 = "Fightmilk is an indie rock band from London, England. After releasing two EPs, the self-released The Curse of Fightmilk in 2016 and Pity Party on Fierce Panda in 2017. The band released their debut album Not With That Attitude with Reckless Yes in 2018 and their second album Contender, on the same label, in 2021.", 
-            Answer2 = "The band's eighth year in action has seen them writing and recording their third album, to be released in November 2024 on Fika Recordings & INH Records.", 
-            Answer3 = "We like FightMilk because", 
+            Answer1 = "Fightmilk is a London-based indie rock band known for their energetic and emotive sound, which blends elements of punk, pop, and indie rock. Formed in 2015 in a Brixton pub garden, the band consists of Lily Rae (vocals, guitar), Alex Wisgard (guitar, vocals), Healey Becks (bass, vocals), and Nick Kiddle (drums, vocals).\r\n\r\nFightmilk was formed by Lily and Alex, who were both going through tough breakups and decided to channel their emotions into music. They later recruited Healey and Nick to complete the lineup. The band's name is inspired by a fictional drink from the TV show \"It's Always Sunny in Philadelphia\".\r\n\r\nFightmilk's sound is characterized by :\r\n- Catchy hooks: Their songs often feature infectious melodies and guitar riffs.\r\n- Emotional lyrics: The band's lyrics are known for being candid and relatable, often focusing on themes like relationships, body image, and personal struggles.\r\n- Energetic live performances: Fightmilk is praised for their high-energy live shows, which often feature crowd-surfing and audience participation.",
+            Answer2 = "Fightmilk's third album, \"No Souvenirs\", was released on November 15, 2024, via Fika Recordings and INH Records. The album features 12 tracks, including the singles \"Yearning and Pining\" and \"Summer Bodies\". The album has received positive reviews, with critics praising the band's growth and experimentation with new sounds.\r\nFightmilk has several upcoming live dates scheduled, including a label launch show with INH Records in London on February 1, 2025 .\r\n",
+            Link2 = "https://fikarecordings.bandcamp.com/album/no-souvenirs",
+            Answer3 = "“Not that I’d ever describe Fightmilk as an ‘angry punk band,’ necessarily; whilst there is, undoubtedly, the requisite dustings of rage and anguish in their songs, there’s also a whole load of joy and humour, and their music is tight, disciplined and often melodic”",
             Answer4 = "You'll like FightMilk if you like ... ",
             Schedule = "19:00->19:50",
             Image = "fightmilkmain.png",

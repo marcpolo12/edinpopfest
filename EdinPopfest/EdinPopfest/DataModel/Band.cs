@@ -23,6 +23,10 @@ namespace EdinPopFest
         public string Schedule { get; set; } = "";
         public string Image { get; set; } = "";
         public string VideoId { get; set; } = "";
+        [Reactive]
+        public string Link1 { get; set; } = "";
+        [Reactive]
+        public string Link2 { get; set; } = "";
         // public string Icon { get; set; }
     }
 }
