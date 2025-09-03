@@ -25,8 +25,6 @@ public class BandDetailViewModel : ReactiveObject
 
     public void LoadBand(string bandName)
     {
-        // Replace with your actual band lookup logic
         Band = Festival.GetBandByName(bandName);
-       // this.RaisePropertyChanged(nameof(Band));
     }
 }

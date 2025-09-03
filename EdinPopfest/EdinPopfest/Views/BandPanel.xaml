@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdinPopFest.BandPanel">
     <Border WidthRequest="300"
-	  BackgroundColor="LightSeaGreen"
-	  StrokeThickness="1">
+          BackgroundColor="LightSeaGreen"
+          StrokeThickness="1">
         <Border.StrokeShape>
       <RoundRectangle CornerRadius="20"/>
     </Border.StrokeShape>
@@ -15,18 +15,18 @@
       </Grid.ColumnDefinitions>
 
       <Border WidthRequest="100"
-	      HeightRequest="100"
-	      StrokeShape="Ellipse"
-	      StrokeThickness="0"
-	      BackgroundColor="Transparent"
-	      HorizontalOptions="Start"
-	      VerticalOptions="Start">
-	<Image x:Name="bandimage"
-	       Source="cords1.png"
-	       WidthRequest="100"
-	       HeightRequest="100"
-	       Grid.Column="0"
-	       Aspect="AspectFill"/>
+              HeightRequest="100"
+              StrokeShape="Ellipse"
+              StrokeThickness="0"
+              BackgroundColor="Transparent"
+              HorizontalOptions="Start"
+              VerticalOptions="Start">
+        <Image x:Name="bandimage"
+               Source="cords1.png"
+               WidthRequest="100"
+               HeightRequest="100"
+               Grid.Column="0"
+               Aspect="AspectFill"/>
       </Border >
       <Grid Grid.Column="1" Margin="15">
         <Grid.RowDefinitions>
@@ -34,15 +34,15 @@
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label x:Name="bandname"
-	       Text="Band Name" 
-	       Grid.Row="0"
-	       VerticalOptions="Center" 
-	       FontSize="Medium"/>
+               Text="Band Name" 
+               Grid.Row="0"
+               VerticalOptions="Center" 
+               FontSize="Medium"/>
         <Label x:Name="bandtime"
-	       Text="20:30 -> 21:15" 
-	       Grid.Row="1" 
-	       VerticalOptions="Start" 
-	       FontSize="Body"/>
+               Text="20:30 -> 21:15" 
+               Grid.Row="1" 
+               VerticalOptions="Start" 
+               FontSize="Body"/>
       </Grid>
     </Grid>
   </Border>

@@ -5,40 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:EdinPopFest"
     Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutWidth="140"
     Title="EdinPopFest">
-
-    <!--
-    <TabBar>
-        <Tab Icon="female_guitarist.png">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:LineupPage}"
-                Route="LineupPage" />
-        </Tab>
-        <Tab Title="Info">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:InfoPage}"
-                Route="InfoPage" />
-        </Tab>
-        <Tab Title="Bands">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:BandsPage}"
-                Route="BandsPage" />
-        </Tab>
-    </TabBar>
-    
-    <ShellContent
-        Title="Lineup"
-        ContentTemplate="{DataTemplate local:LineupPage}"
-        Route="LineupPage" />
-    -->
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:InfoPage}"
         Route="InfoPage" />
     <ShellContent
-        Title="Bands"
+        Title="Lineup"
         ContentTemplate="{DataTemplate local:BandsPage}"
         Route="BandsPage" />
+    <ShellContent
+        Title="About EIC"
+        ContentTemplate="{DataTemplate local:AboutPage}"
+        Route="AboutPage" />
+    <ShellContent
+        Title="Amenities"
+        ContentTemplate="{DataTemplate local:AmenitiesPage}"
+        Route="AmenitiesPage" />
+    <ShellContent
+        Title="Safe Space"
+        ContentTemplate="{DataTemplate local:SafeSpacePage}"
+        Route="SafeSpacePage" />
     
 
 </Shell>

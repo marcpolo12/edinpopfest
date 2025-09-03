@@ -1,0 +1,16 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		 x:Class="EdinPopFest.LinkPanel">
+  <Grid Margin="10,0,0,0">
+    <VerticalStackLayout Padding="0" Spacing="0"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+      <Label x:Name="linkHeader" Style="{StaticResource LinkText}">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer x:Name="linkTapGesture"/>
+        </Label.GestureRecognizers>
+      </Label>
+      <Label x:Name="linkInfo" Style="{StaticResource SmallText}"/>
+    </VerticalStackLayout>
+  </Grid>
+</ContentView>

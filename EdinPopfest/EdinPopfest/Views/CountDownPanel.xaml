@@ -4,24 +4,16 @@
              x:Class="EdinPopFest.CountDownPanel"
              xmlns:local="clr-namespace:EdinPopFest">
     <local:CountDownPanel.Resources>
-        <Style x:Key="LargeText"  TargetType="Label">
+        <Style x:Key="LargeText1" TargetType="Label" BasedOn="{StaticResource LargeText}">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="FontSize" Value="22"/>
             <Setter Property="HorizontalTextAlignment" Value="Center" />
-            <Setter Property="VerticalTextAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="Large" />
-            <Setter Property="FontAttributes" Value="Bold" />
         </Style>
-        <Style x:Key="Title"  TargetType="Label">
+        <Style x:Key="SmallText1" TargetType="Label" BasedOn="{StaticResource SmallText}">
+            <Setter Property="Margin" Value="0,0,0,5"/>
             <Setter Property="HorizontalTextAlignment" Value="Center" />
-            <Setter Property="VerticalTextAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="Body" />
-            <Setter Property="FontAttributes" Value="Bold" />
         </Style>
-        <Style x:Key="SmallText"  TargetType="Label">
-            <Setter Property="HorizontalTextAlignment" Value="Center" />
-            <Setter Property="VerticalTextAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="Small" />
-            <Setter Property="FontAttributes" Value="Bold" />
-        </Style>
+
     </local:CountDownPanel.Resources>
     <Border WidthRequest="500" BackgroundColor="PaleVioletRed">
         <Border.StrokeShape>
@@ -42,40 +34,41 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="countdownmsg"
-                   Style="{StaticResource LargeText}"
+                   Style="{StaticResource LargeText1}"
+                   Margin="5"
                    Grid.Row="0"
                Grid.Column="1"
                Grid.ColumnSpan="4"/>
             <Label x:Name="days"
-                   Style="{StaticResource LargeText}"
+                   Style="{StaticResource LargeText1}"
                    Grid.Row="1"
                    Grid.Column="1"/>
             <Label x:Name="hours"
-                   Style="{StaticResource LargeText}"
+                   Style="{StaticResource LargeText1}"
                    Grid.Row="1"
                    Grid.Column="2"/>
             <Label x:Name="minutes"
-                  Style="{StaticResource LargeText}"
+                  Style="{StaticResource LargeText1}"
                   Grid.Row="1"
                   Grid.Column="3"/>
             <Label x:Name="seconds"
-                   Style="{StaticResource LargeText}"
+                   Style="{StaticResource LargeText1}"
                    Grid.Row="1"
                    Grid.Column="4"/>
             <Label Text="Days"
-                   Style="{StaticResource SmallText}"
+                   Style="{StaticResource SmallText1}"
                    Grid.Row="2"
                    Grid.Column="1"/>
             <Label Text="Hours"
-                  Style="{StaticResource SmallText}"
+                  Style="{StaticResource SmallText1}"
                   Grid.Row="2"
                   Grid.Column="2"/>
             <Label Text="Minutes"
-                   Style="{StaticResource SmallText}"
+                   Style="{StaticResource SmallText1}"
                    Grid.Row="2"
                    Grid.Column="3"/>
             <Label Text="Seconds"
-                   Style="{StaticResource SmallText}"
+                   Style="{StaticResource SmallText1}"
                    Grid.Row="2"
                    Grid.Column="4"/>
         </Grid>

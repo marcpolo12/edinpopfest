@@ -1,0 +1,56 @@
+<local:AmenitiesViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.AmenitiesPage"
+             xmlns:local="clr-namespace:EdinPopFest"
+             Title="Local Information">
+  <ScrollView>
+    <Grid>
+      <Image
+          Source="edinpopalldayer1.png"
+          Aspect="AspectFill"
+          Opacity="0.15"
+          HorizontalOptions="Center"
+          AbsoluteLayout.LayoutBounds="0,0,1,1"
+          AbsoluteLayout.LayoutFlags="All" />
+      <VerticalStackLayout Padding="0" Spacing="0"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All">
+        <Label Style="{StaticResource LargeText}" Text="The Venue"/>
+
+        <Label Style="{StaticResource MedText}" Text="Mash House:"/>
+        <Label x:Name="mashhouselabel" Style="{StaticResource SmallText}"/>
+
+        <Label Style="{StaticResource MedText}" Text="Main Room:"/>
+        <Label x:Name="mainroomlabel" Style="{StaticResource SmallText}"/>
+
+        <Label Style="{StaticResource MedText}" Text="Parking:"/>
+        <Label x:Name="parkinglabel" Style="{StaticResource SmallText}"/>
+        
+        <Label Style="{StaticResource LargeText}" Text="Local Contacts"/>
+
+        <Label Style="{StaticResource MedText}" Text="Emergencies:"/>
+        <Label x:Name="emergencieslabel" Style="{StaticResource SmallText}"/>
+
+        <Label Style="{StaticResource MedText}" Text="Getting Around:"/>
+        <Label Style="{StaticResource LowMedText}" Text="Lothian Buses:"/>
+        <Label x:Name="lothianbuseslabel" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LowMedText}" Text="ScotRail:"/>
+        <Label x:Name="scotraillabel" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LowMedText}" Text="Taxi:"/>
+        <Label x:Name="taxilabel" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Food options (links) for breakfast or lunch."/>
+        <Label x:Name="foodinfo1" Style="{StaticResource SmallText}"/>
+        <local:LinkPanel x:Name="edbstreetfood" LinkHeader="Edinburgh Street Food"/>
+        <local:LinkPanel x:Name="letmeeattoo" LinkHeader="Let Me Eat Too"/>
+        <local:LinkPanel x:Name="holycow" LinkHeader="Holy Cow"/>
+        <local:LinkPanel x:Name="fruitmarketcafe" LinkHeader="Fruit Market Cafe"/>
+        <local:LinkPanel x:Name="ikigairamen" LinkHeader="Ikigai Ramen"/>
+        <local:LinkPanel x:Name="piemaker" LinkHeader="Pie Maker"/>
+        <local:LinkPanel x:Name="mosquekitchen" LinkHeader="Mosque Kitchen"/>
+        <local:LinkPanel x:Name="civerinos" LinkHeader="Civerinos"/>
+        <local:LinkPanel x:Name="bowls" LinkHeader="Bowls"/>
+        <Label x:Name="foodinfo2" Style="{StaticResource SmallText}"/>
+      </VerticalStackLayout>
+    </Grid>
+  </ScrollView>
+</local:AmenitiesViewBase>

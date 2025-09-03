@@ -1,0 +1,43 @@
+<local:SafeSpaceViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.SafeSpacePage"
+             xmlns:local="clr-namespace:EdinPopFest"
+             Title="Safe Space Policy">
+  <ScrollView>
+    <Grid>
+      <Image
+          Source="edinpopalldayer1.png"
+          Aspect="AspectFill"
+          Opacity="0.15"
+          HorizontalOptions="Center"
+          AbsoluteLayout.LayoutBounds="0,0,1,1"
+          AbsoluteLayout.LayoutFlags="All" />
+      <VerticalStackLayout Padding="0" Spacing="0"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All">
+        <Label Style="{StaticResource LargeText}" Text="Safe Space Policy"/>
+        <Label Style="{StaticResource SmallText}">
+          <Label.FormattedText>
+            <FormattedString>
+              <Span x:Name="intro1"/>
+              <Span x:Name="intro2" FontAttributes="Bold" FontSize="18"/>
+              <Span x:Name="intro3"/>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Style="{StaticResource LargeText}" Text="Zero Tolerance"/>
+        <Label x:Name="zerotolerance" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Consent"/>
+        <Label x:Name="consent" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Respect Others"/>
+        <Label x:Name="respect" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Spiking"/>
+        <Label x:Name="spiking" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Be an Active Bystander"/>
+        <Label x:Name="beactive" Style="{StaticResource SmallText}"/>
+        <Label Style="{StaticResource LargeText}" Text="Need Help?"/>
+        <Label x:Name="needhelp" Style="{StaticResource SmallText}"/>
+      </VerticalStackLayout>
+    </Grid>
+  </ScrollView>
+</local:SafeSpaceViewBase>

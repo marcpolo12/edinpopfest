@@ -25,6 +25,8 @@ public class CountDownService : ReactiveObject, ICountDownService
     public int Minutes { get; private set; }
     [Reactive]
     public int Seconds { get; private set; }
+    [Reactive]
+    public bool IsActive { get; private set; } = true;
     public CountDownService()
     {
         // Initialize the countdown service with the event date
@@ -48,17 +50,34 @@ public class CountDownService : ReactiveObject, ICountDownService
     public void StopCountDown()
     {
         timer_.Stop();
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            IsActive = false;
+            Days = 0;
+            Hours = 0;
+            Minutes = 0;
+            Seconds = 0;
+        });
     }
     private void UpdateCountDown()
     {
-        var timeSpan = _eventDate - DateTime.Now;
-        MainThread.BeginInvokeOnMainThread(() =>
+        var timenow = DateTime.Now;
+        var isActive = timenow < _eventDate;
+        if (!isActive)
         {
-            Days = (int)timeSpan.Days;
-            Hours = (int)timeSpan.Hours;
-            Minutes = (int)timeSpan.Minutes;
-            Seconds = (int)timeSpan.Seconds;
-        });
+            StopCountDown();
+        }
+        else
+        {
+            var timeSpan = _eventDate - timenow;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Days = (int)timeSpan.Days;
+                Hours = (int)timeSpan.Hours;
+                Minutes = (int)timeSpan.Minutes;
+                Seconds = (int)timeSpan.Seconds;
+            });
+        }
     }
 
     System.Timers.Timer timer_ = new System.Timers.Timer(1000);

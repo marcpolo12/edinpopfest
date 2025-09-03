@@ -18,6 +18,8 @@ public interface ICountDownService
     int Minutes { get; }
     [Reactive]
     int Seconds { get; }
+    [Reactive]
+    bool IsActive { get; }
     void StartCountDown(DateTime eventDate);
     void StopCountDown();
 }

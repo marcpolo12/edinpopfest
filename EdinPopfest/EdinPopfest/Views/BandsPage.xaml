@@ -3,7 +3,7 @@
                      x:Class="EdinPopFest.BandsPage"
                      xmlns:local="clr-namespace:EdinPopFest"
                      xmlns:brushes="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
-                     Title="Bands">
+                     Title="Lineup">
   <ScrollView>
     <Grid>
       <Image Source="edinpopalldayer1.png"
@@ -12,147 +12,98 @@
              AbsoluteLayout.LayoutFlags="All" />
       <VerticalStackLayout Padding="20" Spacing="30">
 
-	<local:BandPanel BandName="The Cords"
-			 BandTime="20:30 -> 21:15"
-			 BandImageSource="cords1.png"
-			 HorizontalOptions="Center">
-	  <local:BandPanel.GestureRecognizers>
-	    <TapGestureRecognizer
-		CommandParameter="Cords"
-		Tapped="OnBandPanelTapped"/>
-	  </local:BandPanel.GestureRecognizers>
-	</local:BandPanel>
-	
-	<local:BandPanel BandName="The Proctors" 
-			 BandTime="21:30 -> 22:15" 
-			 BandImageSource="proctors1.png"
-			 HorizontalOptions="Center">
-	  <local:BandPanel.GestureRecognizers>
-	    <TapGestureRecognizer
-		CommandParameter="Proctors"
-		Tapped="OnBandPanelTapped"/>
-	  </local:BandPanel.GestureRecognizers>
-	</local:BandPanel>
-	
-	<local:BandPanel BandName="FO Machete"
-			 BandTime="22:30 -> 23:15"
-			 BandImageSource="fomachete1.png"
-			 HorizontalOptions="Center" >
-	  <local:BandPanel.GestureRecognizers>
-	    <TapGestureRecognizer
-		CommandParameter="FOMachete"
-		Tapped="OnBandPanelTapped"/>
-	  </local:BandPanel.GestureRecognizers>
-	</local:BandPanel>
-
-	<local:BandPanel BandName="The Just joans"
-			 BandTime="20:30 -> 21:15"
-			 BandImageSource="justjoans1.png"
-			 HorizontalOptions="Center">
-	  <local:BandPanel.GestureRecognizers>
-	    <TapGestureRecognizer
-		CommandParameter="JustJoans"
-		Tapped="OnBandPanelTapped"/>
-	  </local:BandPanel.GestureRecognizers>
-	</local:BandPanel>
-	
+        <local:BandPanel BandName="The Cords"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="cords1.png"
+                         HorizontalOptions="Center">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Cords"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+        
 
         <local:BandPanel BandName="Fightmilk"
                          BandTime="20:30 -> 21:15"
                          BandImageSource="fightmilk1.png"
-			 HorizontalOptions="Center">
+                         HorizontalOptions="Center">
           <local:BandPanel.GestureRecognizers>
             <TapGestureRecognizer
                 CommandParameter="FightMilk"
                 Tapped="OnBandPanelTapped"/>
           </local:BandPanel.GestureRecognizers>
         </local:BandPanel>
-	
+        
+        
+        <local:BandPanel BandName="FO Machete"
+                         BandTime="22:30 -> 23:15"
+                         BandImageSource="fomachete1.png"
+                         HorizontalOptions="Center" >
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="FOMachete"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
 
         <local:BandPanel BandName="Josie"
                          BandTime="20:30 -> 21:15"
                          BandImageSource="josie1.png"
-			 HorizontalOptions="Center">
+                         HorizontalOptions="Center">
           <local:BandPanel.GestureRecognizers>
             <TapGestureRecognizer
                 CommandParameter="Josie"
                 Tapped="OnBandPanelTapped"/>
           </local:BandPanel.GestureRecognizers>
         </local:BandPanel>
-	
+        
+        <local:BandPanel BandName="The Just joans"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="justjoans1.png"
+                         HorizontalOptions="Center">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="JustJoans"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
 
         <local:BandPanel BandName="Lande Hekt"
                          BandTime="20:30 -> 21:15"
                          BandImageSource="landehekt1.png"
-			 HorizontalOptions="Center">
+                         HorizontalOptions="Center">
           <local:BandPanel.GestureRecognizers>
             <TapGestureRecognizer
                 CommandParameter="LandeHekt"
                 Tapped="OnBandPanelTapped"/>
-	  </local:BandPanel.GestureRecognizers>
-	</local:BandPanel>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+
+        <local:BandPanel BandName="Maison D'&#234;tre"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="maisondetre1.png"
+                         HorizontalOptions="Center">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="MaisonDetre"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+        <local:BandPanel BandName="The Proctors" 
+                         BandTime="21:30 -> 22:15" 
+                         BandImageSource="proctors1.png"
+                         HorizontalOptions="Center">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Proctors"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
       </VerticalStackLayout>
     </Grid>
   </ScrollView>
 </local:BandsViewBase>
-
-
-<!--
-                <Border WidthRequest="100"
-                        HeightRequest="100"
-                        StrokeShape="Ellipse"
-                        StrokeThickness="0"
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Start">
-                    <Image
-                        Source="cords1.png"
-                        WidthRequest="100"
-                        HeightRequest="100"
-                        Aspect="AspectFill">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer
-                                CommandParameter="Cords"
-                                Tapped="OnBandImageTapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                </Border>
-                <Label Text="The Cords" FontSize="20" />
-                <Border WidthRequest="100"
-                        HeightRequest="100"
-                        StrokeShape="Ellipse"
-                        StrokeThickness="0"
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Start">
-                  <Image Source="proctors1.png"
-                         WidthRequest="100"
-                         HeightRequest="100"
-                         Aspect="AspectFill">
-                    <Image.GestureRecognizers>
-                      <TapGestureRecognizer
-                          CommandParameter="Proctors"
-                          Tapped="OnBandImageTapped"/>
-                    </Image.GestureRecognizers>
-                  </Image>
-                </Border>
-                <Label Text="The Proctors" FontSize="20"/>
-                <Border WidthRequest="100"
-                        HeightRequest="100"
-                        StrokeShape="Ellipse"
-                        StrokeThickness="0"
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Start">
-                  <Image Source="fomachete1.png"
-                         WidthRequest="100"
-                         HeightRequest="100"
-                         Aspect="AspectFill">
-                    <Image.GestureRecognizers>
-                      <TapGestureRecognizer
-                          CommandParameter="FOMachete"
-                          Tapped="OnBandImageTapped"/>
-                    </Image.GestureRecognizers>
-                  </Image>
-                </Border>
--->
