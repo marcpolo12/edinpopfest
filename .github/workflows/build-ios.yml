@@ -1,7 +1,7 @@
 name: Build MAUI iOS (Unsigned IPA)
 
 on:
-  workflow_dispatch:  # run manually from GitHub Actions tab
+  workflow_dispatch:  # manual trigger
   push:
     branches:
       - main
@@ -11,11 +11,11 @@ jobs:
     runs-on: macos-latest  # GitHub-hosted macOS runner
 
     steps:
-      # 1. Checkout the repository
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Install .NET 9 SDK
+      # 2. Setup .NET 9 SDK
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -29,13 +29,13 @@ jobs:
       - name: Restore NuGet packages
         run: dotnet restore EdinPopfest.ios/EdinPopfest.ios.csproj
 
-      # 5. Build iOS project and create unsigned IPA
-      - name: Build iOS project (unsigned IPA)
+      # 5. Build iOS project (unsigned IPA)
+      - name: Build iOS project
         run: dotnet build EdinPopfest.ios/EdinPopfest.ios.csproj -f net9.0-ios -c Release /p:BuildIpa=true
 
-      # 6. Upload IPA as artifact
+      # 6. Upload IPA artifact (use v4)
       - name: Upload IPA artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
           path: EdinPopfest.ios/bin/Release/net9.0-ios/ios-arm64/*.ipa
