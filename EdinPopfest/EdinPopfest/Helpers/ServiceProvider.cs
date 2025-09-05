@@ -19,7 +19,7 @@ namespace EdinPopFest.Helpers
 #elif ANDROID
                 MauiApplication.Current.Services;
 #elif IOS
-                MauiApplicationdELEGATE.Current.Services;
+                MauiUIApplicationDelegate.Current.Services;
 #else
                 null;
 #endif
