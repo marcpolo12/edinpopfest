@@ -26,7 +26,7 @@ jobs:
         run: |
           dotnet workload install maui-ios
           dotnet workload install maui-android
-          dotnet workload restore
+          dotnet workload restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
       # 4. Restore NuGet packages for iOS project (only iOS target)
       - name: Restore NuGet packages
