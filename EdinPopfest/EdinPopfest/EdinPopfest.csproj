@@ -1,27 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- Only include Windows target when building on Windows -->
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">net9.0-android35.0;net9.0-windows10.0.26100.0</TargetFrameworks>
-    <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('windows'))">net9.0-android35.0</TargetFrameworks>
+    <!-- Target Android and iOS on all platforms, add Windows only on Windows -->
+    <TargetFrameworks>net9.0-android35.0;net9.0-ios15.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">net9.0-android35.0;net9.0-ios15.0;net9.0-windows10.0.26100.0</TargetFrameworks>
     <SingleProject>true</SingleProject>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>EdinPopfest</RootNamespace>
     <UseMaui>true</UseMaui>
     <Nullable>enable</Nullable>
     <ApplicationId>com.eic.edinpopfest</ApplicationId>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">35.0</SupportedOSPlatformVersion>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TargetFrameworks>;net9.0-android</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.26100.0</TargetFrameworks>
-    <PackageIcon></PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,9 +23,8 @@
     <!-- Custom Fonts -->
     <MauiFont Include="Resources\Fonts\*" />
 
-    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <!-- Raw Assets -->
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-
   </ItemGroup>
   <ItemGroup>
     <MauiIcon Include="Resources\AppIcon\appicon.png"  ForegroundFile="Resources\AppIcon\appicon.png" Color="#000000" />
@@ -48,7 +35,6 @@
     <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
     <PackageReference Include="ReactiveUI.Maui" Version="20.4.1" />
   </ItemGroup>
-
   <ItemGroup>
     <MauiXaml Update="Views\BandPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
