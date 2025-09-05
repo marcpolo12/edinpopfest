@@ -31,7 +31,7 @@ jobs:
       # 4. Restore NuGet packages for iOS project (only iOS target)
       - name: Restore NuGet packages
         run: |
-          dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj -c Release -f net9.0-ios
+          dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
       # 5. Build iOS project (unsigned IPA)
       - name: Build iOS project
