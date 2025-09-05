@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/publish/*.ipa
