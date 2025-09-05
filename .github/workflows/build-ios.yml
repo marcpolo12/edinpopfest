@@ -27,15 +27,15 @@ jobs:
 
       # 4. Restore NuGet packages
       - name: Restore NuGet packages
-        run: dotnet restore EdinPopfest.ios/EdinPopfest.ios.csproj
+        run: dotnet restore EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
       # 5. Build iOS project (unsigned IPA)
       - name: Build iOS project
-        run: dotnet build EdinPopfest.ios/EdinPopfest.ios.csproj -f net9.0-ios -c Release /p:BuildIpa=true
+        run: dotnet build EdinPopfest.iOS/EdinPopfest.iOS.csproj -f net9.0-ios -c Release /p:BuildIpa=true
 
       # 6. Upload IPA artifact (use v4)
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest.ios/bin/Release/net9.0-ios/ios-arm64/*.ipa
+          path: EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/*.ipa
