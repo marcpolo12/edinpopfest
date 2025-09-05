@@ -37,11 +37,11 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet build EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug /p:BuildIpa=true -v:diag
+            -f net9.0-ios -c Debug /p:BuildIpa=true /p:MtouchLink=SdkOnly
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/*.ipa
