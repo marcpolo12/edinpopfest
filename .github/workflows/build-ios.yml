@@ -37,7 +37,7 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet build EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Release /p:BuildIpa=true
+            -f net9.0-ios -c Debug /p:BuildIpa=true -v:diag
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
