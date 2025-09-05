@@ -37,7 +37,7 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug /p:BuildIpa=true /p:MtouchLink=SdkOnly /p:EnableWindowsTargeting=false
+            -f net9.0-ios -c Debug /p:BuildIpa=true /p:MtouchLink=SdkOnly /p:EnableWindowsTargeting=false /p:CodesignKey=""
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
