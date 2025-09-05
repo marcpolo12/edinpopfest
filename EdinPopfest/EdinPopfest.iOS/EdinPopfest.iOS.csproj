@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" />
+		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios'" />
 	</ItemGroup>
 
 </Project>
