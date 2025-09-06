@@ -40,7 +40,7 @@ jobs:
 
       # 5. Build Android project
       - name: Build Android project
-        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35 -c Release
+        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35.0 -c Release
 
       # Decode and save certificate & provisioning profile
       - name: Set up signing
