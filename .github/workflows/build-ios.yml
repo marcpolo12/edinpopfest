@@ -38,15 +38,19 @@ jobs:
       - name: Restore NuGet packages (Android)
         run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
 
-      # 5. Build Android project
-      - name: Build Android project
-        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35.0 -c Release
-
       # Decode and save certificate & provisioning profile
       - name: Set up signing
         run: |
           echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > ios_distribution.p12
           echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+
+      - name: Import certificate into keychain
+        run: |
+          security create-keychain -p "" build.keychain
+          security import ios_distribution.p12 -k ~/Library/Keychains/build.keychain -P "$IOS_P12_PASSWORD" -T /usr/bin/codesign
+          security list-keychains -s ~/Library/Keychains/build.keychain
+          security unlock-keychain -p "" ~/Library/Keychains/build.keychain
+          security set-keychain-settings -t 3600 -l ~/Library/Keychains/build.keychain
 
       # 6. Build iOS project (unsigned IPA)
       - name: Build iOS project
@@ -65,3 +69,7 @@ jobs:
         with:
           name: EdinPopfest-ipa
           path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/*.ipa
+
+      # 5. Build Android project
+      - name: Build Android project
+        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35.0 -c Release
