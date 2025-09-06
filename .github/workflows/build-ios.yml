@@ -36,11 +36,11 @@ jobs:
         run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
       - name: Restore NuGet packages (Android)
-        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
+        #run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
 
       # 5. Build Android project
       - name: Build Android project
-        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android -c Release
+        #run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android -c Release
 
       # Decode and save certificate & provisioning profile
       - name: Set up signing
