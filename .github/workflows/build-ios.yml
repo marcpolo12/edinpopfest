@@ -1,47 +1,67 @@
-name: Build MAUI iOS (Unsigned IPA)
+name: Build MAUI App
 
 on:
-  workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
-  build-ios:
+  build-ios-android:
     runs-on: macos-latest
+    env:
+      DOTNET_ROOT: /Users/runner/.dotnet
 
     steps:
-      # 1. Checkout repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      # 1. Checkout the repository
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      # 2. Setup .NET 9 SDK
+      # 2. Setup .NET 9
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
 
-      # 3. Install necessary MAUI workloads
+      # 3. Install MAUI workloads (needed for iOS/Android builds)
       - name: Install MAUI workloads
         run: |
           dotnet workload install maui-ios
           dotnet workload install maui-android
-          dotnet workload restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
-      # 4. Restore NuGet packages for iOS project (only iOS target)
-      - name: Restore NuGet packages
+      # 4. Restore NuGet packages for iOS and Android projects
+      - name: Restore NuGet packages (iOS)
+        run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
+
+      - name: Restore NuGet packages (Android)
+        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
+
+      # 5. Build Android project
+      - name: Build Android project
+        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android -c Release
+
+      # Decode and save certificate & provisioning profile
+      - name: Set up signing
         run: |
-          dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
+          echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > ios_distribution.p12
+          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
 
-      # 5. Build iOS project (unsigned IPA)
+      # 6. Build iOS project (unsigned IPA)
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug /p:BuildIpa=true /p:MtouchLink=SdkOnly /p:EnableWindowsTargeting=false /p:CodesignKey="" /p:CodesignProvision="" /p:EnableCodeSigning=false
+            -f net9.0-ios -c Release \
+            /p:BuildIpa=true \
+            /p:MtouchLink=SdkOnly \
+            /p:CodesignKey="Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
+            /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}"
+            /p:ProvisioningProfile="ios_profile.mobileprovision"
 
-      # 6. Upload IPA artifact
+      # 7. Upload IPA artifact
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/publish/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/*.ipa
