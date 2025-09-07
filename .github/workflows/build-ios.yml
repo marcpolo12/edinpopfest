@@ -29,7 +29,7 @@ jobs:
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
           openssl pkcs12 -in ios_test.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
-          printf "%s" "${{ secrets.IOS_PROVISIONS_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
+          printf "%s" "${{ secrets.IOS_PROVISION_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
           #openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
