@@ -34,8 +34,9 @@ jobs:
           fi
 
       - name: Save decoded Base64 to file
-        run: base64 -i ios_distribution.p12 > decoded_p12.txt
-        run: base64 -i ios_test.p12 > decoded_test_p12.txt
+        run: |
+          base64 -i ios_distribution.p12 > decoded_p12.txt
+          base64 -i ios_test.p12 > decoded_test_p12.txt
 
       - name: Upload decoded Base64 artifact
         uses: actions/upload-artifact@v4
