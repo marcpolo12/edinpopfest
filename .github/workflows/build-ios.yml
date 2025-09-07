@@ -24,7 +24,7 @@ jobs:
           echo "Base64 from secret:"
 
           printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
-          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:
+          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
           openssl pkcs12 -in ios_test.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
@@ -88,8 +88,8 @@ jobs:
       - name: Create and unlock keychain
         run: |
 
-          #openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
-          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:
+          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
+          #openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:
 
           # Full path to keychain
           KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
@@ -114,7 +114,7 @@ jobs:
           # Import P12
           security import ios_distribution.p12 \
             -k "$KEYCHAIN" \
-            -P "" \
+            -P "$IOS_P12_PASSWORD" \
             -A \
             -T /usr/bin/codesign
 
