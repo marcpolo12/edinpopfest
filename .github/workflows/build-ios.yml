@@ -25,12 +25,19 @@ jobs:
           printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
           openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
+          openssl pkcs12 -in ios_test.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
 
           if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
             echo "ERROR: Decoded P12 checksum does not match original!"
+          fi
+          RUNNER_SHA=$(shasum -a 256 ios_test.p12 | awk '{print $1}')
+          echo "Runner SHA256: $RUNNER_SHA"
+
+          if [ "$RUNNER_SHA" != "${{ secrets.IOS_TEST_SECRET }}" ]; then
+            echo "ERROR: Decoded P12 Test checksum does not match original!"
           fi
 
       - name: Save decoded Base64 to file
