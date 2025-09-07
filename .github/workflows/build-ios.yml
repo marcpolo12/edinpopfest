@@ -30,14 +30,15 @@ jobs:
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
 
-          if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
-            echo "ERROR: Decoded P12 checksum does not match original!"
-            exit 1
-          fi
 
           echo "-----BEGIN DECODED P12 BASE64-----"
           base64 ios_distribution.p12
           echo "-----END DECODED P12 BASE64-----"
+
+          if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
+            echo "ERROR: Decoded P12 checksum does not match original!"
+            exit 1
+          fi
 
       # Debug password length
       - name: Debug password length
