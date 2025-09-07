@@ -107,6 +107,8 @@ jobs:
           # Verify info
           security show-keychain-info "$KEYCHAIN"
 
+          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
+
           # Import P12
           security import ios_distribution.p12 \
             -k "$KEYCHAIN" \
