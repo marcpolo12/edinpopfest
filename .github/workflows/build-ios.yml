@@ -26,6 +26,8 @@ jobs:
           openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
           openssl pkcs12 -in ios_test.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
+          printf "%s" "${{ secrets.IOS_PROVISIONS_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
+          openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
@@ -33,6 +35,7 @@ jobs:
           if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
             echo "ERROR: Decoded P12 checksum does not match original!"
           fi
+
           RUNNER_SHA=$(shasum -a 256 ios_test.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
 
@@ -40,10 +43,18 @@ jobs:
             echo "ERROR: Decoded P12 Test checksum does not match original!"
           fi
 
+          RUNNER_SHA=$(shasum -a 256 ios_provisions.TXT | awk '{print $1}')
+          echo "Runner SHA256: $RUNNER_SHA"
+
+          if [ "$RUNNER_SHA" != "${{ secrets.IOS_PROVISIONS_SHA256 }}" ]; then
+            echo "ERROR: Decoded P12 Test checksum does not match original!"
+          fi
+
       - name: Save decoded Base64 to file
         run: |
           base64 -i ios_distribution.p12 > decoded_p12.txt
           base64 -i ios_test.p12 > decoded_test_p12.txt
+          base64 -i ios_provisions.txt > decoded_provisions.txt
 
       - name: Upload decoded Base64 artifact
         uses: actions/upload-artifact@v4
@@ -56,6 +67,12 @@ jobs:
         with:
           name: ios-distribution-p12
           path: decoded_p12.txt
+
+      - name: Upload decoded Base64 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-provisions
+          path: decoded_provisions.txt
 
       # Debug password length
       - name: Debug password length
