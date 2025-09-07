@@ -88,7 +88,7 @@ jobs:
       - name: Create and unlock keychain
         run: |
 
-          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
+          #openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
 
           # Full path to keychain
           KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
