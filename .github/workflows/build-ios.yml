@@ -32,7 +32,7 @@ jobs:
 
 
           echo "-----BEGIN DECODED P12 BASE64-----"
-          base64 ios_distribution.p12
+          base64 -i ios_distribution.p12
           echo "-----END DECODED P12 BASE64-----"
 
           if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
