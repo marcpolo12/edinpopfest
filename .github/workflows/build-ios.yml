@@ -24,7 +24,7 @@ jobs:
           echo "Base64 from secret:"
 
           printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
-          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
+          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:
 
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
           openssl pkcs12 -in ios_test.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
