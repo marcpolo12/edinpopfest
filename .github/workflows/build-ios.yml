@@ -87,18 +87,30 @@ jobs:
       # Create and unlock keychain
       - name: Create and unlock keychain
         run: |
-          security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain-db
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain-db
-          security set-keychain-settings -t 3600 -l build.keychain-db
-          security list-keychains -s ~/Library/Keychains/build.keychain-db $(security list-keychains | tr -d '"')
-          security list-keychains
-          security show-keychain-info ~/Library/Keychains/build.keychain-db
+          # Full path to keychain
+          KEYCHAIN=~/Library/Keychains/build.keychain-db
 
-          # Import the P12 using the correct P12 password
+          # Create keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          # Unlock keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          # Set settings
+          security set-keychain-settings -t 3600 -l "$KEYCHAIN"
+
+          # Add to search path
+          security list-keychains -s "$KEYCHAIN" $(security list-keychains | tr -d '"')
+
+          # Verify info
+          security show-keychain-info "$KEYCHAIN"
+
+          # Import P12
           security import ios_distribution.p12 \
-            -k ~/Library/Keychains/build.keychain-db \
+            -k "$KEYCHAIN" \
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
+
         env:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
