@@ -50,8 +50,8 @@ jobs:
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
 
-	 # Add keychain to search path
-	 security list-keychains -s ~/Library/Keychains/build.keychain
+         # Add keychain to search path
+         security list-keychains -s ~/Library/Keychains/build.keychain
        env:
          KEYCHAIN_PASSWORD: buildpass123
          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
