@@ -35,11 +35,10 @@ jobs:
       # Try to import into a temporary keychain
       - name: Import certificate into keychain
         run: |
-          security create-keychain -p "" build.keychain
-          security import ios_distribution.p12 -k ~/Library/Keychains/build.keychain -P "${IOS_P12_PASSWORD}" -T /usr/bin/codesign
-          security list-keychains -s ~/Library/Keychains/build.keychain
-          security unlock-keychain -p "" ~/Library/Keychains/build.keychain
-          security set-keychain-settings -t 3600 -l ~/Library/Keychains/build.keychain
+          security import ios_distribution.p12 \
+            -k ~/Library/Keychains/build.keychain \
+            -P "$IOS_P12_PASSWORD" \
+            -T /usr/bin/codesign
         env:
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
 
