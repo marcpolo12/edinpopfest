@@ -35,6 +35,10 @@ jobs:
             exit 1
           fi
 
+        echo "-----BEGIN DECODED P12 BASE64-----"
+        base64 ios_distribution.p12
+        echo "-----END DECODED P12 BASE64-----"
+
       # Debug password length
       - name: Debug password length
         run: |
