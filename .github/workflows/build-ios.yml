@@ -22,9 +22,9 @@ jobs:
       - name: Decode .p12 from secret
         run: |
           echo "Base64 from secret:"
-          echo "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n'
           printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
           openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
+          printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
 
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
@@ -35,12 +35,13 @@ jobs:
 
       - name: Save decoded Base64 to file
         run: base64 -i ios_distribution.p12 > decoded_p12.txt
+        run: base64 -i ios_test.p12 > decoded_test_p12.txt
 
       - name: Upload decoded Base64 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: decoded-p12
-          path: decoded_p12.txt
+          name: decoded-test-p12
+          path: decoded_test_p12.txt
 
       # Debug password length
       - name: Debug password length
