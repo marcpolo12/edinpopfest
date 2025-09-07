@@ -19,6 +19,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # Decode and save the P12
+      - name: Decode .p12 from secret
+        run: |
+          echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > ios_distribution.p12
+
+      # Debug password length
+      - name: Debug password length
+        run: echo "Password length: ${#IOS_P12_PASSWORD}"
+        env:
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+
+      # Try to import into a temporary keychain
+      - name: Import certificate into keychain
+        run: |
+          security create-keychain -p "" build.keychain
+          security import ios_distribution.p12 -k ~/Library/Keychains/build.keychain -P "${IOS_P12_PASSWORD}" -T /usr/bin/codesign
+          security list-keychains -s ~/Library/Keychains/build.keychain
+          security unlock-keychain -p "" ~/Library/Keychains/build.keychain
+          security set-keychain-settings -t 3600 -l ~/Library/Keychains/build.keychain
+        env:
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+
       # 2. Setup .NET 9
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
