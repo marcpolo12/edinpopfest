@@ -113,11 +113,11 @@ jobs:
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
 
+          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
+
         env:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
-
-        openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
 
 
       # 2. Setup .NET 9
