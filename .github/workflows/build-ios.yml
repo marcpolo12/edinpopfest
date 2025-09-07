@@ -18,7 +18,6 @@ jobs:
       # 1. Checkout the repository
       - name: Checkout repo
         uses: actions/checkout@v4
-
       # Decode and save the P12
       - name: Decode .p12 from secret
         run: |
@@ -30,15 +29,18 @@ jobs:
           RUNNER_SHA=$(shasum -a 256 ios_distribution.p12 | awk '{print $1}')
           echo "Runner SHA256: $RUNNER_SHA"
 
-
-          echo "-----BEGIN DECODED P12 BASE64-----"
-          base64 -i ios_distribution.p12
-          echo "-----END DECODED P12 BASE64-----"
-
           if [ "$RUNNER_SHA" != "${{ secrets.IOS_P12_SHA256 }}" ]; then
             echo "ERROR: Decoded P12 checksum does not match original!"
-            exit 1
           fi
+
+      - name: Save decoded Base64 to file
+        run: base64 -i ios_distribution.p12 > decoded_p12.txt
+
+      - name: Upload decoded Base64 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: decoded-p12
+          path: decoded_p12.txt
 
       # Debug password length
       - name: Debug password length
