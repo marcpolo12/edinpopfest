@@ -22,7 +22,7 @@ jobs:
       # Decode and save the P12
       - name: Decode .p12 from secret
         run: |
-          echo -n "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
+          printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
           openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
       # Debug password length
