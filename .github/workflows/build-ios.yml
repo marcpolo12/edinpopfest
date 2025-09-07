@@ -88,13 +88,15 @@ jobs:
       - name: Create and unlock keychain
         run: |
           # Full path to keychain
-          KEYCHAIN=~/Library/Keychains/build.keychain-db
+          KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
 
           # Create keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
 
           # Unlock keychain
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          security list-keychains -s "$KEYCHAIN" /Users/runner/Library/Keychains/login.keychain-db $(security list-keychains | tr -d '"')
 
           # Set settings
           security set-keychain-settings -t 3600 -l "$KEYCHAIN"
