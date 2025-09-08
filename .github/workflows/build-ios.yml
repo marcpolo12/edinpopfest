@@ -100,7 +100,7 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Release \
+            -f net9.0-ios -c Debug \
             /p:BuildIpa=true \
             /p:MtouchLink=SdkOnly \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
@@ -112,8 +112,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/*.ipa
 
       # 5. Build Android project
       - name: Build Android project
-        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35.0 -c Release
+        run: dotnet build EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj -f net9.0-android35.0 -c Debug
