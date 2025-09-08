@@ -25,7 +25,26 @@ jobs:
           echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
           printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
           printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
-          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
+          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
+
+      # 2. Setup .NET 9
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+
+      # 3. Install MAUI workloads (needed for iOS/Android builds)
+      - name: Install MAUI workloads
+        run: |
+          dotnet workload install maui-ios
+          dotnet workload install maui-android
+
+      # 4. Restore NuGet packages for iOS and Android projects
+      - name: Restore NuGet packages (iOS)
+        run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
+
+      - name: Restore NuGet packages (Android)
+        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
 
       # Decode and save certificate & provisioning profile
       - name: Set up signing
@@ -81,28 +100,9 @@ jobs:
             -f net9.0-ios -c Release \
             /p:BuildIpa=true \
             /p:MtouchLink=SdkOnly \
-            /p:CodesignKey="Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
+            /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}"
             /p:ProvisioningProfile="ios_profile.mobileprovision"
-
-      # 2. Setup .NET 9
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 9.0.x
-
-      # 3. Install MAUI workloads (needed for iOS/Android builds)
-      - name: Install MAUI workloads
-        run: |
-          dotnet workload install maui-ios
-          dotnet workload install maui-android
-
-      # 4. Restore NuGet packages for iOS and Android projects
-      - name: Restore NuGet packages (iOS)
-        run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
-
-      - name: Restore NuGet packages (Android)
-        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
 
       # 7. Upload IPA artifact
       - name: Upload IPA artifact
