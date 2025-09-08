@@ -87,6 +87,8 @@ jobs:
             -k "$KEYCHAIN" \
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
+
+          security find-identity -v -p codesigning /Users/runner/Library/Keychains/build.keychain-db
         env:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
