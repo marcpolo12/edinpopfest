@@ -23,45 +23,7 @@ jobs:
         run: |
           echo "Base64 from secret:"
 
-          printf "%s" "${{ secrets.IOS_PROVISION_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
-          #openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
-
-      # Create and unlock keychain
-      - name: Create and unlock keychain
-        run: |
-
-          openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"$IOS_P12_PASSWORD"
-          #openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:
-
-          # Full path to keychain
-          KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
-
-          # Create keychain
-          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
-
-          # Unlock keychain
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
-
-          security list-keychains -s "$KEYCHAIN" /Users/runner/Library/Keychains/login.keychain-db $(security list-keychains | tr -d '"')
-
-          # Set settings
-          security set-keychain-settings -t 3600 -l "$KEYCHAIN"
-
-          # Add to search path
-          security list-keychains -s "$KEYCHAIN" $(security list-keychains | tr -d '"')
-
-          # Verify info
-          security show-keychain-info "$KEYCHAIN"
-
-          # Import P12
-          security import ios_distribution.p12 \
-            -k /Users/runner/Library/Keychains/login.keychain-db \
-            -P "$IOS_P12_PASSWORD" \
-            -T /usr/bin/codesign
-        env:
-          KEYCHAIN_PASSWORD: "buildpass123"
-          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
 
 
       # 2. Setup .NET 9
@@ -87,7 +49,9 @@ jobs:
       - name: Set up signing
         run: |
           #echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > ios_distribution.p12
-          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+          #echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+          printf "%s" "${{ secrets.IOS_PROVISION_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
+          #openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
           printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
           printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
           openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
