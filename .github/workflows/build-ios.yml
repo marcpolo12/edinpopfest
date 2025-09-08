@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "Base64 from secret:"
           echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
-          openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
+          openssl pkcs12 -in ios_provisions.mobileprovision -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp ios_profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
           printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
