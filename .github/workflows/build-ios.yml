@@ -23,7 +23,11 @@ jobs:
         run: |
           echo "Base64 from secret:"
 
-          printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
+          printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
+          printf "%s" "${{ secrets.IOS_CER }}" | tr -d '\r\n' | base64 --decode > ios_distribution.cer
+          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.cer -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}"
+
+          #printf "%s" "${{ secrets.IOS_P12_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_distribution.p12
           openssl pkcs12 -in ios_distribution.p12 -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
 
           printf "%s" "${{ secrets.IOS_TEST_SECRET }}" | tr -d '\r\n' | base64 --decode > ios_test.p12
