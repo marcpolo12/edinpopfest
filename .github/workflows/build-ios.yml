@@ -84,7 +84,7 @@ jobs:
 
           # Import P12
           security import ios_distribution.p12 \
-            -k /Users/runner/Library/Keychains/login.keychain-db \
+            -k "$KEYCHAIN" \
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
         env:
