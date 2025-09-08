@@ -22,9 +22,9 @@ jobs:
       - name: Decode .p12 from secret
         run: |
           echo "Base64 from secret:"
-
-
-
+          printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
+          printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
+          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
 
       # 2. Setup .NET 9
       - name: Setup .NET
@@ -48,13 +48,11 @@ jobs:
       # Decode and save certificate & provisioning profile
       - name: Set up signing
         run: |
+          echo "Set up signing:"
           #echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > ios_distribution.p12
           #echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
           printf "%s" "${{ secrets.IOS_PROVISION_BASE64 }}" | tr -d '\r\n' | base64 --decode > ios_provisions.txt
           #openssl pkcs12 -in ios_provisions.txt -nokeys -passin pass:"${{ secrets.IOS_P12_PASSWORD }}"
-          printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
-          printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
-          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
 
       - name: Import certificate into keychain
         run: |
