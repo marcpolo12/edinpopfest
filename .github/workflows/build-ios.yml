@@ -15,43 +15,6 @@ jobs:
       DOTNET_ROOT: /Users/runner/.dotnet
 
     steps:
-      # 1. Checkout the repository
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      # Decode and save the P12
-      - name: Decode .p12 from secret
-        run: |
-          echo "Base64 from secret:"
-          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
-          printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
-          printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
-          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
-
-      # 2. Setup .NET 9
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 9.0.x
-
-      # 3. Install MAUI workloads (needed for iOS/Android builds)
-      - name: Install MAUI workloads
-        run: |
-          dotnet workload install maui-ios
-          dotnet workload install maui-android
-
-      # 4. Restore NuGet packages for iOS and Android projects
-      - name: Restore NuGet packages (iOS)
-        run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
-
-      - name: Restore NuGet packages (Android)
-        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
-
-      # Decode and save certificate & provisioning profile
-      - name: Set up signing
-        run: |
-          echo "Set up signing:"
-          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
-
       - name: Import certificate into keychain
         run: |
           #security create-keychain -p "" build.keychain
@@ -92,6 +55,43 @@ jobs:
         env:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+      # 1. Checkout the repository
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      # Decode and save the P12
+      - name: Decode .p12 from secret
+        run: |
+          echo "Base64 from secret:"
+          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+          printf "%s" "${{ secrets.IOS_KEY }}" | tr -d '\r\n' | base64 --decode > ios_distribution.key
+          printf "%s" "${{ secrets.IOS_PEM }}" > ios_distribution.pem
+          openssl pkcs12 -export -inkey ios_distribution.key -in ios_distribution.pem -out ios_distribution.p12 -name "Apple Distribution: Marc Armstrong (XVHZQ55ZBQ)" -passout pass:${{ secrets.IOS_P12_PASSWORD }}
+
+      # 2. Setup .NET 9
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+
+      # 3. Install MAUI workloads (needed for iOS/Android builds)
+      - name: Install MAUI workloads
+        run: |
+          dotnet workload install maui-ios
+          dotnet workload install maui-android
+
+      # 4. Restore NuGet packages for iOS and Android projects
+      - name: Restore NuGet packages (iOS)
+        run: dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
+
+      - name: Restore NuGet packages (Android)
+        run: dotnet restore EdinPopfest/EdinPopfest.Droid/EdinPopfest.Droid.csproj
+
+      # Decode and save certificate & provisioning profile
+      - name: Set up signing
+        run: |
+          echo "Set up signing:"
+          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+
 
       # 6. Build iOS project (unsigned IPA)
       - name: Build iOS project
