@@ -10,6 +10,13 @@
 		<UseMaui>true</UseMaui>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<MtouchLink>None</MtouchLink>                 <!-- disables classic MonoTouch linker -->
+		<MtouchUseLlvm>false</MtouchUseLlvm>         <!-- disables LLVM optimization -->
+		<PublishTrimmed>false</PublishTrimmed>       <!-- disables .NET IL trimming -->
+		<EnableAssemblyILLinking>false</EnableAssemblyILLinking> <!-- disables MAUI ILLink -->
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.80" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
