@@ -108,7 +108,7 @@ jobs:
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}" \
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision" \
-            -v diag
+            -v detailed
 
       # 7. Upload IPA artifact
       - name: Upload IPA artifact
