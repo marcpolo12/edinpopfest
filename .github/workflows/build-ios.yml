@@ -102,7 +102,8 @@ jobs:
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
             -f net9.0-ios -c Debug \
             /p:BuildIpa=true \
-            /p:MtouchLink=SdkOnly \
+            /p:MtouchLink=none \
+            /p:MtouchUseLlvm=false \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}"
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
