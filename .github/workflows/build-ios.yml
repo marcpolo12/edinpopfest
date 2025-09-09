@@ -71,6 +71,12 @@ jobs:
           # Create keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
 
+          # Import P12
+          security import ios_distribution.p12 \
+            -k "$KEYCHAIN" \
+            -P "$IOS_P12_PASSWORD" \
+            -T /usr/bin/codesign
+
           # Unlock keychain
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
 
@@ -84,12 +90,6 @@ jobs:
 
           # Verify info
           security show-keychain-info "$KEYCHAIN"
-
-          # Import P12
-          security import ios_distribution.p12 \
-            -k "$KEYCHAIN" \
-            -P "$IOS_P12_PASSWORD" \
-            -T /usr/bin/codesign
 
           security find-identity -v -p codesigning /Users/runner/Library/Keychains/build.keychain-db
         env:
