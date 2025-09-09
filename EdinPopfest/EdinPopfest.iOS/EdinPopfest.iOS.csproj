@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0-ios18.0</TargetFramework>
+		<TargetFramework>net9.0-ios</TargetFramework>
 		<SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>EdinPopfest</RootNamespace>
@@ -24,7 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios18.0'" />
+		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios'" />
 	</ItemGroup>
 
 </Project>
