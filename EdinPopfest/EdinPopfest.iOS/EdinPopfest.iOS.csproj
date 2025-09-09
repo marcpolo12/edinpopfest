@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0-ios</TargetFramework>
+		<TargetFramework>net9.0-ios18.0</TargetFramework>
 		<SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>EdinPopfest</RootNamespace>
@@ -13,7 +13,6 @@
 	<PropertyGroup>
 		<MtouchLink>None</MtouchLink>                 <!-- disables classic MonoTouch linker -->
 		<MtouchUseLlvm>false</MtouchUseLlvm>         <!-- disables LLVM optimization -->
-		<PublishTrimmed>false</PublishTrimmed>       <!-- disables .NET IL trimming -->
 		<EnableAssemblyILLinking>false</EnableAssemblyILLinking> <!-- disables MAUI ILLink -->
 	</PropertyGroup>
 
@@ -25,7 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios'" />
+		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios18.0'" />
 	</ItemGroup>
 
 </Project>
