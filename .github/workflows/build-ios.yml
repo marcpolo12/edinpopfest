@@ -106,7 +106,7 @@ jobs:
             /p:MtouchUseLlvm=false \
             /p:EnableAssemblyILLinking=false \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
-            /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}" \
+            /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision" \
             -v detailed
 
