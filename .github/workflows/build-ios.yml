@@ -100,7 +100,7 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug \
+            -f net9.0-ios18.0 -c Debug \
             /p:BuildIpa=true \
             /p:MtouchLink=none \
             /p:MtouchUseLlvm=false \
@@ -114,7 +114,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios18.0/ios-arm64/*.ipa
 
       # 5. Build Android project
       - name: Build Android project
