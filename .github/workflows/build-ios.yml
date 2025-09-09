@@ -96,7 +96,7 @@ jobs:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
 
-      # 6. Build iOS project (unsigned IPA)
+      # 6. Build iOS project (signed IPA)
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
@@ -105,7 +105,7 @@ jobs:
             /p:MtouchLink=none \
             /p:MtouchUseLlvm=false \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
-            /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}"
+            /p:CodesignKeyPassword="${{ secrets.EDINPOPFEST }}" \
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
 
       # 7. Upload IPA artifact
