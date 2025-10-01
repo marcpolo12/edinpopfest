@@ -106,9 +106,8 @@ jobs:
             /p:MtouchLink=SdkOnly \
             /p:EnableWindowsTargeting=false \
             /p:EnableCodeSigning=false \
-            /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
-            /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
-            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
+            /p:CodesignKey="" \
+            /p:CodesignProvision=""
 
       # 7. Upload IPA artifact
       - name: Upload IPA artifact
