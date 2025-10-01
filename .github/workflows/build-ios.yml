@@ -102,7 +102,6 @@ jobs:
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
             -f net9.0-ios18.0 -c Debug \
             /p:BuildIpa=true \
-            /p:LinkMode=None \
             /p:EnableAssemblyILLinking=false \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
