@@ -1,0 +1,3 @@
+<linker>
+    <assembly fullname="EdinPopfest.iOS" preserve="all"/>
+</linker>

@@ -26,5 +26,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\EdinPopfest\EdinPopfest.csproj" Condition="'$(TargetFramework)'=='net9.0-ios18.0'" />
 	</ItemGroup>
+	<ItemGroup>
+                <TrimmerRootDescriptor Include="LinkerConfig.xml" />
+	</ItemGroup>
 
 </Project>
