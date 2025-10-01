@@ -12,8 +12,7 @@
     <RootNamespace>EdinPopfest</RootNamespace>
     <UseMaui>true</UseMaui>
     <Nullable>enable</Nullable>
-    <EnableAssemblyILLinking>false</EnableAssemblyILLinking>
-    <ApplicationId>com.eic.edinpopfest</ApplicationId>
+    <ApplicationId>com.companyname.edinpopfest</ApplicationId>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">35.0</SupportedOSPlatformVersion>
