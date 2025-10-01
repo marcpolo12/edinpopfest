@@ -1,3 +1,4 @@
 <linker>
     <assembly fullname="EdinPopfest.iOS" preserve="all"/>
+    <assembly fullname="ReactiveUI.Fody" preserve="all"/>
 </linker>
