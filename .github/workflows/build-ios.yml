@@ -102,10 +102,10 @@ jobs:
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
             -f net9.0-ios18.0 -c Debug \
             /p:BuildIpa=true \
-            /p:MtouchLink=None
+            /p:MtouchLink=None \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
-            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision" \
+            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
 
       # 7. Upload IPA artifact
       - name: Upload IPA artifact
