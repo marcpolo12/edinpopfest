@@ -41,6 +41,7 @@ jobs:
         run: |
           dotnet workload install maui-ios
           dotnet workload install maui-android
+          dotnet workload restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
       # 4. Restore NuGet packages for iOS and Android projects
       - name: Restore NuGet packages (iOS)
@@ -100,12 +101,13 @@ jobs:
       - name: Build iOS project
         run: |
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios18.0 -c Release \
+            -f net9.0-ios18.0 -c Debuc \
             /p:BuildIpa=true \
-            /p:MtouchLink=SdkOnly \
-            /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
-            /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
-            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
+            /p:MtouchLink=SdkOnly \ 
+            /p:EnableWindowsTargeting=false \
+            /p:CodesignKey="" \
+            /p:CodesignProvision="" \
+            /p:EnableCodeSigning=false
 
       # 7. Upload IPA artifact
       - name: Upload IPA artifact
