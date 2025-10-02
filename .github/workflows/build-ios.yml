@@ -104,6 +104,9 @@ jobs:
       # 5. Build iOS project (signed IPA)
       - name: Build iOS project
         run: |
+          export KEYCHAIN_PATH=/Users/runner/Library/Keychains/build.keychain-db
+          export KEYCHAIN_PASSWORD=buildpass123
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
             -f net9.0-ios -c Debug -v:diag \
             /p:BuildIpa=true \
