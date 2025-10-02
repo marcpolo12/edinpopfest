@@ -25,6 +25,7 @@
 
         <Label Style="{StaticResource MedText}" Text="Parking:"/>
         <Label x:Name="parkinglabel" Style="{StaticResource SmallText}"/>
+        <local:LinkPanel x:Name="parkopedia" LinkHeader="Parkopedia"/>
         
         <Label Style="{StaticResource LargeText}" Text="Local Contacts"/>
 
@@ -38,12 +39,13 @@
         <Label x:Name="scotraillabel" Style="{StaticResource SmallText}"/>
         <Label Style="{StaticResource LowMedText}" Text="Taxi:"/>
         <Label x:Name="taxilabel" Style="{StaticResource SmallText}"/>
-        <Label Style="{StaticResource LargeText}" Text="Food options (links) for breakfast or lunch."/>
+       
+	<Label Style="{StaticResource LargeText}" Text="Food options (links) for breakfast or lunch."/>
         <Label x:Name="foodinfo1" Style="{StaticResource SmallText}"/>
         <local:LinkPanel x:Name="edbstreetfood" LinkHeader="Edinburgh Street Food"/>
         <local:LinkPanel x:Name="letmeeattoo" LinkHeader="Let Me Eat Too"/>
         <local:LinkPanel x:Name="holycow" LinkHeader="Holy Cow"/>
-        <local:LinkPanel x:Name="fruitmarketcafe" LinkHeader="Fruit Market Cafe"/>
+        <local:LinkPanel x:Name="fruitmarketcafe" LinkHeader="Fruitmarket Cafe"/>
         <local:LinkPanel x:Name="ikigairamen" LinkHeader="Ikigai Ramen"/>
         <local:LinkPanel x:Name="piemaker" LinkHeader="Pie Maker"/>
         <local:LinkPanel x:Name="mosquekitchen" LinkHeader="Mosque Kitchen"/>

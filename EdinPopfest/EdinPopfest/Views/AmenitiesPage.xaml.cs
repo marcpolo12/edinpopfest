@@ -14,6 +14,8 @@ public partial class AmenitiesPage : AmenitiesViewBase
             this.OneWayBind(ViewModel, vm => vm.Mashouse, v => v.mashhouselabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.MainRoom, v => v.mainroomlabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Parking, v => v.parkinglabel.Text).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Parkopedia, v => v.parkopedia.LinkInfo).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.ParkopediaLink, v => v.parkopedia.LinkText).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Emergencies, v => v.emergencieslabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.LothianBuses, v => v.lothianbuseslabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Scotrail, v => v.scotraillabel.Text).DisposeWith(disposables);

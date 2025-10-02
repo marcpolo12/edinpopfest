@@ -32,7 +32,7 @@ public class FestivalService : IFestivalService
             Answer2 = "We're proud to say that The Cords were the first band we booked for the Edinburgh Indiepop All Dayer. \nThe sisters musical development first started at The Rock School at Rig Arts in Greenock under the tutelage of Lesley McLaren, best known as the drummer in the Hedrons.\nThe Cords usually finish their set with a cover version of an indiepop classic. \nStuart Braithwaites Jazzmaster guitar was used on the recording of their 2024 Christmas song Favourite Time.",
             Answer3 = "\"Warm guitar chords with limited/no effects, beautifully pure melodies and beats, playful hooks and a sibling chemistry easily won me and the Mono crowd over.\"", 
             Answer4 = "You'll like the Cords if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "19:00",
             Image = "cordsmain.png",
             //VideoId = "isP4R0MAbsA"
             VideoId = "yx3XH95c2Uk"
@@ -44,7 +44,7 @@ public class FestivalService : IFestivalService
             Link2 = "https://fikarecordings.bandcamp.com/album/no-souvenirs",
             Answer3 = "Not that Id ever describe Fightmilk as an angry punk band, necessarily; whilst there is, undoubtedly, the requisite dustings of rage and anguish in their songs, theres also a whole load of joy and humour, and their music is tight, disciplined and often melodic",
             Answer4 = "You'll like FightMilk if you like ... ",
-            Schedule = "19:00->19:50",
+            Schedule = "21:10",
             Image = "fightmilkmain.png",
             VideoId = "NUxU0JIhrO0"
         },
@@ -55,7 +55,7 @@ public class FestivalService : IFestivalService
             Answer2 = "Some other fact about  FO Machete", 
             Answer3 = "We like FO Machete because", 
             Answer4 = "You'll like FO Machete if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "15:35",
             Image = "fomachetemain.png",
             VideoId = "YEb5CdhZX1c"
         },
@@ -66,7 +66,7 @@ public class FestivalService : IFestivalService
             Answer2 = "Some other fact about  Josie", 
             Answer3 = "We like Josie because", 
             Answer4 = "You'll like Josie if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "16:40",
             Image = "josiemain.png",
             VideoId = "Cacs55mlUZg"
         },
@@ -76,7 +76,7 @@ public class FestivalService : IFestivalService
             Answer1 = "A notion formulated in a haze of alcohol in the Bow Bar after seeing a gig at Sneaky Pete's is rarely a good one but hopefully the idea behind this band will be an exception - get some Edinburgh musicians together to play a set of covers by bands that could (in some cases loosely) be described as indiepop and that are also no longer around. The selection should also feature a healthy Scottish/Edinburgh representation.\n\nThis is the blueprint for Maison D'etre and the plan will come to fruition at the indiepop all dayer.\n\nGrant",
             Answer3 = "We like The Just Joans because", 
             Answer4 = "You'll like The Just Joans if you like ... ",
-            Schedule = "20:00->20:50",
+            Schedule = "14:45",
             Image = "maisondetremain.png",
             VideoId = ""
         },
@@ -87,7 +87,7 @@ public class FestivalService : IFestivalService
             Answer2 = "Hekt was previously the lead vocalist of the band Muncie Girls.", 
             Answer3 = "We like Lande Hekt because", 
             Answer4 = "You'll like Lande Hekt if you like ... ",
-            Schedule = "21:00->21:50",
+            Schedule = "13:40",
             Image = "justjoansmain.png",
             VideoId = "iJhKCZiJIfo"
         },
@@ -98,7 +98,7 @@ public class FestivalService : IFestivalService
             Answer2 = "Hekt was previously the lead vocalist of the band Muncie Girls.", 
             Answer3 = "We like Lande Hekt because", 
             Answer4 = "You'll like Lande Hekt if you like ... ",
-            Schedule = "21:00->21:50",
+            Schedule = "20:05",
             Image = "landehektmain.png",
             VideoId = "xRobTZt7Pe8"
         },
@@ -109,7 +109,7 @@ public class FestivalService : IFestivalService
             Answer2 = "Some other fact about the Proctors", 
             Answer3 = "We like the Proctors because", 
             Answer4 = "You'll like the Proctors if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "17:55",
             Image = "proctorsmain.png",
             VideoId = "VqFlx1sOhoI"
         }

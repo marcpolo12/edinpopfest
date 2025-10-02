@@ -34,6 +34,8 @@ public class AmenitiesViewModel : ReactiveObject
     [Reactive] public string CiverinosLink { get; set; } = "https://maps.app.goo.gl/4NaFexhfgn9JhUhj8";
     [Reactive] public string Bowls { get; set; } = "5 minutes walk. Poke bowl shop. 8pm close.";
     [Reactive] public string BowlsLink { get; set; } = "https://maps.app.goo.gl/3h1ZnM1wjtxs59JZ6";
+    [Reactive] public string Parkopedia { get; set; } = "";
+    [Reactive] public string ParkopediaLink { get; set; } = "https://en.parkopedia.co.uk/parking/locations/eh1_1jg_edinburgh_edinburgh_scotland_united_kingdom_351egcvwr3n6kbu7h6/?country=uk&arriving=202510041300&leaving=202510042300";
     public AmenitiesViewModel(IFestivalService festivalService)
     {
         _festivalService = festivalService;
