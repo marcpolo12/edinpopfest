@@ -14,6 +14,8 @@
     <Nullable>enable</Nullable>
     <ApplicationVersion>1.1</ApplicationVersion>
     <ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
+    <AppleBundleVersion>2</AppleBundleVersion>
+    <AppleBundleShortVersionString>1.1</AppleBundleShortVersionString>
     <ApplicationId>com.eic.edinpopfest</ApplicationId>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
