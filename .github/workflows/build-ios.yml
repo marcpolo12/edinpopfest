@@ -155,3 +155,13 @@ jobs:
         with:
           name: EdinPopfest-ipa
           path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/publish/*.ipa
+      - name: Upload to TestFlight
+        run: |
+          xcrun altool --upload-app \
+            -f EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/publish/EdinPopfest.iOS.ipa \
+            -t ios \
+            -u "$APPLE_ID" \
+            -p "$APP_SPECIFIC_PASSWORD"
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APP_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
