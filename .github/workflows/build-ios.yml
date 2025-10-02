@@ -79,6 +79,9 @@ jobs:
           # Unlock keychain
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
 
+          security list-keychains -s "$KEYCHAIN"
+          security default-keychain -s "$KEYCHAIN"
+
           security list-keychains -s "$KEYCHAIN" /Users/runner/Library/Keychains/login.keychain-db $(security list-keychains | tr -d '"')
 
           # Set settings
@@ -91,6 +94,7 @@ jobs:
           security show-keychain-info "$KEYCHAIN"
 
           security find-identity -v -p codesigning /Users/runner/Library/Keychains/build.keychain-db
+          security find-identity -v -p codesigning
         env:
           KEYCHAIN_PASSWORD: "buildpass123"
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
@@ -102,10 +106,10 @@ jobs:
             -f net9.0-ios -c Debug \
             /p:BuildIpa=true \
             /p:MtouchLink=None \
-            /p:EnableWindowsTargeting=false \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="${{ secrets.IOS_P12_PASSWORD }}" \
-            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
+            #/p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
+            /p:ProvisioningProfile="b3c33c35-1cbf-42d3-a403-bc1432dd1fee"
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
