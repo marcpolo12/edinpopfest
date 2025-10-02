@@ -102,17 +102,17 @@ jobs:
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
       
       # 5. Build iOS project (unsigned, no signing)
-      - name: Build iOS project (unsigned)
-        run: |
-          dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug \
-            /p:BuildIpa=true \
-            /p:MtouchLink=None \
-            /p:EnableCodeSigning=false
+      #- name: Build iOS project (unsigned)
+      #  run: |
+      #    dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
+      #      -f net9.0-ios -c Debug \
+      #      /p:BuildIpa=true \
+      #      /p:MtouchLink=None \
+      #      /p:EnableCodeSigning=false
 
       # 6. Show entitlements file
-      - name: Show entitlements file
-        run: cat EdinPopfest/EdinPopfest.iOS/obj/Debug/net9.0-ios/ios-arm64/Entitlements.xcent
+      #- name: Show entitlements file
+      #  run: cat EdinPopfest/EdinPopfest.iOS/obj/Debug/net9.0-ios/ios-arm64/Entitlements.xcent
       # 5. Build iOS project (signed IPA)
       - name: Build iOS project
         run: |
