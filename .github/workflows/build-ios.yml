@@ -112,14 +112,17 @@ jobs:
       # 6. Manual codesign test
       - name: Manual codesign test
         run: |
+          touch testfile
+          codesign -s - testfile
+          codesign -v testfile
           export KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
           export IOS_P12_PASSWORD="${{ secrets.IOS_P12_PASSWORD }}"
           security unlock-keychain -p buildpass123 "$KEYCHAIN"
           security find-identity -v -p codesigning "$KEYCHAIN"
-          #codesign -v --force --timestamp=none \
-          #  --sign "iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
-          #  --entitlements EdinPopfest/EdinPopfest.iOS/obj/Debug/net9.0-ios/ios-arm64/Entitlements.xcent \
-          #  EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
+          codesign -v --force --timestamp=none \
+            --sign "iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
+            --entitlements EdinPopfest/EdinPopfest.iOS/obj/Debug/net9.0-ios/ios-arm64/Entitlements.xcent \
+            EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
       
       # 5. Build iOS project (signed IPA)
       #- name: Build iOS project
