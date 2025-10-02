@@ -2,5 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>application-identifier</key>
+    <string>XVHZQ55ZBQ.com.eic.edinpopfest</string>
+    <key>keychain-access-groups</key>
+    <array>
+        <string>XVHZQ55ZBQ.*</string>
+        <string>com.apple.token</string>
+    </array>
+    <key>get-task-allow</key>
+    <false/>
+    <key>com.apple.developer.team-identifier</key>
+    <string>XVHZQ55ZBQ</string>
+    <key>beta-reports-active</key>
+    <true/>
 </dict>
 </plist>

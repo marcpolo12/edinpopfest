@@ -6,6 +6,7 @@
 		<OutputType>Exe</OutputType>
 		<RootNamespace>EdinPopfest</RootNamespace>
 		<Nullable>enable</Nullable>
+                <Entitlements>Entitlements.plist</Entitlements>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseMaui>true</UseMaui>
 	</PropertyGroup>
