@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      #- main
       - workingbuild
 
 jobs:
@@ -142,9 +142,12 @@ jobs:
             /p:CodesignKeyPassword="$IOS_P12_PASSWORD" \
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
             #/p:ProvisioningProfile="b3c33c35-1cbf-42d3-a403-bc1432dd1fee"
-        #env:
-        #  IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
-
+        env:
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+      - name: Verify app signature
+        run: |
+          codesign -dv --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
+          codesign --verify --deep --strict --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
