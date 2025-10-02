@@ -106,10 +106,11 @@ jobs:
         run: |
           export KEYCHAIN_PATH=/Users/runner/Library/Keychains/build.keychain-db
           export KEYCHAIN_PASSWORD=buildpass123
+          export KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-db
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
           security find-identity -v -p codesigning "$KEYCHAIN"
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug -v:diag \
+            -f net9.0-ios -c Debug \
             /p:BuildIpa=true \
             /p:MtouchLink=None \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
