@@ -135,7 +135,7 @@ jobs:
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
           security find-identity -v -p codesigning "$KEYCHAIN"
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
-            -f net9.0-ios -c Debug \
+            -f net9.0-ios -c Release \
             /p:BuildIpa=true \
             /p:MtouchLink=None \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
@@ -146,12 +146,12 @@ jobs:
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
       - name: Verify app signature
         run: |
-          codesign -dv --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
-          codesign --verify --deep --strict --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
+          codesign -dv --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
+          codesign --verify --deep --strict --verbose=4 EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/EdinPopfest.iOS.app
 
       # 6. Upload IPA artifact
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: EdinPopfest-ipa
-          path: EdinPopfest/EdinPopfest.iOS/bin/Debug/net9.0-ios/ios-arm64/publish/*.ipa
+          path: EdinPopfest/EdinPopfest.iOS/bin/Release/net9.0-ios/ios-arm64/publish/*.ipa
