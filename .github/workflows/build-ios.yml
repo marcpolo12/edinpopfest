@@ -115,7 +115,8 @@ jobs:
             /p:MtouchLink=None \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="$IOS_P12_PASSWORD" \
-            /p:ProvisioningProfile="b3c33c35-1cbf-42d3-a403-bc1432dd1fee"
+            /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
+            #/p:ProvisioningProfile="b3c33c35-1cbf-42d3-a403-bc1432dd1fee"
         env:
           IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
 
