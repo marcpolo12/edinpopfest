@@ -48,6 +48,12 @@ jobs:
         run: |
           dotnet restore EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj
 
+      # Decode and save certificate & provisioning profile
+      - name: Set up signing
+        run: |
+          echo "Set up signing:"
+          echo "${{ secrets.IOS_PROVISION_BASE64 }}" | base64 --decode > ios_profile.mobileprovision
+
       # 5. Build iOS project (unsigned IPA)
       - name: Build iOS project
         run: |
