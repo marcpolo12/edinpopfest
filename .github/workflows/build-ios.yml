@@ -75,6 +75,25 @@ jobs:
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
 
+          # Unlock keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          security list-keychains -s "$KEYCHAIN" /Users/runner/Library/Keychains/login.keychain-db $(security list-keychains | tr -d '"')
+
+          # Set settings
+          security set-keychain-settings -t 3600 -l "$KEYCHAIN"
+
+          # Add to search path
+          security list-keychains -s "$KEYCHAIN" $(security list-keychains | tr -d '"')
+
+          # Verify info
+          security show-keychain-info "$KEYCHAIN"
+
+          security find-identity -v -p codesigning /Users/runner/Library/Keychains/build.keychain-db
+        env:
+          KEYCHAIN_PASSWORD: "buildpass123"
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+
       # 5. Build iOS project (unsigned IPA)
       - name: Build iOS project
         run: |
