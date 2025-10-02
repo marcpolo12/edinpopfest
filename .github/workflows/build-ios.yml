@@ -130,14 +130,14 @@ jobs:
           export KEYCHAIN_PATH=/Users/runner/Library/Keychains/build.keychain-db
           export KEYCHAIN_PASSWORD=buildpass123
           export KEYCHAIN=/Users/runner/Library/Keychains/build.keychain-dbsecurity
-          security delete-keychain "$KEYCHAIN" || true
-          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          #security delete-keychain "$KEYCHAIN" || true
+          #security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          #security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
           security find-identity -v -p codesigning "$KEYCHAIN"
           dotnet publish EdinPopfest/EdinPopfest.iOS/EdinPopfest.iOS.csproj \
             -f net9.0-ios -c Release \
             /p:BuildIpa=true \
-            /p:MtouchLink=None \
+            /p:MtouchLink=SdkOnly \
             /p:CodesignKey="iPhone Distribution: Marc Armstrong (XVHZQ55ZBQ)" \
             /p:CodesignKeyPassword="$IOS_P12_PASSWORD" \
             /p:ProvisioningProfile="/Users/runner/Library/MobileDevice/Provisioning Profiles/ios_profile.mobileprovision"
