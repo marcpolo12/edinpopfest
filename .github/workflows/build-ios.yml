@@ -77,7 +77,7 @@ jobs:
             -k "$KEYCHAIN" \
             -P "$IOS_P12_PASSWORD" \
             -T /usr/bin/codesign -A
-
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
           # Unlock keychain
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
 
