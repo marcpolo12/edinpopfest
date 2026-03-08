@@ -15,9 +15,5 @@ public class LineupViewModel : ReactiveObject
         _festivalService = festivalService;
 
         LineupInfo = "Loading lineup...";
-       // RefreshCommand = ReactiveCommand.CreateFromTask(async () =>
-       // {
-            //LineupInfo = await _festivalService.GetLineupAsync();
-       // });
     }
 }

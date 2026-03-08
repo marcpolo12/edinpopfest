@@ -11,7 +11,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<MtouchLink>None</MtouchLink>                 <!-- disables classic MonoTouch linker -->
+		<MtouchLink>SdkOnly</MtouchLink>                 <!-- disables classic MonoTouch linker -->
 		<MtouchUseLlvm>false</MtouchUseLlvm>         <!-- disables LLVM optimization -->
 		<EnableAssemblyILLinking>false</EnableAssemblyILLinking> <!-- disables MAUI ILLink -->
 	</PropertyGroup>

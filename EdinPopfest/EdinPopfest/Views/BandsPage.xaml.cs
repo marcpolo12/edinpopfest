@@ -12,13 +12,6 @@ public partial class BandsPage : BandsViewBase
         InitializeComponent();
         this.WhenActivated(disposables =>
         {
-            //this.Bind(ViewModel, vm => vm.BandInfo, v => v.BandLabel.Text).DisposeWith(disposables);
-
-            // Binds the cords button to a command on the ViewModel
-            //this.BindCommand(ViewModel, vm => vm.CordsButtonCommand, v => v.CordsButton)
-            //    .DisposeWith(disposables);
-
-            //this.Bind(ViewModel, vm => vm.BandInfo, v => v.CordsButton.Co).DisposeWith(disposables);
         });
     }
     private async void OnBandButtonClicked(object sender, EventArgs e)

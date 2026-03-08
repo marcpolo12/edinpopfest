@@ -14,18 +14,5 @@ public class BandsViewModel : ReactiveObject
         _festivalService = festivalService;
         // Initialize with some default band info
         BandInfo = "Loading bands...";
-        //LoadCordsCommand = ReactiveCommand.CreateFromTask(async () =>
-        //{
-        //    //await Shell.Current.GoToAsync("BandsPage");
-        //    // Simulate loading band info
-        //    //BandInfo = await _festivalService.GetBandInfoAsync();
-        //    //return BandInfo;
-        //});
-
-        // You can add a command to refresh band info if needed
-        // RefreshCommand = ReactiveCommand.CreateFromTask(async () =>
-        // {
-        //     BandInfo = await _festivalService.GetBandInfoAsync();
-        // });
     }
 }

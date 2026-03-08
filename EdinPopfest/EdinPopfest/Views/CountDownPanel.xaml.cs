@@ -2,7 +2,6 @@ namespace EdinPopFest;
 
 public partial class CountDownPanel : ContentView
 {
-
     public static readonly BindableProperty CountDownMessageProperty =
         BindableProperty.Create(nameof(CountDownMessage), typeof(string), typeof(CountDownPanel), string.Empty, propertyChanged: OnCountDownMessageChanged);
     public static readonly BindableProperty DaysProperty =
@@ -13,6 +12,7 @@ public partial class CountDownPanel : ContentView
         BindableProperty.Create(nameof(Minutes), typeof(string), typeof(CountDownPanel), string.Empty, propertyChanged: OnMinutesChanged);
     public static readonly BindableProperty SecondsProperty =
         BindableProperty.Create(nameof(Seconds), typeof(string), typeof(CountDownPanel), string.Empty, propertyChanged: OnSecondsChanged);
+
     public string CountDownMessage
     {
         get => (string)GetValue(CountDownMessageProperty);

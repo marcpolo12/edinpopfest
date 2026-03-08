@@ -1,22 +1,22 @@
 <local:InfoViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EdinPopFest.InfoPage"
-             xmlns:local="clr-namespace:EdinPopFest"
-             Title="Home">
-    <Grid Padding="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Image
+		    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		    x:Class="EdinPopFest.InfoPage"
+		    xmlns:local="clr-namespace:EdinPopFest"
+		    Title="Home">
+  <Grid Padding="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Image
         Source="edinpopalldayer1.png"
         Grid.Row="0"
         Aspect="Fill"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"/>
-        <local:CountDownPanel x:Name="countdownpanel" Grid.Row="1"
+    <local:CountDownPanel x:Name="countdownpanel" Grid.Row="1"
                           HorizontalOptions="Center"/>
-        <Border x:Name="welcomepanel"
+    <Border x:Name="welcomepanel"
             BackgroundColor="LightSeaGreen"
             HeightRequest="100"
             Padding="0"
@@ -24,24 +24,24 @@
             Grid.Row="1"
             VerticalOptions="End" 
             HorizontalOptions="Fill">
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Text="Welcome to the" 
+      <Grid >
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Welcome to the" 
                Grid.Row="0" Margin="0"
                HorizontalOptions="Center"
                VerticalOptions="End"
                FontSize="28"
-            FontAttributes="Bold"/>
-                <Label Text="Edinburgh Indiepop Alldayer!" 
+               FontAttributes="Bold"/>
+        <Label Text="Edinburgh Indiepop Alldayer!" 
                Grid.Row="1" Margin="0"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                FontSize="28"
-            FontAttributes="Bold"/>
-            </Grid>
-        </Border>
-    </Grid>
+               FontAttributes="Bold"/>
+      </Grid>
+    </Border>
+  </Grid>
 </local:InfoViewBase>

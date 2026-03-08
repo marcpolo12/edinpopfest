@@ -1,8 +1,11 @@
 using ReactiveUI;
 using ReactiveUI.Maui;
 using System.Reactive.Disposables;
+
 namespace EdinPopFest;
+
 public class LineupViewBase : ReactiveContentPage<LineupViewModel> { }
+
 public partial class LineupPage : LineupViewBase
 {
     public LineupPage(LineupViewModel viewModel)

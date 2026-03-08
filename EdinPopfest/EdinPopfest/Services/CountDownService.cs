@@ -27,10 +27,12 @@ public class CountDownService : ReactiveObject, ICountDownService
     public int Seconds { get; private set; }
     [Reactive]
     public bool IsActive { get; private set; } = true;
+
     public CountDownService()
     {
         // Initialize the countdown service with the event date
     }
+
     public void StartCountDown(DateTime eventDate)
     {
         _eventDate = eventDate;
@@ -47,6 +49,7 @@ public class CountDownService : ReactiveObject, ICountDownService
             FriendlyMessage = $"See you on {friendlyDate}!";
         });
     }
+
     public void StopCountDown()
     {
         timer_.Stop();

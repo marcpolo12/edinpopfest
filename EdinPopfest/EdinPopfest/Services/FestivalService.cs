@@ -12,6 +12,7 @@ public class FestivalService : IFestivalService
     public string Question4 { get; } = "You'll like them if you like.";
     public string Link1 { get; set; } = "";
     public string Link2 { get; set; } = "";
+
     public Band GetBandByName(string bandName)
     {
         // Retrieve the band from the dictionary

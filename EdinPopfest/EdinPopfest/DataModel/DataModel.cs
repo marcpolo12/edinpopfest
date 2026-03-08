@@ -7,7 +7,6 @@ public class Band1
     public string Description2 { get; set; } = "";
     public string Description3 { get; set; } = "";
     public string Description4 { get; set; } = "";
-   // public string Icon { get; set; }
 }
 
 public class DataModel

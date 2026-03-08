@@ -27,6 +27,4 @@
         Title="Safe Space"
         ContentTemplate="{DataTemplate local:SafeSpacePage}"
         Route="SafeSpacePage" />
-    
-
 </Shell>

@@ -7,8 +7,10 @@ namespace EdinPopFest;
 public class BandDetailViewModel : ReactiveObject
 {
     public IFestivalService Festival { get; private set; }
+
     [Reactive]
     public Band Band { get; private set;  } = new Band();
+
     public ICommand OpenLinkCommand { get; }
 
     public BandDetailViewModel(IFestivalService festivalService)

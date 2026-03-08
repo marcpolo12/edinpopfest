@@ -1,42 +1,42 @@
 <local:BandDetailViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EdinPopFest.BandDetailPage"
-             xmlns:local="clr-namespace:EdinPopFest"
-             Title="{Binding Band.Name}">
+			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			  x:Class="EdinPopFest.BandDetailPage"
+			  xmlns:local="clr-namespace:EdinPopFest"
+			  Title="{Binding Band.Name}">
 
-    <local:BandDetailViewBase.Resources>
-    </local:BandDetailViewBase.Resources>
-    <ScrollView>
-      <Grid>
-	<Image
-            Source="edinpopalldayer1.png"
-            Aspect="AspectFill"
-            Opacity="0.2"
-            HorizontalOptions="Center"
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
-            AbsoluteLayout.LayoutFlags="All" />
-        <VerticalStackLayout Padding="0" Spacing="0"
-                             AbsoluteLayout.LayoutBounds="0,0,1,1"
-                             AbsoluteLayout.LayoutFlags="All">
-	  <Border WidthRequest="300"
-		  HeightRequest="300"
-		  StrokeShape="Ellipse"
-		  StrokeThickness="0"
-		  BackgroundColor="Transparent"
-		  HorizontalOptions="Center"
-		  VerticalOptions="Start">
-            <Image
-		x:Name="bandimage"
-		WidthRequest="300"
-		HeightRequest="300"
-		Aspect="AspectFill"/>
-	  </Border>
-	  <Label x:Name="answer1label" Style="{StaticResource SmallText}"/>
-	  <WebView x:Name="youtubeWebView"
-		   Margin="30"
-		   HorizontalOptions="Fill"
-		   VerticalOptions="Start"/>
-	</VerticalStackLayout>
-      </Grid>
-    </ScrollView>
+  <local:BandDetailViewBase.Resources>
+  </local:BandDetailViewBase.Resources>
+  <ScrollView>
+    <Grid>
+      <Image
+          Source="edinpopalldayer1.png"
+          Aspect="AspectFill"
+          Opacity="0.2"
+          HorizontalOptions="Center"
+          AbsoluteLayout.LayoutBounds="0,0,1,1"
+          AbsoluteLayout.LayoutFlags="All" />
+      <VerticalStackLayout Padding="0" Spacing="0"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All">
+        <Border WidthRequest="300"
+                HeightRequest="300"
+                StrokeShape="Ellipse"
+                StrokeThickness="0"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                VerticalOptions="Start">
+          <Image
+              x:Name="bandimage"
+              WidthRequest="300"
+              HeightRequest="300"
+              Aspect="AspectFill"/>
+        </Border>
+        <Label x:Name="answer1label" Style="{StaticResource SmallText}"/>
+        <WebView x:Name="youtubeWebView"
+                 Margin="30"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Start"/>
+      </VerticalStackLayout>
+    </Grid>
+  </ScrollView>
 </local:BandDetailViewBase>

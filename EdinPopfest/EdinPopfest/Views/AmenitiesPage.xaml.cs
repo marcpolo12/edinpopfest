@@ -2,7 +2,9 @@ using ReactiveUI;
 using ReactiveUI.Maui;
 using System.Reactive.Disposables;
 namespace EdinPopFest;
+
 public class AmenitiesViewBase : ReactiveContentPage<AmenitiesViewModel> { }
+
 public partial class AmenitiesPage : AmenitiesViewBase
 {
     public AmenitiesPage(AmenitiesViewModel viewModel)

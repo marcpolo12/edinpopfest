@@ -15,13 +15,13 @@ namespace EdinPopFest.Helpers
 
         public static IServiceProvider? Current =>
 #if WINDOWS10_0_26100_0_OR_GREATER
-            MauiWinUIApplication.Current.Services;
+        MauiWinUIApplication.Current.Services;
 #elif ANDROID
-                MauiApplication.Current.Services;
+        MauiApplication.Current.Services;
 #elif IOS
-                MauiUIApplicationDelegate.Current.Services;
+        MauiUIApplicationDelegate.Current.Services;
 #else
-                null;
+        null;
 #endif
     }
 }
