@@ -1,0 +1,99 @@
+<local:NewsFeedViewBase
+    x:Name="FeedPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="EdinPopFest.NewsFeedPage"
+    xmlns:local="clr-namespace:EdinPopFest"
+    Title="EIC News Feed">
+  <ContentPage.Resources>
+
+    <!-- Gig Template -->
+    <DataTemplate x:Key="GigTemplate">
+      <!-- Your gig card layout -->
+      <Border Margin="10" Padding="10
+              ">
+        <VerticalStackLayout>
+          <Image Aspect="AspectFit" x:Name="GigImage">
+            <Image.Source>
+              <UriImageSource
+                  Uri="{Binding ImageUrl}"
+                  CachingEnabled="True"
+                  CacheValidity="7.00:00:00"/>
+            </Image.Source>
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer
+                  Command="{Binding BindingContext.OpenFacebookCommand, Source={x:Reference FeedPage}}"
+                  CommandParameter="{Binding FacebookUrl}" />
+            </Image.GestureRecognizers>
+          </Image>
+
+          <VerticalStackLayout Margin="0" Padding="6,0" Spacing="0">
+            <Label
+                Style="{StaticResource SmallText}"
+                Text="{Binding Title}"
+                FontAttributes="Bold"
+                LineBreakMode="WordWrap"/>
+            <Label Style="{StaticResource SmallText}">
+              <Label.FormattedText>
+                <FormattedString>
+                  <Span Text="{Binding Venue}" />
+                  <Span Text=" • " />
+                  <Span Text="{Binding DisplayDate}" />
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+
+            <Label
+                Style="{StaticResource SmallText}"
+                Text="{Binding Description}"
+                LineBreakMode="WordWrap"/>
+          </VerticalStackLayout>
+
+        </VerticalStackLayout>
+        <Border.GestureRecognizers>
+          <TapGestureRecognizer
+              Command="{Binding BindingContext.OpenItemCommand, Source={x:Reference Name=FeedPage}}"
+              CommandParameter="{Binding .}" />
+        </Border.GestureRecognizers>
+
+      </Border>
+    </DataTemplate>
+
+    <!-- Text Post Template -->
+    <DataTemplate x:Key="PostTemplate">
+      <Border Padding="12" Margin="5,5">
+        <VerticalStackLayout>
+          <Label Text="{Binding Title}"
+                 FontSize="18"
+                 FontAttributes="Bold"/>
+          <Image Source="{Binding ImageUrl}"
+                 x:Name="PostImage"
+                 HeightRequest="180"
+                 Aspect="AspectFill">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer
+		  Command="{Binding BindingContext.OpenFacebookCommand, Source={x:Reference FeedPage}}"
+		  CommandParameter="{Binding FacebookUrl}" />
+            </Image.GestureRecognizers>
+          </Image>
+          <Label Text="{Binding Description}"
+                 LineBreakMode="WordWrap"/>
+        </VerticalStackLayout>
+      </Border>
+    </DataTemplate>
+
+    <local:FeedTemplateSelector x:Key="FeedSelector"
+                                GigTemplate="{StaticResource GigTemplate}"
+                                PostTemplate="{StaticResource PostTemplate}" />
+
+  </ContentPage.Resources>
+  <RefreshView x:Name="Refresh">
+    <CollectionView
+        x:Name="NewsItems"
+        SelectionMode="None"
+        ItemTemplate="{StaticResource FeedSelector}"
+        RemainingItemsThreshold="3">
+
+    </CollectionView>
+  </RefreshView>
+</local:NewsFeedViewBase>

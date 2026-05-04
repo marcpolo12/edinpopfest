@@ -27,4 +27,8 @@
         Title="Safe Space"
         ContentTemplate="{DataTemplate local:SafeSpacePage}"
         Route="SafeSpacePage" />
+    <ShellContent
+        Title="News"
+        ContentTemplate="{DataTemplate local:NewsFeedPage}"
+        Route="NewsFeedPage" />
 </Shell>

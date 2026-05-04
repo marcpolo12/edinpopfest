@@ -21,6 +21,7 @@ namespace EdinPopFest
             // Services
             builder.Services.AddSingleton<IFestivalService, FestivalService>();
             builder.Services.AddSingleton<ICountDownService, CountDownService>();
+            builder.Services.AddSingleton<IGigService, GigService>();
 
             // ViewModels
             builder.Services.AddTransient<BandDetailViewModel>();
@@ -32,6 +33,7 @@ namespace EdinPopFest
             builder.Services.AddTransient<AboutViewModel>();
             builder.Services.AddTransient<AmenitiesViewModel>();
             builder.Services.AddTransient<SafeSpaceViewModel>();
+            builder.Services.AddTransient<NewsFeedViewModel>();
 
             // Views
             //builder.Services.AddTransient<MainPage>();
@@ -41,6 +43,7 @@ namespace EdinPopFest
             builder.Services.AddTransient<AboutPage>();
             builder.Services.AddTransient<AmenitiesPage>();
             builder.Services.AddTransient<SafeSpacePage>();
+            builder.Services.AddTransient<NewsFeedPage>();
 
             return builder;
         }
