@@ -12,9 +12,13 @@
         ContentTemplate="{DataTemplate local:InfoPage}"
         Route="InfoPage" />
     <ShellContent
-        Title="Lineup"
-        ContentTemplate="{DataTemplate local:BandsPage}"
-        Route="BandsPage" />
+        Title="News"
+        ContentTemplate="{DataTemplate local:NewsFeedPage}"
+        Route="NewsFeedPage" />
+    <ShellContent
+        Title="Alldayers"
+        ContentTemplate="{DataTemplate local:AlldayerPage}"
+        Route="AlldayerPage" />
     <ShellContent
         Title="About EIC"
         ContentTemplate="{DataTemplate local:AboutPage}"
@@ -27,8 +31,4 @@
         Title="Safe Space"
         ContentTemplate="{DataTemplate local:SafeSpacePage}"
         Route="SafeSpacePage" />
-    <ShellContent
-        Title="News"
-        ContentTemplate="{DataTemplate local:NewsFeedPage}"
-        Route="NewsFeedPage" />
 </Shell>

@@ -11,10 +11,5 @@ public class NavigationService : INavigationService
 
     public void NavigateToBandDetail(Band band)
     {
-        //var page = new BandDetailPage
-        //{
-        //    ViewModel = new BandDetailViewModel(band)
-        //};
-        //Application.Current.MainPage.Navigation.PushAsync(page);
     }
 }

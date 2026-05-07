@@ -1,5 +1,5 @@
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 
 namespace EdinPopFest;
 
@@ -9,28 +9,18 @@ public enum FeedItemType
     Post
 }
 
-public class FeedItem : ReactiveObject
+public partial class FeedItem : ReactiveObject
 {
-    [Reactive]
-    public string Type { get; set; }  // from sheet
-    [Reactive]
-    public string Artist { get; set; }
-    [Reactive]
-    public string Venue { get; set; }
-    [Reactive]
-    public string Area { get; set; }
-    [Reactive]
-    public string Date { get; set; }
-    [Reactive]
-    public string Time { get; set; }
-    [Reactive]
-    public string Title { get; set; }
-    [Reactive]
-    public string Description { get; set; }
-    [Reactive]
-    public string ImageUrl { get; set; }
-    [Reactive]
-    public string FacebookUrl { get; set; }
+    [Reactive] public partial string Type { get; set; }  // from sheet
+    [Reactive] public partial string Artist { get; set; }
+    [Reactive] public partial string Venue { get; set; }
+    [Reactive] public partial string Area { get; set; }
+    [Reactive] public partial string Date { get; set; }
+    [Reactive] public partial string Time { get; set; }
+    [Reactive] public partial string Title { get; set; }
+    [Reactive] public partial string Description { get; set; }
+    [Reactive] public partial string ImageUrl { get; set; }
+    [Reactive] public partial string FacebookUrl { get; set; }
 
     public DateTime EventDateTime
     {

@@ -1,4 +1,5 @@
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 using System.Reactive.Linq;
 using System.Text.RegularExpressions;
 using ReactiveUI;
@@ -32,7 +33,7 @@ public partial class BandDetailPage : BandDetailViewBase
         {
             this.OneWayBind(ViewModel, vm => vm.Band.Answer1, v => v.answer1label.Text)
                 .DisposeWith(disposables);
-            this.OneWayBind(ViewModel, vm => vm.Band.Image, v => v.bandimage.Source)
+            this.OneWayBind(ViewModel, vm => vm.Band.Image, v => v.bandimage.Source, image => ImageSource.FromFile(image))
                 .DisposeWith(disposables);
 
             this.WhenAnyValue(x => x.ViewModel)

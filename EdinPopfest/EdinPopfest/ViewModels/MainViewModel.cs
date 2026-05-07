@@ -1,5 +1,5 @@
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 namespace EdinPopFest;
 public class MainViewModel : ReactiveObject
 {

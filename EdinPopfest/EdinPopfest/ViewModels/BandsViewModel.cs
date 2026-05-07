@@ -1,11 +1,11 @@
 using System.Reactive;
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 namespace EdinPopFest;
-public class BandsViewModel : ReactiveObject
+public partial class BandsViewModel : ReactiveObject
 {
     private readonly IFestivalService _festivalService;
-    [Reactive] public string BandInfo { get; set; } = "Featured: The Cats, Jazz Band, Electric Owls";
+    [Reactive] public partial string BandInfo { get; set; }
 
     // Command to load cords band info
     //public ReactiveCommand<Unit, string> LoadCordsCommand { get; } 

@@ -1,13 +1,13 @@
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 using System.Reactive;
 namespace EdinPopFest;
 
-public class LineupViewModel : ReactiveObject
+public partial class LineupViewModel : ReactiveObject
 {
     private readonly IFestivalService _festivalService;
 
-    [Reactive] public string LineupInfo { get; set; }
+    [Reactive] public partial string LineupInfo { get; set; }
     public ReactiveCommand<Unit, Unit> RefreshCommand { get; }
 
     public LineupViewModel(IFestivalService festivalService)

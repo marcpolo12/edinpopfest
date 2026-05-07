@@ -1,0 +1,38 @@
+<local:AlldayerViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="EdinPopFest.AlldayerPage"
+                     xmlns:local="clr-namespace:EdinPopFest"
+                     xmlns:brushes="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+                     Title="EIC Alldayers">
+  <ScrollView>
+    <Grid>
+      <Image Source="edinpopalldayer1.png"
+             Aspect="AspectFill"
+             AbsoluteLayout.LayoutBounds="0,0,1,1"
+             AbsoluteLayout.LayoutFlags="All" />
+      <VerticalStackLayout Margin="0,-100,0,0"  Padding="20" Spacing="100" VerticalOptions="Center">
+
+        <local:AlldayerPanel AlldayerName="2026"
+                         AlldayerImageSource="eic.png"
+                         HorizontalOptions="Center">
+          <local:AlldayerPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Cords"
+                Tapped="OnAlldayerPanelTapped"/>
+          </local:AlldayerPanel.GestureRecognizers>
+        </local:AlldayerPanel>
+        
+
+        <local:AlldayerPanel AlldayerName="2025"
+                         AlldayerImageSource="eic.png"
+                         HorizontalOptions="Center">
+          <local:AlldayerPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="FightMilk"
+                Tapped="OnAlldayerPanelTapped"/>
+          </local:AlldayerPanel.GestureRecognizers>
+        </local:AlldayerPanel>
+      </VerticalStackLayout>
+    </Grid>
+  </ScrollView>
+</local:AlldayerViewBase>

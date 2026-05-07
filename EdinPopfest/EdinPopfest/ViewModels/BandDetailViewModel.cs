@@ -1,21 +1,22 @@
 using System.Windows.Input;
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 
 namespace EdinPopFest;
 
-public class BandDetailViewModel : ReactiveObject
+public partial class BandDetailViewModel : ReactiveObject
 {
     public IFestivalService Festival { get; private set; }
 
     [Reactive]
-    public Band Band { get; private set;  } = new Band();
+    public partial Band Band { get; private set;  }
 
     public ICommand OpenLinkCommand { get; }
 
     public BandDetailViewModel(IFestivalService festivalService)
     {
         Festival = festivalService;
+        Band = new Band();
 
         OpenLinkCommand = new Command<string>(async (url) =>
         {

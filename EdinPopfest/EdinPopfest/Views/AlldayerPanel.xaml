@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdinPopFest.AlldayerPanel">
+  <Border WidthRequest="300"
+          BackgroundColor="PeachPuff"
+          StrokeThickness="1">
+    <Border.StrokeShape>
+      <RoundRectangle CornerRadius="80"/>
+    </Border.StrokeShape>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <Border WidthRequest="200"
+              HeightRequest="200"
+	      Margin="0,20,0,0"
+              StrokeShape="Ellipse"
+              StrokeThickness="0"
+              BackgroundColor="Transparent"
+              HorizontalOptions="Center"
+              VerticalOptions="Center">
+        <Image x:Name="alldayerimage"
+               Source="cords1.png"
+               WidthRequest="200"
+               HeightRequest="200"
+               Grid.Column="0"
+               Aspect="AspectFill"/>
+      </Border >
+      <Grid Grid.Row="1" Margin="15">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+                <Label x:Name="alldayername"  Style="{StaticResource ExtraLargeText}"
+               Text="Alldayer Name" 
+                       TextColor="LightSeaGreen"
+               Grid.Row="0"
+               HorizontalOptions="Center" />
+      </Grid>
+    </Grid>
+  </Border>
+</ContentView>

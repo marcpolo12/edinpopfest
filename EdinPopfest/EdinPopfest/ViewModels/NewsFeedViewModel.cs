@@ -1,18 +1,17 @@
 
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 
 using System.Collections.ObjectModel;
 using System.Reactive;
 
 namespace EdinPopFest;
 
-public class NewsFeedViewModel : ReactiveObject
+public partial class NewsFeedViewModel : ReactiveObject
 {
 
     [Reactive]
-    public bool IsRefreshing { get; set; }
-
+    public partial bool IsRefreshing { get; set; }
     private readonly GigService _service = new();
 
     public ObservableCollection<FeedItem> NewsItems { get; }

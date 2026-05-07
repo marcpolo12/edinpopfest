@@ -1,17 +1,17 @@
 using System.Threading.Tasks;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 
 namespace EdinPopFest;
 
-public class FestivalService : IFestivalService
+public partial class FestivalService : IFestivalService
 {
-    [Reactive]
-    public string Question1 { get; } = "Let's begin...";
+    public string Question1 { get; } = "Lets begin...";
     public string Question2 { get; } = "And another thing...";
     public string Question3 { get; } = "What others have been saying...";
     public string Question4 { get; } = "You'll like them if you like.";
     public string Link1 { get; set; } = "";
     public string Link2 { get; set; } = "";
+
 
     public Band GetBandByName(string bandName)
     {

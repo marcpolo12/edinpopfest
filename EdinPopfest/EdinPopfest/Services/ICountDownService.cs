@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 
 namespace EdinPopFest;
 public interface ICountDownService
 {
-    [Reactive]
-    string FriendlyMessage { get; }
-    [Reactive]
-    int Days { get; }
-    [Reactive]
-    int Hours { get; }
-    [Reactive]
-    int Minutes { get; }
-    [Reactive]
-    int Seconds { get; }
-    [Reactive]
-    bool IsActive { get; }
+    string FriendlyMessage { get; set; }
+    int Days { get; set; }
+    int Hours { get; set; }
+    int Minutes { get; set; }
+    int Seconds { get; set; }
+    bool IsActive { get; set; }
     void StartCountDown(DateTime eventDate);
     void StopCountDown();
 }

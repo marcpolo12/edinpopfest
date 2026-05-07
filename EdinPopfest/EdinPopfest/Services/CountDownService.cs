@@ -5,32 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+using ReactiveUI.SourceGenerators;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace EdinPopFest;
 
-public class CountDownService : ReactiveObject, ICountDownService
+public partial class CountDownService : ReactiveObject, ICountDownService
 {
     // DateTime
     private DateTime _eventDate;
-    [Reactive]
-    public string FriendlyMessage { get; private set; } = string.Empty;
-    [Reactive]
-    public int Days { get; private set; }
-    [Reactive]
-    public int Hours { get; private set; }
-    [Reactive]
-    public int Minutes { get; private set; }
-    [Reactive]
-    public int Seconds { get; private set; }
-    [Reactive]
-    public bool IsActive { get; private set; } = true;
+    
+    [Reactive] public partial string FriendlyMessage { get; set; }
+    [Reactive] public partial int Days { get; set; }
+    [Reactive] public partial int Hours { get; set; }
+    [Reactive] public partial int Minutes { get; set; }
+    [Reactive] public partial int Seconds { get; set; }
+    [Reactive] public partial bool IsActive { get; set; }
 
     public CountDownService()
     {
         // Initialize the countdown service with the event date
+        IsActive = true;
     }
 
     public void StartCountDown(DateTime eventDate)

@@ -1,6 +1,7 @@
 using ReactiveUI;
 using ReactiveUI.Maui;
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 namespace EdinPopFest;
 
 public class NewsFeedViewBase : ReactiveContentPage<NewsFeedViewModel> { }

@@ -7,6 +7,7 @@
             InitializeComponent();
 
             Routing.RegisterRoute("banddetail", typeof(BandDetailPage));
+            Routing.RegisterRoute("bandsPage", typeof(BandsPage));
         }
     }
 }
