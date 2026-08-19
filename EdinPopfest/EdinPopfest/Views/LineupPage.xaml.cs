@@ -16,7 +16,7 @@ public partial class LineupPage : LineupViewBase
         this.WhenActivated(disposables =>
         {
             this.Bind(ViewModel, vm => vm.LineupInfo, v => v.LineupLabel.Text).DisposeWith(disposables);
-            this.BindCommand(ViewModel, vm => vm.RefreshCommand, v => v.RefreshButton).DisposeWith(disposables);
+            //this.BindCommand(ViewModel, vm => vm.RefreshCommand, v => v.RefreshButton).DisposeWith(disposables);
         });
     }
 }

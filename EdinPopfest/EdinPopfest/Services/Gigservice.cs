@@ -10,10 +10,12 @@ public class GigService : IGigService
     {
         var json = await _client.GetStringAsync("https://script.google.com/macros/s/AKfycbw-335eV6EOKVK30pTw47gFGCM9CmELECSD_u_VDnG-BHlOdMxK7qIPmtrnllL2If6l/exec");
 
-        return JsonSerializer.Deserialize<List<FeedItem>>(json,
+        var gigs = JsonSerializer.Deserialize<List<FeedItem>>(json,
             new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             });
+
+        return gigs ?? new List<FeedItem>();
     }
 }

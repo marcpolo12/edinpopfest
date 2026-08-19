@@ -82,15 +82,15 @@ public partial class FeedItem : ReactiveObject
 
 public class FeedTemplateSelector : DataTemplateSelector
 {
-    public DataTemplate GigTemplate { get; set; }
-    public DataTemplate PostTemplate { get; set; }
+    public DataTemplate? GigTemplate { get; set; }
+    public DataTemplate? PostTemplate { get; set; }
 
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
         var feedItem = item as FeedItem;
 
-        return feedItem.PostType == FeedItemType.Gig
-            ? GigTemplate
-            : PostTemplate;
+        return feedItem?.PostType == FeedItemType.Gig
+            ? GigTemplate!
+            : PostTemplate!;
     }
 }

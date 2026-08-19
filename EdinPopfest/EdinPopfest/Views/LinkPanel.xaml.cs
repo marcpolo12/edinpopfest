@@ -35,10 +35,10 @@ public partial class LinkPanel : ContentView
             {
                 if (!string.IsNullOrWhiteSpace(LinkText))
                 {
-                    Uri uri;
-                    if (Uri.TryCreate(LinkText, UriKind.Absolute, out uri))
+                    Uri? uri;
+                    if (Uri.TryCreate(LinkText!, UriKind.Absolute, out uri))
                     {
-                        await Launcher.Default.OpenAsync(LinkText);
+                        await Launcher.Default.OpenAsync(LinkText!);
                     }
                 }
             }

@@ -15,5 +15,6 @@ public partial class LineupViewModel : ReactiveObject
         _festivalService = festivalService;
 
         LineupInfo = "Loading lineup...";
+        RefreshCommand = ReactiveCommand.Create(() => { /* TODO: Add refresh logic */ });
     }
 }

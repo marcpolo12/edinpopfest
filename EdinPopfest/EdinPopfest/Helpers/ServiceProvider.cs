@@ -10,16 +10,19 @@ namespace EdinPopFest.Helpers
     public static class ServiceProvider
     {
         // get service
-        public static TService? GetService<TService>() where TService : class =>
-            Current?.GetService<TService>();
+        public static TService? GetService<TService>() where TService : class
+        {
+            var provider = Current;
+            return provider != null ? provider.GetService<TService>() : null;
+        }
 
         public static IServiceProvider? Current =>
 #if WINDOWS10_0_26100_0_OR_GREATER
         MauiWinUIApplication.Current.Services;
 #elif ANDROID
-        MauiApplication.Current.Services;
+        IPlatformApplication.Current?.Services;
 #elif IOS
-        MauiUIApplicationDelegate.Current.Services;
+        IPlatformApplication.Current?.Services;
 #else
         null;
 #endif

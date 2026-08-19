@@ -37,13 +37,15 @@ public partial class BandDetailPage : BandDetailViewBase
                 .DisposeWith(disposables);
 
             this.WhenAnyValue(x => x.ViewModel)
-                .Where(vm => vm != null && vm.Band != null)
+                .Where(vm => vm != null)
                 .Subscribe(vm =>
                 {
-                    if (!string.IsNullOrWhiteSpace(vm.Band.VideoId))
+                    var band = vm?.Band;
+                    if (!string.IsNullOrWhiteSpace(band?.VideoId))
                     {
-                        var url = $"https://www.youtube.com/embed/{vm.Band.VideoId}";
+                        var url = $"https://www.youtube.com/embed/{band.VideoId}";
                         youtubeWebView.Source = url;
+                        youtubeWebView.IsVisible = true;
                     }
                     else
                     {

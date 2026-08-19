@@ -15,7 +15,6 @@ public partial class NewsFeedViewModel : ReactiveObject
     private readonly GigService _service = new();
 
     public ObservableCollection<FeedItem> NewsItems { get; }
-    public ObservableCollection<GigGroup> GroupedGigs { get; set; }
 
     public ReactiveCommand<Unit, Unit> RefreshCommand { get; }
     public ReactiveCommand<string, Unit> OpenFacebookCommand { get; }
@@ -43,27 +42,6 @@ public partial class NewsFeedViewModel : ReactiveObject
 
         // Auto-load on startup
         RefreshCommand.Execute().Subscribe();
-    }
-
-    private void GroupGigs(List<FeedItem> gigs)
-    {
-        var today = DateTime.Today;
-
-        var tonight = gigs.Where(g => g.EventDateTime == today);
-        var thisWeek = gigs.Where(g => g.EventDateTime > today &&
-                                  g.EventDateTime <= today.AddDays(7));
-        var upcoming = gigs.Where(g => g.EventDateTime > today.AddDays(7));
-
-        GroupedGigs.Clear();
-
-        if (tonight.Any())
-            GroupedGigs.Add(new GigGroup("🔥 Tonight", tonight));
-
-        if (thisWeek.Any())
-            GroupedGigs.Add(new GigGroup("🎸 This Week", thisWeek));
-
-        if (upcoming.Any())
-            GroupedGigs.Add(new GigGroup("📅 Upcoming", upcoming));
     }
 
     private async void LoadGigs()

@@ -4,7 +4,7 @@
              x:Class="EdinPopFest.AlldayerPanel">
   <Border WidthRequest="300"
           BackgroundColor="PeachPuff"
-          StrokeThickness="1">
+          Opacity="0.80">
     <Border.StrokeShape>
       <RoundRectangle CornerRadius="80"/>
     </Border.StrokeShape>
@@ -16,7 +16,7 @@
 
       <Border WidthRequest="200"
               HeightRequest="200"
-	      Margin="0,20,0,0"
+              Margin="0,20,0,0"
               StrokeShape="Ellipse"
               StrokeThickness="0"
               BackgroundColor="Transparent"
@@ -34,9 +34,9 @@
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-                <Label x:Name="alldayername"  Style="{StaticResource ExtraLargeText}"
+        <Label x:Name="alldayername"  Style="{StaticResource ExtraLargeText}"
                Text="Alldayer Name" 
-                       TextColor="LightSeaGreen"
+               TextColor="LightSeaGreen"
                Grid.Row="0"
                HorizontalOptions="Center" />
       </Grid>

@@ -27,6 +27,7 @@ public partial class CountDownService : ReactiveObject, ICountDownService
     {
         // Initialize the countdown service with the event date
         IsActive = true;
+        FriendlyMessage = string.Empty;
     }
 
     public void StartCountDown(DateTime eventDate)
