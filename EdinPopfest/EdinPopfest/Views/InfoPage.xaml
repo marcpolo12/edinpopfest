@@ -11,7 +11,7 @@
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Image
-        Source="edinpopalldayer1.png"
+        Source="edinpopalldayer2.png"
         Grid.Row="0"
         Aspect="Fill"
         HorizontalOptions="Fill"

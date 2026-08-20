@@ -8,7 +8,7 @@
   <ScrollView>
     <Grid>
       <Image
-          Source="edinpopalldayer1.png"
+          Source="edinpopalldayer2.png"
           Aspect="AspectFill"
           Opacity="0.15"
           HorizontalOptions="Center"

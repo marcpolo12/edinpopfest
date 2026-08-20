@@ -64,7 +64,8 @@ namespace EdinPopFest
             builder.Services.AddTransient<SafeSpaceViewModel>();
 
             // Views
-            builder.Services.AddTransient<BandsPage>();
+            builder.Services.AddTransient<BandsPage2025>();
+            builder.Services.AddTransient<BandsPage2026>();
             builder.Services.AddTransient<AlldayerPage>();
             builder.Services.AddTransient<InfoPage>();
             builder.Services.AddTransient<AboutPage>();

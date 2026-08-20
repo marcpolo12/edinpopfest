@@ -1,34 +1,40 @@
 <local:AlldayerViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                     x:Class="EdinPopFest.AlldayerPage"
-                     xmlns:local="clr-namespace:EdinPopFest"
-                     xmlns:brushes="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
-                     Title="EIC Alldayers">
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			x:Class="EdinPopFest.AlldayerPage"
+			xmlns:local="clr-namespace:EdinPopFest"
+			xmlns:brushes="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+			Title="EIC Alldayers">
   <ScrollView>
     <Grid>
-      <Image Source="edinpopalldayer1.png"
+      <Image Source="edinpopalldayer2.png"
              Aspect="AspectFill"
              AbsoluteLayout.LayoutBounds="0,0,1,1"
              AbsoluteLayout.LayoutFlags="All" />
       <VerticalStackLayout Margin="0,-100,0,0"  Padding="20" Spacing="100" VerticalOptions="Center">
 
         <local:AlldayerPanel AlldayerName="2026"
-                         AlldayerImageSource="eic.png"
-                         HorizontalOptions="Center">
+                             AlldayerImageSource="eic.png"
+                             PanelBackgroundColor="LightGray"
+                             PanelOpacity="0.9"
+                             TextColor="Navy"
+                             HorizontalOptions="Center">
           <local:AlldayerPanel.GestureRecognizers>
             <TapGestureRecognizer
-                CommandParameter="Cords"
+                CommandParameter="EIC2026"
                 Tapped="OnAlldayerPanelTapped"/>
           </local:AlldayerPanel.GestureRecognizers>
         </local:AlldayerPanel>
-        
+
 
         <local:AlldayerPanel AlldayerName="2025"
-                         AlldayerImageSource="eic.png"
-                         HorizontalOptions="Center">
+                             AlldayerImageSource="eic.png"
+                             PanelBackgroundColor="BlanchedAlmond"
+                             PanelOpacity="0.9"
+                             TextColor="DarkCyan"
+                             HorizontalOptions="Center">
           <local:AlldayerPanel.GestureRecognizers>
             <TapGestureRecognizer
-                CommandParameter="FightMilk"
+                CommandParameter="EIC2025"
                 Tapped="OnAlldayerPanelTapped"/>
           </local:AlldayerPanel.GestureRecognizers>
         </local:AlldayerPanel>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EdinPopFest.AlldayerPanel">
-  <Border WidthRequest="300"
-          BackgroundColor="PeachPuff"
-          Opacity="0.80">
+             x:Class="EdinPopFest.AlldayerPanel"
+             x:Name="root">
+  <Border x:Name="panelBorder"
+          WidthRequest="300"
+          BackgroundColor="{Binding PanelBackgroundColor, Source={x:Reference root}}"
+          Opacity="{Binding PanelOpacity, Source={x:Reference root}}">
     <Border.StrokeShape>
       <RoundRectangle CornerRadius="80"/>
     </Border.StrokeShape>
@@ -28,15 +30,18 @@
                HeightRequest="200"
                Grid.Column="0"
                Aspect="AspectFill"/>
-      </Border >
+      </Border>
       <Grid Grid.Row="1" Margin="15">
         <Grid.RowDefinitions>
           <RowDefinition Height="*"/>
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="alldayername"  Style="{StaticResource ExtraLargeText}"
-               Text="Alldayer Name" 
-               TextColor="LightSeaGreen"
+        <Label x:Name="alldayername"
+               Style="{StaticResource ExtraLargeText}"
+               Text="Alldayer Name"
+               TextColor="{Binding TextColor, Source={x:Reference root}}"
+               FontSize="50"
+               FontAttributes="Bold"
                Grid.Row="0"
                HorizontalOptions="Center" />
       </Grid>

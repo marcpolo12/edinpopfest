@@ -16,23 +16,44 @@ public partial class AlldayerPage : AlldayerViewBase
     }
     private async void OnAlldayerButtonClicked(object sender, EventArgs e)
     {
-        if (sender is Button button && button.CommandParameter is string alldayerName)
+        if (sender is Button button && button.CommandParameter is string)
         {
-            await Shell.Current.GoToAsync("/bandsPage");
+            if(button.CommandParameter as string == "EIC2025")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2025");
+            }
+            else if(button.CommandParameter as string == "EIC2026")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2026");
+            }
         }
     }
     private async void OnAlldayerImageTapped(object sender, TappedEventArgs e)
     {
-        if (e.Parameter is string alldayerName)
+        if (e.Parameter is string)
         {
-            await Shell.Current.GoToAsync("/bandsPage");
+            if(e.Parameter as string == "EIC2025")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2025");
+            }
+            else if(e.Parameter as string == "EIC2026")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2026");
+            }
         }
     }
     private async void OnAlldayerPanelTapped(object sender, TappedEventArgs e)
     {
-        if (e.Parameter is string alldayerName)
+        if (e.Parameter is string)
         {
-            await Shell.Current.GoToAsync("/bandsPage");
+            if(e.Parameter as string == "EIC2025")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2025");
+            }
+            else if(e.Parameter as string == "EIC2026")
+            {
+                await Shell.Current.GoToAsync("/bandsPage2026");
+            }
         }
     }
 }
