@@ -12,6 +12,8 @@ public class BandDetailViewBase : ReactiveContentPage<BandDetailViewModel> { }
 [QueryProperty(nameof(BackgroundImage), "backgroundImage")]
 public partial class BandDetailPage : BandDetailViewBase
 {
+    private const string YouTubeEmbedHtmlTemplate = "";
+
     public static readonly BindableProperty DetailBackgroundImageSourceProperty =
         BindableProperty.Create(
             nameof(DetailBackgroundImageSource),
@@ -45,59 +47,101 @@ public partial class BandDetailPage : BandDetailViewBase
         set
         {
             bandName = value;
-            // Load band details based on bandName
             LoadBandDetails(bandName);
         }
     }
 
     private string bandName = "";
+    private string currentYoutubeUrl = "";
+    private double lastVideoWidth = -1;
+    private double lastVideoHeight = -1;
 
     public BandDetailPage(BandDetailViewModel viewModel)
     {
         ViewModel = viewModel;
         InitializeComponent();
 
-        BackgroundImageSource = null; // ensure ContentPage background is not used
+        if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+        {
+            openYoutubeButton.Clicked += async (_, _) =>
+            {
+                if (!string.IsNullOrWhiteSpace(currentYoutubeUrl))
+                {
+                    await Launcher.Default.OpenAsync(currentYoutubeUrl);
+                }
+            };
+        }
+
+        BackgroundImageSource = null;
         DetailBackgroundImageSource = ImageSource.FromFile("edinpopalldayer2.png");
 
         this.WhenActivated(disposables =>
         {
             this.OneWayBind(ViewModel, vm => vm.Band.Answer1, v => v.answer1label.Text)
                 .DisposeWith(disposables);
+
             this.OneWayBind(ViewModel, vm => vm.Band.Image, v => v.bandimage.Source, image => ImageSource.FromFile(image))
                 .DisposeWith(disposables);
 
-            this.WhenAnyValue(x => x.ViewModel)
-                .Where(vm => vm != null)
-                .Subscribe(vm =>
-                {
-                    var band = vm?.Band;
-                    if (!string.IsNullOrWhiteSpace(band?.VideoId))
-                    {
-                        var url = $"https://www.youtube.com/embed/{band.VideoId}";
-                        youtubeWebView.Source = url;
-                        youtubeWebView.IsVisible = true;
-                    }
-                    else
-                    {
-                        youtubeWebView.Source = "about:blank";
-                        youtubeWebView.IsVisible = false;
-                    }
-                })
+            this.WhenAnyValue(x => x.ViewModel!.Band.VideoId)
+                .DistinctUntilChanged()
+                .Subscribe(SetYoutubeSource)
                 .DisposeWith(disposables);
         });
+    }
+
+    private void SetYoutubeSource(string videoId)
+    {
+        if (!string.IsNullOrWhiteSpace(videoId))
+        {
+            var url = $"https://www.youtube.com/watch?v={videoId}";
+            if (!string.Equals(currentYoutubeUrl, url, StringComparison.Ordinal))
+            {
+                currentYoutubeUrl = url;
+            }
+
+            youtubeWebView.Source = "about:blank";
+            youtubeWebView.IsVisible = false;
+            if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+            {
+                openYoutubeButton.IsVisible = true;
+            }
+        }
+        else
+        {
+            currentYoutubeUrl = "";
+            youtubeWebView.Source = "about:blank";
+            youtubeWebView.IsVisible = false;
+            if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+            {
+                openYoutubeButton.IsVisible = false;
+            }
+        }
     }
 
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
 
+        if (width <= 0 || height <= 0)
+        {
+            return;
+        }
+
+        if (Math.Abs(width - lastVideoWidth) < 1 && Math.Abs(height - lastVideoHeight) < 1)
+        {
+            return;
+        }
+
+        lastVideoWidth = width;
+        lastVideoHeight = height;
+
         bool isLandscape = width > height;
-        double margin = isLandscape ? 160 : 30; // Example: more margin in landscape
+        double margin = isLandscape ? 160 : 30;
 
         youtubeWebView.Margin = new Thickness(margin);
 
-        double availableWidth = width - (margin * 2);
+        double availableWidth = Math.Max(0, width - (margin * 2));
         youtubeWebView.HeightRequest = availableWidth * 9 / 16;
     }
 

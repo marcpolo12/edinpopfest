@@ -38,6 +38,10 @@
                  Margin="30"
                  HorizontalOptions="Fill"
                  VerticalOptions="Start"/>
+        <Button x:Name="openYoutubeButton"
+                Margin="30,8,30,30"
+                Text="Watch on YouTube"
+                IsVisible="False" />
       </VerticalStackLayout>
     </Grid>
   </ScrollView>
