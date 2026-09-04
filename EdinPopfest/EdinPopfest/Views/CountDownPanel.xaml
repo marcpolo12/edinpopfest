@@ -15,7 +15,7 @@
     </Style>
 
   </local:CountDownPanel.Resources>
-  <Border WidthRequest="500" BackgroundColor="PaleVioletRed">
+  <Border WidthRequest="500" BackgroundColor="CadetBlue">
     <Border.StrokeShape>
       <RoundRectangle CornerRadius="20"/>
     </Border.StrokeShape>

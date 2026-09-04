@@ -1,0 +1,115 @@
+<local:BandsView2026Base xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="EdinPopFest.BandsPage2026"
+                     xmlns:local="clr-namespace:EdinPopFest"
+                     xmlns:brushes="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+                     Title="Lineup">
+  <ScrollView>
+    <Grid>
+      <Image Source="edinpopalldayer2.png"
+             Aspect="AspectFill"
+             AbsoluteLayout.LayoutBounds="0,0,1,1"
+             AbsoluteLayout.LayoutFlags="All" />
+      <VerticalStackLayout Padding="20" Spacing="30">
+
+        <local:BandPanel BandName="Carla J Easton"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="carlajeaston1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="CarlaJEaston"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+        
+        <local:BandPanel BandName="Radhika"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="radhika1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Radhika"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+        
+        <local:BandPanel BandName="All Girls Arson Club"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="allgirlsarsonclub1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="AllGirlsArsonClub"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+        
+        
+        <local:BandPanel BandName="DateLine"
+                         BandTime="22:30 -> 23:15"
+                         BandImageSource="dateline1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue" >
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="DateLine"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+        <local:BandPanel BandName="Ballboy"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="ballboy1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Ballboy"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+        
+        <local:BandPanel BandName="Crumbs"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="crumbs1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="Crumbs"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+        <local:BandPanel BandName="The Martial Arts"
+                         BandTime="20:30 -> 21:15"
+                         BandImageSource="themartialarts1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="TheMartialArts"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+        <local:BandPanel BandName="Falling And Laughing" 
+                         BandTime="21:30 -> 22:15" 
+                         BandImageSource="fallingandlaughing1.png"
+                         HorizontalOptions="Center"
+                         PanelBackgroundColor="CadetBlue">
+          <local:BandPanel.GestureRecognizers>
+            <TapGestureRecognizer
+                CommandParameter="FallingAndLaughing"
+                Tapped="OnBandPanelTapped"/>
+          </local:BandPanel.GestureRecognizers>
+        </local:BandPanel>
+
+      </VerticalStackLayout>
+    </Grid>
+  </ScrollView>
+</local:BandsView2026Base>

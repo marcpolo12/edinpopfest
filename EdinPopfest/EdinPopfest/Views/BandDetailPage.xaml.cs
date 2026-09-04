@@ -1,7 +1,6 @@
 using System.Reactive.Disposables;
 using System.Reactive.Disposables.Fluent;
 using System.Reactive.Linq;
-using System.Text.RegularExpressions;
 using ReactiveUI;
 using ReactiveUI.Maui;
 
@@ -10,8 +9,36 @@ namespace EdinPopFest;
 public class BandDetailViewBase : ReactiveContentPage<BandDetailViewModel> { }
 
 [QueryProperty(nameof(BandName), "bandName")]
+[QueryProperty(nameof(BackgroundImage), "backgroundImage")]
 public partial class BandDetailPage : BandDetailViewBase
 {
+    public static readonly BindableProperty DetailBackgroundImageSourceProperty =
+        BindableProperty.Create(
+            nameof(DetailBackgroundImageSource),
+            typeof(ImageSource),
+            typeof(BandDetailPage),
+            ImageSource.FromFile("edinpopalldayer2.png"));
+
+    public ImageSource DetailBackgroundImageSource
+    {
+        get => (ImageSource)GetValue(DetailBackgroundImageSourceProperty);
+        set => SetValue(DetailBackgroundImageSourceProperty, value);
+    }
+
+    public string BackgroundImage
+    {
+        get => backgroundImage;
+        set
+        {
+            backgroundImage = value;
+            DetailBackgroundImageSource = !string.IsNullOrWhiteSpace(backgroundImage)
+                ? ImageSource.FromFile(backgroundImage)
+                : ImageSource.FromFile("edinpopalldayer2.png");
+        }
+    }
+
+    private string backgroundImage = "";
+
     public string BandName
     {
         get => bandName;
@@ -29,6 +56,10 @@ public partial class BandDetailPage : BandDetailViewBase
     {
         ViewModel = viewModel;
         InitializeComponent();
+
+        BackgroundImageSource = null; // ensure ContentPage background is not used
+        DetailBackgroundImageSource = ImageSource.FromFile("edinpopalldayer2.png");
+
         this.WhenActivated(disposables =>
         {
             this.OneWayBind(ViewModel, vm => vm.Band.Answer1, v => v.answer1label.Text)
@@ -56,6 +87,7 @@ public partial class BandDetailPage : BandDetailViewBase
                 .DisposeWith(disposables);
         });
     }
+
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
@@ -68,6 +100,7 @@ public partial class BandDetailPage : BandDetailViewBase
         double availableWidth = width - (margin * 2);
         youtubeWebView.HeightRequest = availableWidth * 9 / 16;
     }
+
     private void LoadBandDetails(string bandName)
     {
         if (ViewModel is BandDetailViewModel vm)

@@ -3,6 +3,7 @@
 			  x:Class="EdinPopFest.BandDetailPage"
 			  xmlns:local="clr-namespace:EdinPopFest"
 			  x:DataType="local:BandDetailViewModel"
+              x:Name="root"
 			  Title="{Binding Band.Name}">
 
   <local:BandDetailViewBase.Resources>
@@ -10,7 +11,7 @@
   <ScrollView>
     <Grid>
       <Image
-          Source="edinpopalldayer2.png"
+          Source="{Binding DetailBackgroundImageSource, Source={x:Reference root}}"
           Aspect="AspectFill"
           Opacity="0.2"
           HorizontalOptions="Center"

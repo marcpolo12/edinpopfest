@@ -12,6 +12,9 @@ public partial class BandPanel : ContentView
     public static readonly BindableProperty BandImageSourceProperty =
         BindableProperty.Create(nameof(BandImageSource), typeof(ImageSource), typeof(BandPanel), default(ImageSource), propertyChanged: OnBandImageSourceChanged);
 
+    public static readonly BindableProperty PanelBackgroundColorProperty =
+        BindableProperty.Create(nameof(PanelBackgroundColor), typeof(Color), typeof(BandPanel), Colors.LightSeaGreen);
+
     public string BandName
     {
         get => (string)GetValue(BandNameProperty);
@@ -29,6 +32,13 @@ public partial class BandPanel : ContentView
         get => (ImageSource)GetValue(BandImageSourceProperty);
         set => SetValue(BandImageSourceProperty, value);
     }
+
+    public Color PanelBackgroundColor
+    {
+        get => (Color)GetValue(PanelBackgroundColorProperty);
+        set => SetValue(PanelBackgroundColorProperty, value);
+    }
+
     public BandPanel()
     {
         var tapGesture = new TapGestureRecognizer();
