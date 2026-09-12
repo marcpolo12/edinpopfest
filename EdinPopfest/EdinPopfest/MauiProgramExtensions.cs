@@ -73,6 +73,7 @@ namespace EdinPopFest
             builder.Services.AddTransient<AmenitiesPage>();
             builder.Services.AddTransient<SafeSpacePage>();
             builder.Services.AddTransient<NewsFeedPage>();
+            builder.Services.AddTransient<AppInfoPage>();
             
             Locator.CurrentMutable.RegisterConstant(new MauiActivationForViewFetcher(), typeof(IActivationForViewFetcher));
 

@@ -42,4 +42,8 @@
         Title="Safe Space"
         ContentTemplate="{DataTemplate local:SafeSpacePage}"
         Route="SafeSpacePage" />
+    <ShellContent
+        Title="App Info"
+        ContentTemplate="{DataTemplate local:AppInfoPage}"
+        Route="AppInfoPage" />
 </Shell>
