@@ -26,14 +26,14 @@
                 VerticalOptions="Start">
           <Image
               x:Name="eiclogo"
-              Source="eic.png"
+              Source="eic2026.png"
               WidthRequest="300"
               HeightRequest="300"
               Aspect="AspectFill"/>
         </Border>
         <Label Style="{StaticResource LargeText}" Text="Who are We?"/>
         <Label x:Name="descriptionlabel1" Style="{StaticResource SmallText}"/>
-        <Label Style="{StaticResource LargeText}" Text="The Edinburgh Indiepop Alldayer - It's Happening!"/>
+        <Label Style="{StaticResource LargeText}" Text="The Edinburgh Indiepop Alldayer"/>
         <Label x:Name="descriptionlabel2" Style="{StaticResource SmallText}"/>
       </VerticalStackLayout>
     </Grid>

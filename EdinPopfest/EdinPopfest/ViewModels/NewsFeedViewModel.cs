@@ -17,7 +17,7 @@ public partial class NewsFeedViewModel : ReactiveObject
     public ObservableCollection<FeedItem> NewsItems { get; }
 
     public ReactiveCommand<Unit, Unit> RefreshCommand { get; }
-    public ReactiveCommand<string, Unit> OpenFacebookCommand { get; }
+    public ReactiveCommand<string, Unit> OpenUrlCommand { get; }
 
     public NewsFeedViewModel()
     {
@@ -31,7 +31,7 @@ public partial class NewsFeedViewModel : ReactiveObject
 
             IsRefreshing = false;
         });
-        OpenFacebookCommand = ReactiveCommand.Create<string>(async url =>
+        OpenUrlCommand = ReactiveCommand.Create<string>(async url =>
             {
                 if (!string.IsNullOrEmpty(url))
                     await Launcher.Default.OpenAsync(url);

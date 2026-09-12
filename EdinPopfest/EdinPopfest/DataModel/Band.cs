@@ -25,6 +25,7 @@ public partial class Band : ReactiveObject
 
     public string Image { get; set; } = "";
     public string VideoId { get; set; } = "";
+    public string InstagramUrl { get; set; } = "";
 
     [Reactive] public partial string Link1 { get; set; }
 

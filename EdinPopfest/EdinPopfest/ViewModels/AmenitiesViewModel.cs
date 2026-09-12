@@ -11,6 +11,8 @@ public partial class AmenitiesViewModel : ReactiveObject
     [Reactive] public partial string Mashouse { get; set; }
     [Reactive] public partial string MainRoom { get; set; }
     [Reactive] public partial string Parking { get; set; }
+    [Reactive] public partial string Toilets { get; set; }
+    [Reactive] public partial string BookableAccessFacilities { get; set; }
     [Reactive] public partial string Emergencies { get; set; }
     [Reactive] public partial string LothianBuses { get; set; }
     [Reactive] public partial string Scotrail { get; set; }
@@ -35,6 +37,10 @@ public partial class AmenitiesViewModel : ReactiveObject
     [Reactive] public partial string CiverinosLink { get; set; }
     [Reactive] public partial string Bowls { get; set; }
     [Reactive] public partial string BowlsLink { get; set; }
+    [Reactive] public partial string Bento { get; set; }
+    [Reactive] public partial string BentoLink { get; set; }
+    [Reactive] public partial string ParadisePalms { get; set; }
+    [Reactive] public partial string ParadisePalmsLink { get; set; }
 
     public AmenitiesViewModel(IFestivalService festivalService)
     {
@@ -43,7 +49,9 @@ public partial class AmenitiesViewModel : ReactiveObject
         Mashouse = "The Mash House is situated halfway up Hastie’s Close only accessible via a staircase from Guthrie Street or The Cowgate.\nThe Venue Managers are all fully trained in First Aid.";
         MainRoom = "Accessed by 4 stairs down from the main bar area.";
         Parking = "The nearest Blue Badge parking spaces are on Chambers Street, please view Parkopedia for other solutions.";
-        Emergencies = "Nearest A&E:Royal Infirmary of Edinburgh Emergency Department\n\nPolice emergency: 999, non emergency 101.";
+        Toilets = "Please note there are no accessible toilets in The Mash House.";
+        BookableAccessFacilities = "The Mash House will provide free tickets for personal assistants. To book your personal assistant ticket, email bookings@themashhouse.co.uk.";
+        Emergencies = "Nearest A&E: Royal Infirmary of Edinburgh Emergency Department\n\nPolice emergency: 999, non emergency 101.";
         LothianBuses = "Princes Street is a 15 minute walk from the venue and is served by many Lothian Bus services which stop close by the venue on South Bridge and Chambers Street.";
         Scotrail = "Waverly Train Station a 15 minute walk to the venue";
         Taxi = "Central Taxis - 0131 221 2230\nCity Cabs - 0131 228 1211";
@@ -67,5 +75,9 @@ public partial class AmenitiesViewModel : ReactiveObject
         CiverinosLink = "https://maps.app.goo.gl/4NaFexhfgn9JhUhj8";
         Bowls = "5 minutes walk. Poke bowl shop. 8pm close.";
         BowlsLink = "https://maps.app.goo.gl/3h1ZnM1wjtxs59JZ6";
+        Bento = "3 minutes walk. Poke bowls, sushi, dim sum and bento boxes. Sit in or takeaway.";
+        BentoLink = "https://maps.app.goo.gl/KXwPUMwguctJc1rY9";
+        ParadisePalms = "5 minutes walk. Vegan Mexican food from Antojitos Cantina.";
+        ParadisePalmsLink = "https://maps.app.goo.gl/u57N231aSbVYrsH58";
     }
 }

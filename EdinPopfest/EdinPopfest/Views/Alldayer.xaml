@@ -13,7 +13,7 @@
       <VerticalStackLayout Margin="0,-100,0,0"  Padding="20" Spacing="100" VerticalOptions="Center">
 
         <local:AlldayerPanel AlldayerName="2026"
-                             AlldayerImageSource="eic.png"
+                             AlldayerImageSource="eic2026.png"
                              PanelBackgroundColor="LightGray"
                              PanelOpacity="0.9"
                              TextColor="Navy"
@@ -27,7 +27,7 @@
 
 
         <local:AlldayerPanel AlldayerName="2025"
-                             AlldayerImageSource="eic.png"
+                             AlldayerImageSource="eic2025.png"
                              PanelBackgroundColor="BlanchedAlmond"
                              PanelOpacity="0.9"
                              TextColor="DarkCyan"

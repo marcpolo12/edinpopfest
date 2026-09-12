@@ -123,7 +123,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like Carla J. Easton if you like ... ",
             Schedule = "20:00->20:50",
             Image = "carlajeastonmain.png",
-            VideoId = "HwyRiq5m6Yg"
+            VideoId = "HwyRiq5m6Yg",
+            InstagramUrl = "https://www.instagram.com/reel/DXppWRYjC4A/"
         },
         ["Radhika"] = new Band
         {
@@ -134,7 +135,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like Radhika if you like ... ",
             Schedule = "22:00->22:50",
             Image = "radhikamain.png",
-            VideoId = "6BuAwrnu9j0"
+            VideoId = "6BuAwrnu9j0",
+            InstagramUrl = "https://www.instagram.com/reel/DXoRG2PDayk/"
         },
         ["AllGirlsArsonClub"] = new Band
         {
@@ -145,7 +147,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like All Girls Arson Club if you like ... ",
             Schedule = "22:00->22:50",
             Image = "allgirlsarsonclubmain.png",
-            VideoId = "-07GGtcnZJo"
+            VideoId = "-07GGtcnZJo",
+            InstagramUrl = "https://www.instagram.com/reel/DTNKSAtjGTi/"
         },
         ["DateLine"] = new Band
         {
@@ -156,7 +159,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like dataLine if you like ... ",
             Schedule = "22:00->22:50",
             Image = "datelinemain.png",
-            VideoId = "0PDyWD4oLaQ"
+            VideoId = "0PDyWD4oLaQ",
+            InstagramUrl = "https://www.instagram.com/reel/DcpR96sz3xp/"
         },
         ["Ballboy"] = new Band
         {
@@ -167,7 +171,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like Ballboy if you like ... ",
             Schedule = "22:00->22:50",
             Image = "ballboymain.png",
-            VideoId = "BOJXT6UFhQI"
+            VideoId = "BOJXT6UFhQI",
+            InstagramUrl = "https://www.instagram.com/p/C98Zh77IF-F/"
         },
         ["Crumbs"] = new Band
         {
@@ -178,7 +183,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like Crumbs if you like ... ",
             Schedule = "22:00->22:50",
             Image = "crumbsmain.png",
-            VideoId = "l5uQS32AH6Y"
+            VideoId = "l5uQS32AH6Y",
+            InstagramUrl = "https://www.instagram.com/reel/C683hdON97F/"
         },
         ["TheMartialArts"] = new Band
         {
@@ -189,7 +195,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like The Martial Arts if you like ... ",
             Schedule = "22:00->22:50",
             Image = "themartialartsmain.png",
-            VideoId = "vHOh8lC1f7g"
+            VideoId = "vHOh8lC1f7g",
+            InstagramUrl = "https://www.instagram.com/reel/DYkWzSdo5R6/"
         },
         ["FallingAndLaughing"] = new Band
         {
@@ -200,7 +207,8 @@ public partial class FestivalService : IFestivalService
             Answer4 = "You'll like Falling And Laughing if you like ... ",
             Schedule = "22:00->22:50",
             Image = "fallingandlaughingmain.png",
-            VideoId = "ZCMo4ygn0ws"
+            VideoId = "ZCMo4ygn0ws",
+            InstagramUrl = ""
         },
 
         };

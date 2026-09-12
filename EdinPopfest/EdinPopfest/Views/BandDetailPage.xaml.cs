@@ -12,8 +12,6 @@ public class BandDetailViewBase : ReactiveContentPage<BandDetailViewModel> { }
 [QueryProperty(nameof(BackgroundImage), "backgroundImage")]
 public partial class BandDetailPage : BandDetailViewBase
 {
-    private const string YouTubeEmbedHtmlTemplate = "";
-
     public static readonly BindableProperty DetailBackgroundImageSourceProperty =
         BindableProperty.Create(
             nameof(DetailBackgroundImageSource),
@@ -52,24 +50,18 @@ public partial class BandDetailPage : BandDetailViewBase
     }
 
     private string bandName = "";
-    private string currentYoutubeUrl = "";
-    private double lastVideoWidth = -1;
-    private double lastVideoHeight = -1;
+    private string currentYoutubeWatchUrl = "";
+    private string currentInstagramUrl = "";
 
     public BandDetailPage(BandDetailViewModel viewModel)
     {
         ViewModel = viewModel;
         InitializeComponent();
 
-        if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+        openYoutubeButton.Clicked += async (_, _) => await OpenYoutubeExternallyAsync();
+        if (this.FindByName<Button>("openInstagramButton") is Button openInstagramButton)
         {
-            openYoutubeButton.Clicked += async (_, _) =>
-            {
-                if (!string.IsNullOrWhiteSpace(currentYoutubeUrl))
-                {
-                    await Launcher.Default.OpenAsync(currentYoutubeUrl);
-                }
-            };
+            openInstagramButton.Clicked += async (_, _) => await OpenInstagramExternallyAsync();
         }
 
         BackgroundImageSource = null;
@@ -87,6 +79,11 @@ public partial class BandDetailPage : BandDetailViewBase
                 .DistinctUntilChanged()
                 .Subscribe(SetYoutubeSource)
                 .DisposeWith(disposables);
+
+            this.WhenAnyValue(x => x.ViewModel!.Band.InstagramUrl)
+                .DistinctUntilChanged()
+                .Subscribe(SetInstagramSource)
+                .DisposeWith(disposables);
         });
     }
 
@@ -94,55 +91,54 @@ public partial class BandDetailPage : BandDetailViewBase
     {
         if (!string.IsNullOrWhiteSpace(videoId))
         {
-            var url = $"https://www.youtube.com/watch?v={videoId}";
-            if (!string.Equals(currentYoutubeUrl, url, StringComparison.Ordinal))
-            {
-                currentYoutubeUrl = url;
-            }
+            currentYoutubeWatchUrl = $"https://www.youtube.com/watch?v={videoId}";
+            openYoutubeButton.IsVisible = true;
+        }
+        else
+        {
+            currentYoutubeWatchUrl = "";
+            openYoutubeButton.IsVisible = false;
+        }
+    }
 
-            youtubeWebView.Source = "about:blank";
-            youtubeWebView.IsVisible = false;
-            if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+    private void SetInstagramSource(string instagramUrl)
+    {
+        if (!string.IsNullOrWhiteSpace(instagramUrl))
+        {
+            currentInstagramUrl = instagramUrl;
+            if (this.FindByName<Button>("openInstagramButton") is Button openInstagramButton)
             {
-                openYoutubeButton.IsVisible = true;
+                openInstagramButton.IsVisible = true;
             }
         }
         else
         {
-            currentYoutubeUrl = "";
-            youtubeWebView.Source = "about:blank";
-            youtubeWebView.IsVisible = false;
-            if (this.FindByName<Button>("openYoutubeButton") is Button openYoutubeButton)
+            currentInstagramUrl = "";
+            if (this.FindByName<Button>("openInstagramButton") is Button openInstagramButton)
             {
-                openYoutubeButton.IsVisible = false;
+                openInstagramButton.IsVisible = false;
             }
         }
     }
 
-    protected override void OnSizeAllocated(double width, double height)
+    private async Task OpenYoutubeExternallyAsync()
     {
-        base.OnSizeAllocated(width, height);
-
-        if (width <= 0 || height <= 0)
+        if (string.IsNullOrWhiteSpace(currentYoutubeWatchUrl))
         {
             return;
         }
 
-        if (Math.Abs(width - lastVideoWidth) < 1 && Math.Abs(height - lastVideoHeight) < 1)
+        await Launcher.Default.OpenAsync(currentYoutubeWatchUrl);
+    }
+
+    private async Task OpenInstagramExternallyAsync()
+    {
+        if (string.IsNullOrWhiteSpace(currentInstagramUrl))
         {
             return;
         }
 
-        lastVideoWidth = width;
-        lastVideoHeight = height;
-
-        bool isLandscape = width > height;
-        double margin = isLandscape ? 160 : 30;
-
-        youtubeWebView.Margin = new Thickness(margin);
-
-        double availableWidth = Math.Max(0, width - (margin * 2));
-        youtubeWebView.HeightRequest = availableWidth * 9 / 16;
+        await Launcher.Default.OpenAsync(currentInstagramUrl);
     }
 
     private void LoadBandDetails(string bandName)

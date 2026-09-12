@@ -34,13 +34,13 @@
               Aspect="AspectFill"/>
         </Border>
         <Label x:Name="answer1label" Style="{StaticResource SmallText}"/>
-        <WebView x:Name="youtubeWebView"
-                 Margin="30"
-                 HorizontalOptions="Fill"
-                 VerticalOptions="Start"/>
         <Button x:Name="openYoutubeButton"
                 Margin="30,8,30,30"
                 Text="Watch on YouTube"
+                IsVisible="False" />
+        <Button x:Name="openInstagramButton"
+                Margin="30,0,30,30"
+                Text="View on Instagram"
                 IsVisible="False" />
       </VerticalStackLayout>
     </Grid>

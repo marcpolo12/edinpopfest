@@ -17,6 +17,8 @@ public partial class AmenitiesPage : AmenitiesViewBase
             this.OneWayBind(ViewModel, vm => vm.Mashouse, v => v.mashhouselabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.MainRoom, v => v.mainroomlabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Parking, v => v.parkinglabel.Text).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Toilets, v => v.toiletslabel.Text).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.BookableAccessFacilities, v => v.bookableaccessfacilitieslabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Emergencies, v => v.emergencieslabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.LothianBuses, v => v.lothianbuseslabel.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Scotrail, v => v.scotraillabel.Text).DisposeWith(disposables);
@@ -39,6 +41,10 @@ public partial class AmenitiesPage : AmenitiesViewBase
             this.OneWayBind(ViewModel, vm => vm.CiverinosLink, v => v.civerinos.LinkText).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.Bowls, v => v.bowls.LinkInfo).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.BowlsLink, v => v.bowls.LinkText).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.Bento, v => v.bento.LinkInfo).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.BentoLink, v => v.bento.LinkText).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.ParadisePalms, v => v.paradisepalms.LinkInfo).DisposeWith(disposables);
+            this.OneWayBind(ViewModel, vm => vm.ParadisePalmsLink, v => v.paradisepalms.LinkText).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.FoodInfo1, v => v.foodinfo1.Text).DisposeWith(disposables);
             this.OneWayBind(ViewModel, vm => vm.FoodInfo2, v => v.foodinfo2.Text).DisposeWith(disposables);
         });

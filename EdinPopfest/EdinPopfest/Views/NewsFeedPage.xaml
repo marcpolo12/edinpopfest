@@ -5,13 +5,15 @@
     x:Class="EdinPopFest.NewsFeedPage"
     xmlns:local="clr-namespace:EdinPopFest"
     x:DataType="local:NewsFeedViewModel"
-    Title="EIC News Feed">
+    Title="EIPC News Feed">
   <ContentPage.Resources>
 
     <!-- Gig Template -->
-    <DataTemplate x:Key="GigTemplate"  x:DataType="local:FeedItem">
-      <!-- Your gig card layout -->
-            <Border Margin="10" Padding="10" BackgroundColor="#10104D">
+    <DataTemplate x:Key="GigTemplate" x:DataType="local:FeedItem">
+      <Border Margin="10" Padding="10">
+        <Border.BackgroundColor>
+          <AppThemeBinding Light="#EAF0FF" Dark="#10104D" />
+        </Border.BackgroundColor>
         <VerticalStackLayout>
           <Image Aspect="AspectFit" x:Name="GigImage">
             <Image.Source>
@@ -20,11 +22,6 @@
                   CachingEnabled="True"
                   CacheValidity="7.00:00:00"/>
             </Image.Source>
-            <Image.GestureRecognizers>
-              <TapGestureRecognizer
-                  Command="{Binding BindingContext.OpenFacebookCommand, Source={x:Reference FeedPage}}"
-                  CommandParameter="{Binding FacebookUrl}" />
-            </Image.GestureRecognizers>
           </Image>
 
           <VerticalStackLayout Margin="0" Padding="6,0" Spacing="0">
@@ -47,21 +44,61 @@
                 Style="{StaticResource SmallText}"
                 Text="{Binding Description}"
                 LineBreakMode="WordWrap"/>
-          </VerticalStackLayout>
 
+            <HorizontalStackLayout Margin="10,6,10,0" Spacing="8">
+              <Button
+                  Padding="10,6"
+                  HorizontalOptions="Start"
+                  FontFamily="FontAwesomeBrands"
+                  Text="&#xF39E;"
+                  FontSize="18"
+                  TextColor="White"
+                  BackgroundColor="#1877F2"
+                  CornerRadius="18"
+                  IsVisible="{Binding HasFacebookUrl}"
+                  Clicked="OnFacebookClicked" />
+
+              <Button
+                  Padding="10,6"
+                  HorizontalOptions="Start"
+                  FontFamily="FontAwesomeBrands"
+                  Text="&#xF16D;"
+                  FontSize="18"
+                  TextColor="White"
+                  BackgroundColor="#E1306C"
+                  CornerRadius="18"
+                  IsVisible="{Binding HasInstagramUrl}"
+                  Clicked="OnInstagramClicked" />
+
+              <Button
+                  Padding="10,6"
+                  HorizontalOptions="Start"
+                  Text="Tickets"
+                  FontSize="18"
+                  TextColor="White"
+                  BackgroundColor="#2E7D32"
+                  CornerRadius="18"
+                  MinimumWidthRequest="96"
+                  IsVisible="{Binding HasTicketsLink}"
+                  Clicked="OnTicketsClicked" />
+            </HorizontalStackLayout>
+          </VerticalStackLayout>
         </VerticalStackLayout>
+
         <Border.GestureRecognizers>
           <TapGestureRecognizer
               Command="{Binding BindingContext.OpenItemCommand, Source={x:Reference Name=FeedPage}}"
               CommandParameter="{Binding .}" />
         </Border.GestureRecognizers>
-
       </Border>
     </DataTemplate>
 
     <!-- Text Post Template -->
     <DataTemplate x:Key="PostTemplate" x:DataType="local:FeedItem">
-      <Border Padding="12" Margin="5,5" BackgroundColor="#10104D">
+      <Border Padding="12" Margin="5,5">
+        <Border.BackgroundColor>
+          <AppThemeBinding Light="#EAF0FF" Dark="#10104D" />
+        </Border.BackgroundColor>
         <VerticalStackLayout>
           <Label Text="{Binding Title}"
                  FontSize="18"
@@ -69,15 +106,47 @@
           <Image Source="{Binding ImageUrl}"
                  x:Name="PostImage"
                  HeightRequest="180"
-                 Aspect="AspectFill">
-            <Image.GestureRecognizers>
-              <TapGestureRecognizer
-		  Command="{Binding BindingContext.OpenFacebookCommand, Source={x:Reference FeedPage}}"
-		  CommandParameter="{Binding FacebookUrl}" />
-            </Image.GestureRecognizers>
-          </Image>
+                 Aspect="AspectFill" />
           <Label Text="{Binding Description}"
                  LineBreakMode="WordWrap"/>
+
+          <HorizontalStackLayout Margin="0,8,0,0" Spacing="8">
+            <Button
+                Padding="10,6"
+                HorizontalOptions="Start"
+                FontFamily="FontAwesomeBrands"
+                Text="&#xF39E;"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#1877F2"
+                CornerRadius="18"
+                IsVisible="{Binding HasFacebookUrl}"
+                Clicked="OnFacebookClicked" />
+
+            <Button
+                Padding="10,6"
+                HorizontalOptions="Start"
+                FontFamily="FontAwesomeBrands"
+                Text="&#xF16D;"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#E1306C"
+                CornerRadius="18"
+                IsVisible="{Binding HasInstagramUrl}"
+                Clicked="OnInstagramClicked" />
+
+            <Button
+                Padding="10,6"
+                HorizontalOptions="Start"
+                Text="Tickets"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#2E7D32"
+                CornerRadius="18"
+                MinimumWidthRequest="96"
+                IsVisible="{Binding HasTicketsLink}"
+                Clicked="OnTicketsClicked" />
+          </HorizontalStackLayout>
         </VerticalStackLayout>
       </Border>
     </DataTemplate>
@@ -93,7 +162,6 @@
         SelectionMode="None"
         ItemTemplate="{StaticResource FeedSelector}"
         RemainingItemsThreshold="3">
-
     </CollectionView>
   </RefreshView>
 </local:NewsFeedViewBase>

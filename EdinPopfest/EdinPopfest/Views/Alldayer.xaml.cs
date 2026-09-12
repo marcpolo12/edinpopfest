@@ -20,11 +20,11 @@ public partial class AlldayerPage : AlldayerViewBase
         {
             if(button.CommandParameter as string == "EIC2025")
             {
-                await Shell.Current.GoToAsync("/bandsPage2025");
+                await Shell.Current.GoToAsync("bandsPage2025");
             }
             else if(button.CommandParameter as string == "EIC2026")
             {
-                await Shell.Current.GoToAsync("/bandsPage2026");
+                await Shell.Current.GoToAsync("bandsPage2026");
             }
         }
     }
@@ -34,11 +34,11 @@ public partial class AlldayerPage : AlldayerViewBase
         {
             if(e.Parameter as string == "EIC2025")
             {
-                await Shell.Current.GoToAsync("/bandsPage2025");
+                await Shell.Current.GoToAsync("bandsPage2025");
             }
             else if(e.Parameter as string == "EIC2026")
             {
-                await Shell.Current.GoToAsync("/bandsPage2026");
+                await Shell.Current.GoToAsync("bandsPage2026");
             }
         }
     }
@@ -48,11 +48,11 @@ public partial class AlldayerPage : AlldayerViewBase
         {
             if(e.Parameter as string == "EIC2025")
             {
-                await Shell.Current.GoToAsync("/bandsPage2025");
+                await Shell.Current.GoToAsync("bandsPage2025");
             }
             else if(e.Parameter as string == "EIC2026")
             {
-                await Shell.Current.GoToAsync("/bandsPage2026");
+                await Shell.Current.GoToAsync("bandsPage2026");
             }
         }
     }

@@ -25,6 +25,12 @@
 
         <Label Style="{StaticResource MedText}" Text="Parking:"/>
         <Label x:Name="parkinglabel" Style="{StaticResource SmallText}"/>
+       
+	<Label Style="{StaticResource MedText}" Text="Toilets:"/>
+        <Label x:Name="toiletslabel" Style="{StaticResource SmallText}"/>
+       
+	<Label Style="{StaticResource MedText}" Text="Bookable Access Facilities:"/>
+        <Label x:Name="bookableaccessfacilitieslabel" Style="{StaticResource SmallText}"/>
         
         <Label Style="{StaticResource LargeText}" Text="Local Contacts"/>
 
@@ -49,6 +55,8 @@
         <local:LinkPanel x:Name="mosquekitchen" LinkHeader="Mosque Kitchen"/>
         <local:LinkPanel x:Name="civerinos" LinkHeader="Civerinos"/>
         <local:LinkPanel x:Name="bowls" LinkHeader="Bowls"/>
+        <local:LinkPanel x:Name="bento" LinkHeader="Bento"/>
+        <local:LinkPanel x:Name="paradisepalms" LinkHeader="Paradise Palms"/>
         <Label x:Name="foodinfo2" Style="{StaticResource SmallText}"/>
       </VerticalStackLayout>
     </Grid>

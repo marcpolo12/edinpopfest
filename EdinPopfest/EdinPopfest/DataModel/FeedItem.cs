@@ -21,6 +21,12 @@ public partial class FeedItem : ReactiveObject
     [Reactive] public partial string Description { get; set; }
     [Reactive] public partial string ImageUrl { get; set; }
     [Reactive] public partial string FacebookUrl { get; set; }
+    public string InstagramUrl { get; set; } = "";
+    public string TicketsLink { get; set; } = "";
+
+    public bool HasFacebookUrl => !string.IsNullOrWhiteSpace(FacebookUrl);
+    public bool HasInstagramUrl => !string.IsNullOrWhiteSpace(InstagramUrl);
+    public bool HasTicketsLink => !string.IsNullOrWhiteSpace(TicketsLink);
 
     public DateTime EventDateTime
     {

@@ -6,7 +6,18 @@
     xmlns:local="clr-namespace:EdinPopFest"
     Shell.FlyoutBehavior="Flyout"
     Shell.FlyoutWidth="140"
-    Title="EdinPopFest">
+    Title="EIPC">
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Grid.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="56" />
+                    <On Platform="iOS" Value="44" />
+                    <On Platform="WinUI" Value="24" />
+                </OnPlatform>
+            </Grid.HeightRequest>
+        </Grid>
+    </Shell.FlyoutHeader>
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:InfoPage}"
@@ -20,7 +31,7 @@
         ContentTemplate="{DataTemplate local:AlldayerPage}"
         Route="AlldayerPage" />
     <ShellContent
-        Title="About EIC"
+        Title="About EIPC"
         ContentTemplate="{DataTemplate local:AboutPage}"
         Route="AboutPage" />
     <ShellContent

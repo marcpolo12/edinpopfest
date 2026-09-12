@@ -11,7 +11,7 @@
   <mp:PhoneIdentity PhoneProductId="C9A8DAAD-5BC6-4A87-ACA7-4F8A1D90D5FF" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>EdinPopfest</DisplayName>
+    <DisplayName>EIPC</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -28,8 +28,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="EdinPopfest"
-        Description="EdinPopfest"
+        DisplayName="EIPC"
+        Description="EIPC"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">
