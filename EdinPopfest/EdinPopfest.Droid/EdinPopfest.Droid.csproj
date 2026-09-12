@@ -10,6 +10,21 @@
 		<UseMaui>true</UseMaui>
 		<Company>$(Authors)</Company>
 		<SignAssembly>False</SignAssembly>
+		<AndroidSigningKeyStore>edinpop.keystore</AndroidSigningKeyStore>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>Ed!nP*pFest</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>edinpopkey</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>Ed!nP*pFest</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>Ed!nP*pFest</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>edinpopkey</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>Ed!nP*pFest</AndroidSigningKeyPass>
 	</PropertyGroup>
 
 	<ItemGroup>
