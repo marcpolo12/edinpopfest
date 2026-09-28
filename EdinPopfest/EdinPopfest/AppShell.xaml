@@ -5,8 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:EdinPopFest"
     Shell.FlyoutBehavior="Flyout"
-    Shell.FlyoutWidth="140"
+    Shell.FlyoutWidth="120"
     Title="EIPC">
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="12,0,8,0" HeightRequest="44">
+                <Label
+                    Text="{Binding Title}"
+                    VerticalOptions="Center"
+                    LineBreakMode="TailTruncation" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
     <Shell.FlyoutHeader>
         <Grid>
             <Grid.HeightRequest>

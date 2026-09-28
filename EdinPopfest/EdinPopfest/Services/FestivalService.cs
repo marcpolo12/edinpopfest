@@ -33,7 +33,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "We're proud to say that The Cords were the first band we booked for the Edinburgh Indiepop All Dayer. \nThe sisters musical development first started at The Rock School at Rig Arts in Greenock under the tutelage of Lesley McLaren, best known as the drummer in the Hedrons.\nThe Cords usually finish their set with a cover version of an indiepop classic. \nStuart Braithwaites Jazzmaster guitar was used on the recording of their 2024 Christmas song Favourite Time.",
             Answer3 = "\"Warm guitar chords with limited/no effects, beautifully pure melodies and beats, playful hooks and a sibling chemistry easily won me and the Mono crowd over.\"", 
             Answer4 = "You'll like the Cords if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "21:30",
             Image = "cordsmain.png",
             //VideoId = "isP4R0MAbsA"
             VideoId = "yx3XH95c2Uk"
@@ -45,7 +45,7 @@ public partial class FestivalService : IFestivalService
             Link2 = "https://fikarecordings.bandcamp.com/album/no-souvenirs",
             Answer3 = "Not that Id ever describe Fightmilk as an angry punk band, necessarily; whilst there is, undoubtedly, the requisite dustings of rage and anguish in their songs, theres also a whole load of joy and humour, and their music is tight, disciplined and often melodic",
             Answer4 = "You'll like FightMilk if you like ... ",
-            Schedule = "19:00->19:50",
+            Schedule = "20:15",
             Image = "fightmilkmain.png",
             VideoId = "NUxU0JIhrO0"
         },
@@ -56,7 +56,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about  FO Machete", 
             Answer3 = "We like FO Machete because", 
             Answer4 = "You'll like FO Machete if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "19:15",
             Image = "fomachetemain.png",
             VideoId = "YEb5CdhZX1c"
         },
@@ -67,7 +67,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about  Josie", 
             Answer3 = "We like Josie because", 
             Answer4 = "You'll like Josie if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "18:15",
             Image = "josiemain.png",
             VideoId = "Cacs55mlUZg"
         },
@@ -77,7 +77,7 @@ public partial class FestivalService : IFestivalService
             Answer1 = "A notion formulated in a haze of alcohol in the Bow Bar after seeing a gig at Sneaky Pete's is rarely a good one but hopefully the idea behind this band will be an exception - get some Edinburgh musicians together to play a set of covers by bands that could (in some cases loosely) be described as indiepop and that are also no longer around. The selection should also feature a healthy Scottish/Edinburgh representation.\n\nThis is the blueprint for Maison D'etre and the plan will come to fruition at the indiepop all dayer.\n\nGrant",
             Answer3 = "We like The Just Joans because", 
             Answer4 = "You'll like The Just Joans if you like ... ",
-            Schedule = "20:00->20:50",
+            Schedule = "14:05",
             Image = "maisondetremain.png",
             VideoId = ""
         },
@@ -88,7 +88,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Hekt was previously the lead vocalist of the band Muncie Girls.", 
             Answer3 = "We like Lande Hekt because", 
             Answer4 = "You'll like Lande Hekt if you like ... ",
-            Schedule = "21:00->21:50",
+            Schedule = "16:30",
             Image = "justjoansmain.png",
             VideoId = "iJhKCZiJIfo"
         },
@@ -99,7 +99,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Hekt was previously the lead vocalist of the band Muncie Girls.", 
             Answer3 = "We like Lande Hekt because", 
             Answer4 = "You'll like Lande Hekt if you like ... ",
-            Schedule = "21:00->21:50",
+            Schedule = "15:05",
             Image = "landehektmain.png",
             VideoId = "xRobTZt7Pe8"
         },
@@ -110,7 +110,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about the Proctors", 
             Answer3 = "We like the Proctors because", 
             Answer4 = "You'll like the Proctors if you like ... ",
-            Schedule = "23:00->23:50",
+            Schedule = "13:05",
             Image = "proctorsmain.png",
             VideoId = "VqFlx1sOhoI"
         },
@@ -121,7 +121,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about Carla J. Easton", 
             Answer3 = "We like Carla J. Easton because", 
             Answer4 = "You'll like Carla J. Easton if you like ... ",
-            Schedule = "20:00->20:50",
+            Schedule = "21:05",
             Image = "carlajeastonmain.png",
             VideoId = "HwyRiq5m6Yg",
             InstagramUrl = "https://www.instagram.com/reel/DXppWRYjC4A/"
@@ -133,7 +133,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about Radhika",
             Answer3 = "We like Radhika because",
             Answer4 = "You'll like Radhika if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "19:05",
             Image = "radhikamain.png",
             VideoId = "6BuAwrnu9j0",
             InstagramUrl = "https://www.instagram.com/reel/DXoRG2PDayk/"
@@ -145,7 +145,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about All Girls Arson Club",
             Answer3 = "We like All Girls Arson Club because",
             Answer4 = "You'll like All Girls Arson Club if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "18:05",
             Image = "allgirlsarsonclubmain.png",
             VideoId = "-07GGtcnZJo",
             InstagramUrl = "https://www.instagram.com/reel/DTNKSAtjGTi/"
@@ -157,7 +157,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about dataLine",
             Answer3 = "We like dataLine because",
             Answer4 = "You'll like dataLine if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "20:05",
             Image = "datelinemain.png",
             VideoId = "0PDyWD4oLaQ",
             InstagramUrl = "https://www.instagram.com/reel/DcpR96sz3xp/"
@@ -169,7 +169,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about Ballboy",
             Answer3 = "We like Ballboy because",
             Answer4 = "You'll like Ballboy if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "13:15",
             Image = "ballboymain.png",
             VideoId = "BOJXT6UFhQI",
             InstagramUrl = "https://www.instagram.com/p/C98Zh77IF-F/"
@@ -181,7 +181,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about Crumbs",
             Answer3 = "We like Crumbs because",
             Answer4 = "You'll like Crumbs if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "16:30",
             Image = "crumbsmain.png",
             VideoId = "l5uQS32AH6Y",
             InstagramUrl = "https://www.instagram.com/reel/C683hdON97F/"
@@ -193,7 +193,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about The Martial Arts",
             Answer3 = "We like The Martial Arts because",
             Answer4 = "You'll like The Martial Arts if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "15:30",
             Image = "themartialartsmain.png",
             VideoId = "vHOh8lC1f7g",
             InstagramUrl = "https://www.instagram.com/reel/DYkWzSdo5R6/"
@@ -205,7 +205,7 @@ public partial class FestivalService : IFestivalService
             Answer2 = "Some other fact about Falling And Laughing",
             Answer3 = "We like Falling And Laughing because",
             Answer4 = "You'll like Falling And Laughing if you like ... ",
-            Schedule = "22:00->22:50",
+            Schedule = "14:30",
             Image = "fallingandlaughingmain.png",
             VideoId = "ZCMo4ygn0ws",
             InstagramUrl = ""

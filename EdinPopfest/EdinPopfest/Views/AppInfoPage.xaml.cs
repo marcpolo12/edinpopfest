@@ -2,7 +2,7 @@ namespace EdinPopFest;
 
 public partial class AppInfoPage : ContentPage
 {
-    private const string PrivacyPolicyUrl = "https://marcpolo12.github.io/edinpopfest/";
+    private const string PrivacyPolicyUrl = "https://marcpolo12.github.io/edinpopfest/privacy-policy.html";
 
     public AppInfoPage()
     {
