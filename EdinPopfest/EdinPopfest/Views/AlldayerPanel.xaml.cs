@@ -51,11 +51,16 @@ public partial class AlldayerPanel : ContentView
 
     public AlldayerPanel()
     {
-        var tapGesture = new TapGestureRecognizer();
-        tapGesture.Tapped += (s, e) => Tapped?.Invoke(this, EventArgs.Empty);
-        GestureRecognizers.Add(tapGesture);
-
         InitializeComponent();
+
+        var tapGesture = new TapGestureRecognizer();
+        tapGesture.Tapped += async (s, e) =>
+        {
+            await panelBorder.ScaleTo(0.98, 70, Easing.CubicOut);
+            await panelBorder.ScaleTo(1.0, 90, Easing.CubicIn);
+            Tapped?.Invoke(this, EventArgs.Empty);
+        };
+        GestureRecognizers.Add(tapGesture);
     }
 
     static void OnAlldayerNameChanged(BindableObject bindable, object oldValue, object newValue)
