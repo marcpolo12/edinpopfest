@@ -45,6 +45,23 @@
                Grid.Row="0"
                HorizontalOptions="Center" />
       </Grid>
+
+      <Border
+          BackgroundColor="#CC000000"
+          Padding="10,4"
+          Margin="0,0,14,14"
+          StrokeThickness="0"
+          HorizontalOptions="End"
+          VerticalOptions="End">
+        <Border.StrokeShape>
+          <RoundRectangle CornerRadius="12" />
+        </Border.StrokeShape>
+        <Label
+            Text="Tap to open  ›"
+            TextColor="White"
+            FontSize="12"
+            FontAttributes="Bold" />
+      </Border>
     </Grid>
   </Border>
 </ContentView>

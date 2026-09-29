@@ -105,8 +105,7 @@
                  FontAttributes="Bold"/>
           <Image Source="{Binding ImageUrl}"
                  x:Name="PostImage"
-                 HeightRequest="180"
-                 Aspect="AspectFill" />
+                 Aspect="AspectFit" />
           <Label Text="{Binding Description}"
                  LineBreakMode="WordWrap"/>
 
