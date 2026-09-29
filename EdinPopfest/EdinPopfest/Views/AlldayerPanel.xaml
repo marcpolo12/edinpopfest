@@ -57,7 +57,7 @@
           <RoundRectangle CornerRadius="12" />
         </Border.StrokeShape>
         <Label
-            Text="Tap to see the lineup  ›"
+            Text="Tap to see more  ›"
             TextColor="White"
             FontSize="16"
             FontAttributes="Bold" />
