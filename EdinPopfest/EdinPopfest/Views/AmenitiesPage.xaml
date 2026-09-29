@@ -1,8 +1,8 @@
 <local:AmenitiesViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 x:Class="EdinPopFest.AmenitiesPage"
-			 xmlns:local="clr-namespace:EdinPopFest"
-			 Title="Local Information">
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="EdinPopFest.AmenitiesPage"
+                         xmlns:local="clr-namespace:EdinPopFest"
+                         Title="Local Information">
   <ScrollView>
     <Grid>
       <Image
@@ -17,19 +17,20 @@
                            AbsoluteLayout.LayoutFlags="All">
         <Label Style="{StaticResource LargeText}" Text="The Venue"/>
 
-        <Label Style="{StaticResource MedText}" Text="Mash House:"/>
+        <Label Style="{StaticResource MedText}" Text="The Mash House:"/>
         <Label x:Name="mashhouselabel" Style="{StaticResource SmallText}"/>
 
         <Label Style="{StaticResource MedText}" Text="Main Room:"/>
         <Label x:Name="mainroomlabel" Style="{StaticResource SmallText}"/>
+        <local:LinkPanel x:Name="mashouselink" HorizontalOptions="Center" Margin="0" Padding="0,0,0,-40" LinkHeader="The Mash House"/>
 
         <Label Style="{StaticResource MedText}" Text="Parking:"/>
         <Label x:Name="parkinglabel" Style="{StaticResource SmallText}"/>
-       
-	<Label Style="{StaticResource MedText}" Text="Toilets:"/>
+	
+        <Label Style="{StaticResource MedText}" Text="Toilets:"/>
         <Label x:Name="toiletslabel" Style="{StaticResource SmallText}"/>
-       
-	<Label Style="{StaticResource MedText}" Text="Bookable Access Facilities:"/>
+	
+        <Label Style="{StaticResource MedText}" Text="Bookable Access Facilities:"/>
         <Label x:Name="bookableaccessfacilitieslabel" Style="{StaticResource SmallText}"/>
         
         <Label Style="{StaticResource LargeText}" Text="Local Contacts"/>

@@ -208,7 +208,7 @@ public partial class FestivalService : IFestivalService
             Schedule = "14:30",
             Image = "fallingandlaughingmain.png",
             VideoId = "ZCMo4ygn0ws",
-            InstagramUrl = ""
+            InstagramUrl = "https://www.instagram.com/its_fallingandlaughing/"
         },
 
         };

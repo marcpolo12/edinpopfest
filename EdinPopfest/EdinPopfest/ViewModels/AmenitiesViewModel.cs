@@ -9,6 +9,7 @@ public partial class AmenitiesViewModel : ReactiveObject
     private readonly IFestivalService _festivalService;
 
     [Reactive] public partial string Mashouse { get; set; }
+    [Reactive] public partial string MashouseLink { get; set; }
     [Reactive] public partial string MainRoom { get; set; }
     [Reactive] public partial string Parking { get; set; }
     [Reactive] public partial string Toilets { get; set; }
@@ -47,6 +48,7 @@ public partial class AmenitiesViewModel : ReactiveObject
         _festivalService = festivalService;
 
         Mashouse = "The Mash House is situated halfway up Hastie’s Close only accessible via a staircase from Guthrie Street or The Cowgate.\nThe Venue Managers are all fully trained in First Aid.";
+        MashouseLink = "https://maps.app.goo.gl/KJWg8w8ng1jvDSTUA";
         MainRoom = "Accessed by 4 stairs down from the main bar area.";
         Parking = "The nearest Blue Badge parking spaces are on Chambers Street, please view Parkopedia for other solutions.";
         Toilets = "Please note there are no accessible toilets in The Mash House.";

@@ -13,6 +13,7 @@
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
 
       <Border WidthRequest="100"
@@ -44,7 +45,28 @@
                Grid.Row="1"
                VerticalOptions="Start"
                FontSize="Body"/>
+
       </Grid>
+      <Border
+          Grid.Column="2"
+          WidthRequest="24"
+          HeightRequest="24"
+          BackgroundColor="#80333333"
+          StrokeThickness="0"
+          HorizontalOptions="End"
+          VerticalOptions="End"
+          Margin="0,0,10,10">
+        <Border.StrokeShape>
+          <RoundRectangle CornerRadius="12" />
+        </Border.StrokeShape>
+        <Label
+            Text=">"
+            TextColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontAttributes="Bold"
+            FontSize="12" />
+      </Border>
     </Grid>
   </Border>
 </ContentView>
